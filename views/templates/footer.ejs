@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col s4">
+    </div>
+    <div class="col s4">
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger hide-on-large-only" >
+            <img src="https://img.icons8.com/fluent/48/000000/home.png" style="margin: 10px 0px 0px 30%;"/>
+        </a>
+        <ul class="ca-menu hide-on-med-and-down">
+            <li>
+                <% if(user!=null){ %>
+                <a href="/home">
+                <% } else{ %> 
+                <a href="/">
+                <% } %> 
+                    <span class="ca-icon"><img src="https://img.icons8.com/clouds/50/000000/home.png" /></span>
+                    <div class="ca-content">
+                        <h2 class="ca-main">Home</h2>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/map">
+                    <span class="ca-icon"><img src="https://img.icons8.com/clouds/50/000000/map.png" /></span>
+                    <div class="ca-content">
+                        <h2 class="ca-main">Map</h2>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <% if(user!=null){ %> 
+                <a href="/blog?user=<%= user.id %>">
+                <% } else{ %>
+                <a href="/blog">
+                <% } %> 
+                    <span class="ca-icon"><img src="https://img.icons8.com/clouds/50/000000/comments.png" /></span>
+                    <div class="ca-content">
+                        <h2 class="ca-main">Blog</h2>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/about">
+                    <span class="ca-icon"><img src="https://img.icons8.com/clouds/50/000000/about.png" /></span>
+                    <div class="ca-content">
+                        <h2 class="ca-main">About</h2>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="footer-copyright" style="min-height: 0px;padding: 0px;">
+    <div class="row center-align">
+        <kbd class="col s12">
+            © 2020 Copyright
+        </kbd>
+    </div>
+</div>

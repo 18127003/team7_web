@@ -1,0 +1,91 @@
+<body>
+    <header>
+        <%- include("../templates/navmenu.ejs",{user:user})%>
+    </header>
+    <main style="color: #1e0b619c;">
+        <div class="container">
+            <div class="row">
+                <h4>Mục Đích</h4>
+                <hr />
+                <p class="flow-text" style="font-size: medium;">
+                    Với mục đích quảng bá các món ăn đặc sắc và những nét văn hóa vùng
+                    miền trên khắp cả nước đến với những độc giả yêu thích ẩm thực cũng
+                    như bạn bè quốc tế. Miền Ký Ức còn là nơi lưu giữ những ký ức hoài
+                    niệm về những món ăn bình dị đời thường nhưng ẩn chứa những câu chuyện
+                    ấm lòng. Bên cạnh đó, tạo nơi để giao lưu chia sẻ những nét văn hóa
+                    những món ăn mới trên hành trình du lịch của độc giả. Mang đến những
+                    câu chuyện về những con người thầm lặng vì nền ẩm thực dân tộc. Nơi
+                    mọi người có thể tìm hiểu về những món ăn địa phương cho chuyến hành
+                    trình sắp tới.
+                </p>
+                <p class="flow-text" style="font-size: medium;">Mong nhận được sự yêu mến và quan tâm của các bạn độc giả</p>
+                <h4>Liên Hệ</h4>
+                <hr />
+                <p class="flow-text" style="font-size: medium;">Mọi ý kiến đóng góp xin gửi về: 18127003@student.hcmus.edu.vn</p>
+            </div>
+            <h4>Thành Viên</h4>
+            <hr />
+            <div class="row">
+                <div class="col s6">
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <img src="/views/image/icon/o3.jpg" />
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p>Nguyễn Thanh Minh Nguyệt</p>
+                                <kbd>18127016</kbd>
+                            </div>
+                            <div class="card-action">
+                                <a href="">Contact mail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <img src="/views/image/icon/seal.jpg" />
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p>Trần Hải Đăng</p>
+                                <kbd>18127003</kbd>
+                            </div>
+                            <div class="card-action">
+                                <a href="#">Contact Mail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="page-footer" style="padding-top: 0px;">
+        <%- include("../templates/footer.ejs",{user:user})%>
+    </footer>
+    <style>
+        @font-face {
+            font-family: 'BebasNeueRegular';
+            src: url('./font/BebasNeue-webfont.eot');
+            src: url('./font/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+                url('./font/BebasNeue-webfont.woff') format('woff'),
+                url('./font/BebasNeue-webfont.ttf') format('truetype'),
+                url('./font/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body{
+            font-family: Constantia, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+            background-color: rgba(225, 182, 193, 0.5);
+            font-weight: 400;
+            font-size: 15px;
+            color: #aa3e03;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            text-align: justify;
+        }
+    </style>
+    <%- include("../templates/dependency.ejs")%>
+    <script src="/script/about.js"></script>
+</body>

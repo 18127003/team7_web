@@ -1,0 +1,13 @@
+#modal2{
+    border-radius: 25px;
+    overflow-y: hidden;
+    height: 30%;
+    background-color: rgba(236, 195, 219, 0.5);
+}
+#modal2 .modal-content .input-field{
+    border-radius: 30px;
+    color: black;
+}
+#modal2 .modal-content .input-field input{
+    width: 90%;
+}

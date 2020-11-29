@@ -1,0 +1,119 @@
+<body id="page">
+    <header>
+        <%- include("../templates/navmenu.ejs",{user:user}) %>
+    </header>
+    <main>
+        <div class="row">
+            <div class="col s6 m6 l6">
+                <div class="card slide bg" style="border-radius: 6px;background: #f1d2c2;">
+                    <ul class="cb-slideshow">
+                        <li><span>Image 01</span>
+                            <div>
+                                <h3>Banh·can</h3>
+                            </div>
+                        </li>
+                        <li><span>Image 02</span>
+                            <div>
+                                <h3>Banh·mi</h3>
+                            </div>
+                        </li>
+                        <li><span>Image 03</span>
+                            <div>
+                                <h3>Banh·xeo</h3>
+                            </div>
+                        </li>
+                        <li><span>Image 04</span>
+                            <div>
+                                <h3>Banh·trang·tron</h3>
+                            </div>
+                        </li>
+                        <li><span>Image 05</span>
+                            <div>
+                                <h3>Cao·lau</h3>
+                            </div>
+                        </li>
+                        <li><span>Image 06</span>
+                            <div>
+                                <h3>Bun·bo</h3>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col s6 m6 l6">
+                <a class="waves-effect waves-light btn btn-floating right purple pulse" style="margin-top: 5px;"><i
+                        class="material-icons" id="hint">menu</i></a>
+                <div class="tap-target" data-target="hint">
+                    <div class="tap-target-content">
+                        <h5 class="flow-text">Vietnamese cuisine &amp; Culture</h5>
+                        <p class="flow-text" style="font-size: medium;">Explore our country's beauty through everyday's
+                            food culture<br>Search our
+                            <a class="flow-text" style="font-size: medium;" href="/search">articles</a>
+                            or watch
+                            <a class="flow-text" style="font-size: medium;" href="/blog">travel post's</a>
+                            to live in the marvelous of Vietnamese
+                        </p>
+                    </div>
+                </div>
+                <div class="card blog hoverable bg" style="border-radius: 6px;background: #f1d2c2;">
+                    <div class="carousel food" style="height: 90%;">
+                        <!-- <div class="carousel-fixed-item center">
+                            <a class="btn waves-effect white grey-text darken-text-2" href="/search">Food &amp; Culture</a>
+                        </div> -->
+                        <% articles.forEach(article=>{ %>
+                        <a class="carousel-item" href="/article?_id=<%= article._id %>"><img
+                                src="<%= article.images[0] %>" style="height: 200px;"></a>
+                        <% }); %>
+                    </div>
+                </div>
+                <div class="card info hoverable bg" style="border-radius: 6px;background: #f1d2c2;">
+                    <h4 class="center" style="font-weight: bold;">New Post</h4>
+                    <hr>
+                    <div class="carousel carousel-slider post" style="margin-top: 5%;">
+                        <% posts.forEach((post)=>{ %>
+                        <% if(user!=null){ %> 
+                        <a href="/blog#<%= post._id %>?user=<%= user._id %>">
+                        <% } else{ %>
+                        <a href="/blog#<%= post._id %>">
+                        <% } %> 
+                            <div class="card horizontal carousel-item" style="min-height: 0px;height: 200px;">
+                                <div class="card-image">
+                                    <% if(post.image!=null){ %>
+                                    <img src="<%= post.image %>" style="height: 200px;max-height: 200px;">
+                                    <% } else{ %>
+                                    <img src="/views/image/bg/newpost_bg.jpg" style="height: 200px;max-height: 200px;">
+                                    <% } %>
+                                </div>
+                                <div class="card-stacked" style="background-color: #eea593;">
+                                    <div class="card-action">
+                                        <kbd><%= post.author %></kbd>
+                                        <hr>
+                                    </div>
+                                    <div class="card-content" style="padding-top: 0px;">
+                                        <kbd><%= new Date(post.created_at).toDateString()%></kbd>
+                                        <h6><%= post.title %></h6>
+                                        <p class="flow-text truncate"><%= post.description %></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <% }); %>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <footer class="page-footer">
+        <%- include("../templates/footer.ejs",{user:user}) %>
+    </footer>
+    <link rel="stylesheet" href="/stylesheet/home.css" />
+    <link rel="stylesheet" href="/stylesheet/style2.css" />
+
+    <!-- <link rel="stylesheet" href="/stylesheet/footer.css"> -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Terminal+Dosis' rel='stylesheet'/> -->
+    <script src="/script/modernizr.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/script/home.js"></script>
+    <%- include("../templates/dependency.ejs")%>
+</body>

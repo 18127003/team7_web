@@ -1,0 +1,25 @@
+<div id="modal1" class="modal modal-fixed-footer pink lighten-5" style="overflow-y: hidden;">
+    <div class="modal-content">
+        <div class="row">
+            <div class="col s5">
+                <div class="card hoverable">
+                    <div class="card-image">
+                        <img src="/views/image/bg/1.jpg">
+                        <span class="card-title"><strong><%- user.name%></strong></span>
+                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i
+                                class="material-icons">add</i></a>
+                    </div>
+                    <div class="card-content" style="color: black;">
+                        <p><%- user.email%></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s8">
+
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-close waves-effect waves-pink btn pink lighten-4" href="/users/logout" style="margin-bottom: 30px;">Log out</a>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<body>
+    <div class="header" style="visibility: visible;opacity: 1;">
+        <a class="logo" href="/" style="visibility: visible;opacity: 1;">
+            <img src="https://img.icons8.com/plasticine/100/000000/sunny-side-up-eggs.png" />
+        </a>
+    </div>
+    <main id="main-holder">
+        <h1 id="login-header"><span>&hearts;</span>&nbsp;Welcome to our house&nbsp;<span>&hearts;</span></h1>
+
+        <div class="container">
+            <div class="form">
+                <form action="/users/register" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label><br>
+                        <input type="name" id="name" name="name" class="form-control" placeholder="Enter Name"
+                            value="<%= typeof name != 'undefined' ? name : '' %>" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label><br>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email"
+                            value="<%= typeof email != 'undefined' ? email : '' %>" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label><br>
+                        <input type="password" id="password" name="password" class="form-control"
+                            placeholder="Create Password"
+                            value="<%= typeof password != 'undefined' ? password : '' %>" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password2">Confirm Password</label><br>
+                        <input type="password" id="password2" name="password2" class="form-control"
+                            placeholder="Confirm Password"
+                            value="<%= typeof password2 != 'undefined' ? password2 : '' %>" />
+                    </div>
+                    <button type="submit" class="send-button">
+                        Hey Homies
+                    </button>
+                    <div class="col-md-12 ">
+                        <div class="login-or">
+                            <hr class="hr-or">
+                            <span class="span-or">or</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <a class="btn btn-block g-button" href="#">
+                            <i class="fa fa-google"></i> Sign up with Google
+                        </a>
+                    </div>
+                    <p class="small mt-3">By signing up, you are indicating that you have read and agree to the
+                        <a href="#" class="ps-hero__content__link">Terms of Use</a> and <a href="#"
+                            class="ps-hero__content__link">Privacy Policy</a>.
+                    </p>
+                </form>
+            </div>
+        </div>
+
+    </main>
+    <link rel="stylesheet" href="/stylesheet/signup-page.css">
+</body>

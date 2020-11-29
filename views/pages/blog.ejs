@@ -1,0 +1,78 @@
+<body>
+    <header>
+        <%- include("../templates/navmenu.ejs",{user:user})%>
+    </header>
+    <main>
+        <div class="row">
+            <div class="col s3">
+                <a class="topbtn" href="#top">
+                    <img src="https://img.icons8.com/doodle/50/000000/one-finger.png" />
+                </a>
+            </div>
+            <div class="col s6">
+                <div class="row newpost">
+                    <div class="card horizontal hoverable">
+                        <div class="card-image">
+                            <img src="/views/image/bg/newpost_bg.jpg">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p class="flow-text" style="font-size: medium;">
+                                    Be your own food blogger. Share your travels to the world.
+                                </p>
+                            </div>
+                            <div class="card-action">
+                                <a class="btn wave-effect wave-light pink lighten-4 right postbtn" href="/home/post">POST</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% posts.slice().reverse().forEach((post, index)=>{ %>
+                <div class="row post" id="<%= post._id %>">
+                    <div class="card postcard hoverable">
+                        <div class="row card-content">
+                            <div class="chip poster pink lighten-3 white-text">
+                                <img src="https://img.icons8.com/fluent/24/000000/user-male-circle.png" />
+                                <%= post.author %>
+                            </div>
+                        </div>
+                        <% if(post.image!=null){ %>
+                        <div class="row card-content">
+                            <div class="carousel carousel-slider">
+                                <a class="carousel-item" href="#" style="height: fit-content;"><img src="<%= post.image %>" style="height: 100%;"></a>
+                            </div>
+                        </div>
+                        <% } %>
+                        <div class="row card-content">
+                            <strong><%= post.title %></strong>
+                        </div>
+                        <div class="row card-content">
+                            <p class="flow-text" style="font-size: medium;">
+                                <%= post.description %>
+                            </p>
+                        </div>
+                        <div class="row card-content">
+                            <% if(post.hashtag!=null){
+                                hashtags = JSON.parse(post.hashtag);
+                                console.log(hashtags); 
+                                for(tag of hashtags){ %>
+                                <div class="chip"><%- tag.tag %></div>
+                                <% } %>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+
+
+
+    </main>
+    <footer class="page-footer" style="padding-top: 0px;">
+        <%- include("../templates/footer.ejs",{user:user})%>
+    </footer>
+    <link rel="stylesheet" href="/stylesheet/blog.css">
+    <script src="/script/blog.js"></script>
+    <%- include("../templates/dependency.ejs") %>
+</body>

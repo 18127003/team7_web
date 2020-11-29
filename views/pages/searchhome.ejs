@@ -1,0 +1,52 @@
+<body id="page">
+    <header>
+        <%- include("../templates/navmenu.ejs",{user:user}) %>
+    </header>
+    <main>
+        <div class="row title center">
+            <h1><span>SEARCH</span></h1>
+        <h2>Kết quả tìm kiếm được</h2>
+        </div>
+        <div class="row">
+            <div class="col s3"></div>
+            <div class="col s7">
+                <ul class="lb-album">
+                    <% var i = 1; %> 
+                    <% articles.forEach(article=>{ %> 
+                    <li>
+                        <a href="#image-<%= i %> ">
+                            <img src="<%= article.images[0] %>" alt="image0<%= i %>" id="ficon"/>
+                            <span><%= article.title %></span>
+                        </a>
+                        <div class="lb-overlay" id="image-<%= i %>">
+                            <img src="<%= article.images[0] %>" alt="image0<%= i %>" id="bigficon"/>
+                            <div>
+                                <h3>
+                                    <%= article.title %>
+                                    <span>
+                                        <a href="/article?_id=<%= article._id %>" class="show_content"><kbd>Tìm hiểu
+                                                thêm</kbd></a></span>
+                                </h3>
+                                <p>
+                                    <%= article.sub_title %>
+                                </p>
+                                <a href="#image-<% if(i-1<=0){ %><%= articles.length %><% } else{ %><%= i-1 %><% } %> " class="lb-prev">Prev</a>
+                                <a href="#image-<% if(i+1>articles.length){ %>1<% } else{ %><%= i+1 %><% } %>" class="lb-next">Next</a>
+                            </div>
+                            <a href="#page" class="lb-close">x Close</a>
+                        </div>
+                    </li>
+                <% if(i+1>articles.length){i=1}
+                    else{i++;}}); %> 
+                </ul>
+            </div>
+        </div>
+
+    </main>
+    <footer class="page-footer">
+        <%- include("../templates/footer.ejs",{user:user}) %>
+    </footer>
+    <link rel="stylesheet" href="/stylesheet/searchhome.css">
+    <%- include("../templates/dependency.ejs") %>
+    <script src="/script/searchhome.js"></script>
+</body>

@@ -1,0 +1,131 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    color: whitesmoke;
+    background-color: rgba(225, 182, 193, 0.3);
+}
+#main-holder {
+    width: 50%;
+    height: 90%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    background-color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 7px;
+    box-shadow: 0px 0px 5px 2px pink;
+}
+
+#login-header {
+    color: whitesmoke;
+}
+
+#login-header span {
+    color: crimson;
+}
+form{
+    align-self: flex-start;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+label{
+    margin-bottom: 5px;
+    color: pink;
+}
+input{
+    margin-bottom: 10px;
+    width: 300px;
+    border-radius: 7px;
+    border: 1px solid palevioletred;
+}
+.send-button {
+    background: palevioletred;
+    width: 26%;
+    color: #fff;
+    padding: 7px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.send-button:hover{
+    background-color: pink;
+}
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.g-button {
+    color: #fff !important;
+    border: 1px solid #EA4335;
+    background: #ea4335 !important;
+    width: 100%;
+    font-weight: 600;
+    color: #fff;
+    padding: 8px 25px;
+    border-radius: 5px;
+}
+.g-button:hover{
+    background-color: rgb(201, 5, 44);
+}
+
+h1 {
+    font-size: 31px;
+    line-height: 40px;
+    font-weight: 600;
+    color: #4c5357;
+}
+
+h2 {
+    color: #5e8396;
+    font-size: 21px;
+    line-height: 32px;
+    font-weight: 400;
+}
+
+.login-or {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.span-or {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: -2px;
+    margin-left: -25px;
+    width: 50px;
+    text-align: center;
+}
+
+.hr-or {
+    height: 1px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.ps-hero__content__link{
+    color: crimson;
+}
+
+@media screen and (max-width:480px) {
+    h1 {
+        font-size: 26px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,40 @@
+
+<body>
+    <div class="header" style="visibility: visible;opacity: 1;">
+        <a class="logo" href="/" style="visibility: visible;opacity: 1;">
+            <img src="https://img.icons8.com/plasticine/100/000000/sunny-side-up-eggs.png"/>
+        </a>
+    </div>
+    <main id="main-holder">
+        <h1 id="login-header"><span>&hearts;</span>&nbsp;Welcome to our house&nbsp;<span>&hearts;</span></h1>
+
+        <div id="login-error-msg-holder">
+            <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+        </div>
+
+        <!-- <form id="login-form">
+            <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
+            <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+            <input type="submit" value="Login" id="login-form-submit">
+        </form> -->
+        <form action="/users/login" method="POST" id="login-form">
+            <div class="form-group">
+                <!-- <label for="email">Email</label> -->
+                <input type="email" id="email" name="email" class="form-control login-form-field" placeholder="Enter Email" />
+            </div>
+            <div class="form-group">
+                <!-- <label for="password">Password</label> -->
+                <input type="password" id="password" name="password" class="form-control login-form-field"
+                    placeholder="Enter Password" />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" id="login-form-submit">Login</button>
+        </form>
+        <div id="signup">
+            <a class="signup_text" href="register">
+                or&nbsp;sign&nbsp;up&nbsp;here
+            </a>
+        </div>
+
+    </main>
+    <link rel="stylesheet" href="/stylesheet/login-page.css">
+</body>

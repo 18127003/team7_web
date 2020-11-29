@@ -1,0 +1,82 @@
+body {
+    width: 100%;
+    height: 100%;
+    background-color:  rgba(241, 213, 212, 0.5);
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    color: #1e0b619c;
+}
+
+.modal.modal-fixed-footer#modal1 {
+    overflow-y: hidden;
+}
+
+.topbtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 30px;
+    z-index: 99;
+}
+
+.post .card, .newpost .card {
+    border-radius: 15px;
+}
+.post .postcard .card-content .poster{
+    margin-top: 5px;
+}
+.card-content .carousel.carousel-slider{
+    max-height: fit-content !important;
+}
+.card-content .carousel.carousel-slider .carousel-item{
+    min-height: min-content !important;
+    height: fit-content !important;
+    /* width: 100%; */
+
+}
+/* .post{
+    margin-top: 25px;
+    margin-bottom:;
+} */
+
+/* .postcard{
+    border-radius: 7px;
+} */
+
+.post .postcard .card-content {
+    padding: 12px;
+    margin-bottom: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.card-content .carousel.carousel-slider {
+    /* max-height: 200px; */
+    max-width: 100%;
+    border: 0.5px solid black;
+    border-radius: 15px;
+}
+
+.newpost .card-action .postbtn {
+    border-radius: 7px;
+}
+
+main {
+    margin-top: 2%;
+    flex: 1 0 auto;
+    margin-bottom: 2%;
+}
+
+.newpost .card.horizontal .card-image img {
+    /* border-radius: 15px; */
+    padding: 15px;
+}
+/* 
+img {
+    max-width: 100%;
+    height: 100% !important;
+    min-height: auto;
+  } */

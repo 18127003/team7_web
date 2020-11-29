@@ -1,0 +1,67 @@
+<body>
+  <header>
+    <%- include("../templates/navmenu",{user:user}) %>
+  </header>
+  <main>
+    <div class="container" style="text-align: justify;">
+      <div class="row"  style="margin-top: 25px;">
+        <div class="col s6">
+          <div class="title my-4" style="font-size: 70px; color: darkred; font-weight: bolder">
+            <%= article.title %>
+          </div>
+          <h2><%= article.sub_title%></h2>
+          <p><%- article.content[0] %></p>
+        </div>
+        <div class="col s6">
+          <img src="<%=article.images[0]%>" alt="image" />
+        </div>
+      </div>
+      <div class="row">
+        
+          <%var i=1;
+          while(i<=article.content.length || i<=article.images.length){
+          if(i<article.content.length){ %>
+          <p class="flow-text" style="font-size: medium;"><%- article.content[i] %></p>
+          <% } if(i<article.images.length){ %>
+          <img src="<%= article.images[i] %>" style="max-width: fit-content;" />
+          <% } ++i} %>
+        
+      </div>
+      <div class="hastag">
+        <hr />
+        <div class="row">
+          <div class="col s2">Hastag:</div>
+          <div class="tag"></div>
+        </div>
+        <hr />
+      </div>
+      <div class="post_comment">
+        <div class="row my-3">
+          <div class="col s2">Bình luận:</div>
+          <div class="col s6">
+            <form class="form-inline my-3">
+              <input class="form-control" type="comment" placeholder="Comment" aria-label="Comment" />
+              <button class="btn-flat waves-effect waves-light center-align" type="submit">
+                <i class="material-icons right md-28">send</i>
+              </button>
+            </form>
+          </div>
+          <div class="col s2"></div>
+        </div>
+      </div>
+      <div class="show_comment my-4">
+        <div class="scrollbar-pink">
+          <div class="card-body my-4">
+            <div class="cmt"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </main>
+  <footer class="page-footer">
+    <%- include("../templates/footer",{user:user}) %>
+  </footer>
+  <script src="/script/article.js"></script>
+  <%- include("../templates/dependency.ejs") %>
+</body>
