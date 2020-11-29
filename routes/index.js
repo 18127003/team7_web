@@ -22,7 +22,7 @@ router.get("/", forwardAuthenticated, (req, res) => {
 });
 
 // Map Page
-router.get("/map", forwardAuthenticated, (req, res)=> res.render("pages/map_spring",{user:req.user}))
+router.get("/map", myAuth, (req, res)=> res.render("pages/map_spring",{user:req.user}))
 
 // Dashboard
 router.get("/home", ensureAuthenticated, (req, res) =>{
