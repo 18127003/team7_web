@@ -62,13 +62,17 @@ app.use('/users', require('./routes/users.js'));
 app.use("/script", express.static(path.join(__dirname,"/script")));
 app.use("/stylesheet", express.static(path.join(__dirname,"/stylesheet")));
 app.use("/views/image",express.static(path.join(__dirname,"/views/image")));
+// 404 handling
+app.use(function (req, res, next) {
+  res.status(404).render('pages/error')
+}) 
 // Error handling
 app.use(function(err, req, res, next){
   if (res.headersSent) {
     return next(err)
   }
   res.status(500)
-  res.render('error', { error: err })
+  res.render('pages/error', { error: err })
 })
 const PORT = process.env.PORT || 5500;
 
