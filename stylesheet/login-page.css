@@ -29,6 +29,7 @@ body {
 
 #login-header{
   color: whitesmoke;
+  margin-top: 10px;
 }
 #login-header span{
   color: crimson;
@@ -70,10 +71,12 @@ body {
 }
 
 .login-form-field {
-  border: 2px solid palevioletred;
-  margin-bottom: 10px;
-  border-radius: 7px;
+  border: 2px solid palevioletred !important;
+  margin-bottom: 10px !important;
+  border-radius: 7px !important;
   outline: none;
+  background-color: wheat !important;
+  height: 2rem !important;
   padding: 0px 0px 5px 5px;
 }
 
@@ -94,10 +97,12 @@ body {
 
 div#signup{
   margin-top: 15px;
+  
 }
 #signup .signup_text{
   text-decoration: none;
   color:whitesmoke;
+  font-size: medium;
  
 }
 

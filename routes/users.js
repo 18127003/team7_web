@@ -17,7 +17,7 @@ router.get("/login", forwardAuthenticated, (req, res) =>
 
 // Register Page
 router.get("/register", forwardAuthenticated, (req, res) =>
-  res.render("pages/register")
+  res.render("pages/register",{errors:null})
 );
 
 // Register
