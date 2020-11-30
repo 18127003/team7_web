@@ -6,28 +6,22 @@
         </a>
     </div>
     <main id="main-holder">
-        <h1 id="login-header"><span>&hearts;</span>&nbsp;Welcome to our house&nbsp;<span>&hearts;</span></h1>
+        <h1 id="login-header" class="flow-text"><span>&hearts;</span>&nbsp;Welcome to our house&nbsp;<span>&hearts;</span></h1>
 
         <div id="login-error-msg-holder">
             <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
         </div>
-
-        <!-- <form id="login-form">
-            <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
-            <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
-            <input type="submit" value="Login" id="login-form-submit">
-        </form> -->
         <form action="/users/login" method="POST" id="login-form">
             <div class="form-group">
                 <!-- <label for="email">Email</label> -->
-                <input type="email" id="email" name="email" class="form-control login-form-field" placeholder="Enter Email" />
+                <input type="email" id="email" name="email" class="form-control login-form-field browser-default" placeholder="Enter Email" />
             </div>
             <div class="form-group">
                 <!-- <label for="password">Password</label> -->
-                <input type="password" id="password" name="password" class="form-control login-form-field"
+                <input type="password" id="password" name="password" class="form-control login-form-field browser-default"
                     placeholder="Enter Password" />
             </div>
-            <button type="submit" class="btn btn-primary btn-block" id="login-form-submit">Login</button>
+            <button type="submit" class="btn pulse" id="login-form-submit">Login</button>
         </form>
         <div id="signup">
             <a class="signup_text" href="register">
@@ -37,4 +31,5 @@
 
     </main>
     <link rel="stylesheet" href="/stylesheet/login-page.css">
+    <%- include("../templates/dependency.ejs") %> 
 </body>

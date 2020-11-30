@@ -14,10 +14,10 @@ body {
 }
 #main-holder {
     width: 50%;
-    height: 90%;
-    display: grid;
+    height: fit-content;
+    /* display: grid;
     justify-items: center;
-    align-items: center;
+    align-items: center; */
     background-color: white;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 7px;
@@ -26,30 +26,16 @@ body {
 
 #login-header {
     color: whitesmoke;
+    margin-top: 5%;
 }
 
 #login-header span {
     color: crimson;
 }
-form{
-    align-self: flex-start;
-    display: grid;
-    justify-items: center;
-    align-items: center;
-}
-label{
-    margin-bottom: 5px;
-    color: pink;
-}
-input{
-    margin-bottom: 10px;
-    width: 300px;
-    border-radius: 7px;
-    border: 1px solid palevioletred;
-}
+
 .send-button {
-    background: palevioletred;
-    width: 26%;
+    background: palevioletred !important;
+    width: 50%;
     color: #fff;
     padding: 7px 20px;
     border: none;
@@ -65,7 +51,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     margin: 0;
 }
 
-.g-button {
+/* .g-button {
     color: #fff !important;
     border: 1px solid #EA4335;
     background: #ea4335 !important;
@@ -77,9 +63,9 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 }
 .g-button:hover{
     background-color: rgb(201, 5, 44);
-}
+} */
 
-h1 {
+/* h1 {
     font-size: 31px;
     line-height: 40px;
     font-weight: 600;
@@ -99,7 +85,7 @@ h2 {
     margin-bottom: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
-}
+} */
 
 .span-or {
     display: block;

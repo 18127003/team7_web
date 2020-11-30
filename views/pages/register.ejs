@@ -5,37 +5,46 @@
         </a>
     </div>
     <main id="main-holder">
-        <h1 id="login-header"><span>&hearts;</span>&nbsp;Welcome to our house&nbsp;<span>&hearts;</span></h1>
+        <div class="row">
+            <div class="col s3"></div>
+            <div class="col s6">
+                <div class="row center">
+                    <kbd id="login-header" class="flow-text truncate"><span>&hearts;</span>&nbsp;Welcome to our
+                        house&nbsp;<span>&hearts;</span></kbd>
+                </div>
+                <div class="row form">
+                    <form action="/users/register" method="POST">
+                        <div class="row form-group">
+                            <!-- <label for="name">Name</label><br> -->
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter Name"
+                                value="<%= typeof name != 'undefined' ? name : '' %>" />
+                        </div>
+                        <div class="row form-group">
+                            <!-- <label for="email">Email</label><br> -->
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email"
+                                value="<%= typeof email != 'undefined' ? email : '' %>" />
+                        </div>
+                        <div class="row form-group">
+                            <!-- <label for="password">Password</label><br> -->
+                            <input type="password" id="password" name="password" class="form-control"
+                                placeholder="Create Password"
+                                value="<%= typeof password != 'undefined' ? password : '' %>" />
+                        </div>
+                        <div class="row form-group">
+                            <!-- <label for="password2">Confirm Password</label><br> -->
+                            <input type="password" id="password2" name="password2" class="form-control"
+                                placeholder="Confirm Password"
+                                value="<%= typeof password2 != 'undefined' ? password2 : '' %>" />
+                        </div>
+                        <div class="row center">
+                            <button type="submit" class="btn send-button center pulse">
+                                <kbd class="truncate flow-text" style="font-size: medium;">Hey Homies</kbd> 
+                            </button>
+                        </div>  
+                </div>
+            </div>
 
-        <div class="container">
-            <div class="form">
-                <form action="/users/register" method="POST">
-                    <div class="form-group">
-                        <label for="name">Name</label><br>
-                        <input type="name" id="name" name="name" class="form-control" placeholder="Enter Name"
-                            value="<%= typeof name != 'undefined' ? name : '' %>" />
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label><br>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email"
-                            value="<%= typeof email != 'undefined' ? email : '' %>" />
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label><br>
-                        <input type="password" id="password" name="password" class="form-control"
-                            placeholder="Create Password"
-                            value="<%= typeof password != 'undefined' ? password : '' %>" />
-                    </div>
-                    <div class="form-group">
-                        <label for="password2">Confirm Password</label><br>
-                        <input type="password" id="password2" name="password2" class="form-control"
-                            placeholder="Confirm Password"
-                            value="<%= typeof password2 != 'undefined' ? password2 : '' %>" />
-                    </div>
-                    <button type="submit" class="send-button">
-                        Hey Homies
-                    </button>
-                    <div class="col-md-12 ">
+            <!-- <div class="col-md-12 ">
                         <div class="login-or">
                             <hr class="hr-or">
                             <span class="span-or">or</span>
@@ -49,11 +58,10 @@
                     <p class="small mt-3">By signing up, you are indicating that you have read and agree to the
                         <a href="#" class="ps-hero__content__link">Terms of Use</a> and <a href="#"
                             class="ps-hero__content__link">Privacy Policy</a>.
-                    </p>
-                </form>
-            </div>
+                    </p> -->
+            </form>
         </div>
-
     </main>
     <link rel="stylesheet" href="/stylesheet/signup-page.css">
+    <%- include("../templates/dependency.ejs") %>
 </body>
