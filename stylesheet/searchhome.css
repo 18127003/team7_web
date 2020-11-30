@@ -21,7 +21,7 @@ html body{
     color: rgb(165, 77, 42);
 }
 .lb-album{
-	width: 900px;
+	width: 1200px;
 	margin: 0 auto;
 	font-family: Constantia, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
 }
@@ -108,17 +108,18 @@ html body{
 .lb-overlay div h3,
 .lb-overlay div p{
 	padding: 0px 10px;
-	width: 200px;
+	width: 280px;
 	height: 60px;
 }
 .lb-overlay div h3{
-	font-size: 32px;
+	font-size: 25px;
 	float: left;
 	text-align:right;
 	border-right: 1px solid rgba(27,54,81,0.4);
 }
 .lb-overlay div h3 span,
 .lb-overlay div p{
+	margin-top: 6%;
 	font-size: 16px;
 	font-family: Constantia, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
 	font-style: italic;

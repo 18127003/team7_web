@@ -3,27 +3,28 @@
     <%- include("../templates/navmenu",{user:user}) %>
   </header>
   <main>
-    <div class="container" style="text-align: justify;">
+    <a  href="/search"><img src="https://img.icons8.com/clouds/75/000000/back.png" style="margin-left: 3%;position: fixed !important;margin-top:15%;"/></a>
+    <div class="container">
       <div class="row"  style="margin-top: 25px;">
-        <div class="col s6">
-          <div class="title my-4" style="font-size: 70px; color: darkred; font-weight: bolder">
+        <div class="col s5">
+          <div class="title my-4" style="font-size: 70px; color: darkred; font-weight: bolder;text-align: center;">
             <%= article.title %>
           </div>
           <h2><%= article.sub_title%></h2>
-          <p><%- article.content[0] %></p>
+          <p style="text-align: justify;"><%- article.content[0] %></p>
         </div>
-        <div class="col s6">
-          <img src="<%=article.images[0]%>" alt="image" />
+        <div class="col s7" style="margin-top: 3%;left: 7px;">
+          <img src="<%=article.images[0]%>" alt="image"/ style="height:564px;width: 564px;">
         </div>
       </div>
-      <div class="row">
+      <div class="row" style="text-align:justify;">
         
           <%var i=1;
           while(i<=article.content.length || i<=article.images.length){
           if(i<article.content.length){ %>
           <p class="flow-text" style="font-size: medium;"><%- article.content[i] %></p>
           <% } if(i<article.images.length){ %>
-          <img src="<%= article.images[i] %>" style="max-width: fit-content;" />
+          <img src="<%= article.images[i] %>" style="max-width:100%" />
           <% } ++i} %>
         
       </div>
@@ -60,7 +61,7 @@
     
   </main>
   <footer class="page-footer">
-    <%- include("../templates/footer",{user:user}) %>
+    <%- include("../templates/footer") %>
   </footer>
   <script src="/script/article.js"></script>
   <%- include("../templates/dependency.ejs") %>

@@ -8,8 +8,8 @@
         <h2>Kết quả tìm kiếm được</h2>
         </div>
         <div class="row">
-            <div class="col s3"></div>
-            <div class="col s7">
+            <div class="col s1"></div>
+            <div class="col s10" style="margin-left: 2%;">
                 <ul class="lb-album">
                     <% var i = 1; %> 
                     <% articles.forEach(article=>{ %> 
@@ -44,7 +44,7 @@
 
     </main>
     <footer class="page-footer">
-        <%- include("../templates/footer.ejs",{user:user}) %>
+        <%- include("../templates/footer.ejs") %>
     </footer>
     <link rel="stylesheet" href="/stylesheet/searchhome.css">
     <%- include("../templates/dependency.ejs") %>
