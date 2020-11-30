@@ -17,10 +17,10 @@ body {
 
 #main-holder {
   width: 50%;
-  height: 70%;
-  display: grid;
+  height: fit-content;
+  /* display: grid;
   justify-items: center;
-  align-items: center;
+  align-items: center; */
   background-color: white;
   background-color: rgba(0,0,0,0.6);
   border-radius: 7px;
@@ -92,9 +92,13 @@ body {
   background-color: pink;
 }
 
+div#signup{
+  margin-top: 15px;
+}
 #signup .signup_text{
   text-decoration: none;
   color:whitesmoke;
+ 
 }
 
 #signup .signup_text:hover{

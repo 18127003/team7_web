@@ -60,7 +60,11 @@
 
 
 <ul class="sidenav pink lighten-5" id="mobile-demo">
+    <% if(user!=null){ %>
+    <li><a href="#modal1" class="modal-trigger">User</a></li>
+    <% } else{ %>
     <li><a href="users/login">User</a></li>
+    <% } %>
     <li><a href="map">Map</a></li>
     <li><a href="/search">Article</a></li>
     <% if(user!=null){ %> 
