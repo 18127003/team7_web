@@ -44,6 +44,9 @@
                         </div>
                         <% } %>
                         <div class="row card-content">
+                            <kbd><%= new Date(post.created_at).toDateString()%></kbd>
+                        </div>
+                        <div class="row card-content">
                             <strong><%= post.title %></strong>
                         </div>
                         <div class="row card-content">
