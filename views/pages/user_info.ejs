@@ -1,0 +1,70 @@
+<body>
+    <header>
+        <%- include("../templates/navmenu.ejs",{user:user}) %> 
+    </header>
+    <main>
+        <div class="row">
+            <div class="col s4">
+                <div class="card white hoverable main-info">
+                    <div class="row card-content center">
+                        <% if(user.avatar!=null){%>
+                        <img src="<%= user.avatar %>">
+                        <% } else{ %>
+                        <img src="/views/image/icon/o3.jpg" class="responsive-img circle" style="border: 1px solid black; height: 300px;width: 300px;">
+                        <% } %> 
+                    </div>
+                    <div class="row center card-content">
+                            <kbd class="flow-text truncate" style="font-size: medium;"><%= user.name %></kbd>
+                    </div>   
+                </div>
+            </div>
+            <div class="col s8">
+                <div class="card white hoverable post-info">
+                    <div class="row card-content center">
+                        <kbd class="flow-text truncate" style="font-size: x-large;">My Post</kbd>
+                    </div>
+                    <div class="row">
+                    <% posts.slice().reverse().forEach((post, index)=>{ %>
+                        <div class="post card-content" id="<%= post._id %>" style="display: float;float: left;">
+                            <div class="card postcard hoverable" style="width: 25rem;height:fit-content;margin-left: 4rem;">
+                                <% if(post.image!=null){ %>
+                                <div class="row card-content">
+                                    <div class="carousel carousel-slider" style="border: 1px solid black;border-radius: 7px;">
+                                        <a class="carousel-item" href="#" style="height: fit-content;"><img src="<%= post.image %>" style="height: 100%;"></a>
+                                    </div>
+                                </div>
+                                <% } %>
+                                <div class="row card-content">
+                                    <kbd><%= new Date(post.created_at).toDateString()%></kbd>
+                                </div>
+                                <div class="row card-content">
+                                    <strong><%= post.title %></strong>
+                                </div>
+                                <div class="row card-content">
+                                    <p class="flow-text" style="font-size: medium;">
+                                        <%= post.description %>
+                                    </p>
+                                </div>
+                                <div class="row card-content">
+                                    <% if(post.hashtag!=null){
+                                        hashtags = JSON.parse(post.hashtag);
+                                        for(tag of hashtags){ %>
+                                        <div class="chip"><%- tag.tag %></div>
+                                        <% } %>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    <% }); %> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="page-footer" style="padding-top: 0px;">
+        <%- include("../templates/footer.ejs",{user:user}) %> 
+    </footer>
+    <link rel="stylesheet" href="/stylesheet/user_info.css">
+    <script src="/script/user_info.js"></script>
+    <%- include("../templates/dependency.ejs") %> 
+</body>

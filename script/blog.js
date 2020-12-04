@@ -1,4 +1,4 @@
-hashtag = [{ tag: "hai" }, { tag: "dang" }, { tag: "mnxd" }];
+
 
 document.addEventListener("DOMContentLoaded", function () {
   let side_nav = M.Sidenav.init(document.querySelectorAll(".sidenav"), {edge: "left",draggable: true,});

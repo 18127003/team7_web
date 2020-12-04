@@ -8,7 +8,7 @@ var cloudinary = require("../config/cloudinary");
 // Load User model
 const User = require("../models/User");
 const Post = require("../models/Post");
-const { forwardAuthenticated } = require("../config/auth");
+const { forwardAuthenticated, ensureAuthenticated } = require("../config/auth");
 
 // Login Page
 router.get("/login", forwardAuthenticated, (req, res) =>
@@ -19,6 +19,12 @@ router.get("/login", forwardAuthenticated, (req, res) =>
 router.get("/register", forwardAuthenticated, (req, res) =>
   res.render("pages/register",{errors:null})
 );
+
+router.get("/info", ensureAuthenticated, (req, res)=>{
+  Post.find({'author': req.query.id}, function (err, posts){
+    res.render("pages/user_info",{user:req.user, posts:posts})
+  })
+})
 
 // Register
 router.post("/register", (req, res) => {
