@@ -9,4 +9,5 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   let profile_modal = M.Modal.init(document.querySelectorAll(".modal"));
   let carousel = M.Carousel.init(document.querySelectorAll(".carousel"), {indicators: true,fullWidth: true,});
+  let edit_button = M.FloatingActionButton.init(document.querySelectorAll('.fixed-action-btn'), {direction:"left"});
 });

@@ -27,23 +27,28 @@
             <li>
                 <a class="modal-trigger" href="#modal2">
                     <img src="https://img.icons8.com/color/30/000000/search--v1.png"/>
+                    <kbd class="white-text" style="position: absolute;top:20px;right: 268px;">Search</kbd>
                 </a>
                 <%- include("../templates/searchbox.ejs")%>
             </li>
             <li>
                 <% if(user==null){ %>
                     <a href="/users/login">
+                        <img src="https://img.icons8.com/clouds/36/000000/edit-user.png"/>
+                        <kbd class="white-text" style="position: absolute;top:20px;right: 210px;">Login</kbd>
                 <% } else{ %>
                     <%- include("../templates/profile.ejs",{user:user})%>
                     <a href="#modal1" class="modal-trigger">
-                <% } %>
                         <img src="https://img.icons8.com/clouds/36/000000/edit-user.png"/>
+                        <kbd class="white-text" style="position: absolute;top:20px;right: 210px;">User</kbd>
+                <% } %>     
                     </a>
                     
             </li>
             <li>
                 <a href="/map" class="dropdown-trigger" data-target="map1">
                     <img src="https://img.icons8.com/doodle/36/000000/map.png"/>
+                    <kbd class="white-text" style="position: absolute;top:20px;right: 153px;">Map</kbd>
                 </a>
             </li>
             <li>
@@ -52,12 +57,14 @@
                 <% } else{ %>
                     <a href="/blog?user=<%= user.id %>">
                 <% } %>
-                    <img src="https://img.icons8.com/clouds/36/000000/comments.png" />
+                    <img src="https://img.icons8.com/clouds/36/000000/comments.png"/>
+                    <kbd class="white-text" style="position: absolute;top:20px;right: 80px;">Blog</kbd>
                 </a>
             </li>
             <li>
                 <a href="/about">
-                    <img src="https://img.icons8.com/clouds/36/000000/about.png" />
+                    <img src="https://img.icons8.com/clouds/36/000000/about.png"/>
+                    <kbd class="white-text" style="position: absolute;top:20px;right: 10px;">About</kbd>
                 </a>
             </li>
         </ul>
@@ -68,7 +75,7 @@
 
 <ul class="sidenav pink lighten-5" id="mobile-demo">
     <% if(user!=null){ %>
-    <li><a href="#">User</a></li>
+    <li><a href="/users/info?id=<%= user._id %>">User</a></li>
     <% } else{ %>
     <li><a href="users/login">User</a></li>
     <% } %>

@@ -6,12 +6,17 @@
         <div class="row">
             <div class="col s4">
                 <div class="card white hoverable main-info">
-                    <div class="row card-content center">
+                    <div class="row card-content center" style="padding-bottom: 0px;">
                         <% if(user.avatar!=null){%>
                         <img src="<%= user.avatar %>">
                         <% } else{ %>
-                        <img src="/views/image/icon/o3.jpg" class="responsive-img circle" style="border: 1px solid black; height: 300px;width: 300px;">
+                        <img src="/views/image/icon/o3.jpg" class="responsive-img circle" style="border: 2px solid black; height: 300px;width: 300px;">
                         <% } %> 
+                    </div>
+                    <div class="row card-content center" style="padding-top: 0px;padding-bottom: 0px;">
+                        <a href="#">
+                            <img src="https://img.icons8.com/doodle/48/000000/camera.png"/>
+                        </a>
                     </div>
                     <div class="row center card-content">
                             <kbd class="flow-text truncate" style="font-size: medium;"><%= user.name %></kbd>
@@ -23,10 +28,26 @@
                     <div class="row card-content center">
                         <kbd class="flow-text truncate" style="font-size: x-large;">My Post</kbd>
                     </div>
-                    <div class="row">
+                    <div class="row"> 
+                    <% if(posts.length==0){ %> 
+                        <div class="row card-content valign-center center" style="min-height: 323px;">
+                            <kbd class="flow-text truncate" style="font-size: x-large;">No post yet.</kbd>
+                            <a class="btn pulse pink lighten-3" href="/home/post">POST</a>
+                        </div>
+                    <% } else{ %>
                     <% posts.slice().reverse().forEach((post, index)=>{ %>
                         <div class="post card-content" id="<%= post._id %>" style="display: float;float: left;">
                             <div class="card postcard hoverable" style="width: 25rem;height:fit-content;margin-left: 4rem;">
+                                <div class="fixed-action-btn right card-content" style="position: absolute !important;top: 5px; right: 5px;">
+                                    <a class="btn-floating btn-medium red">
+                                      <i class="material-icons">mode_edit</i>
+                                    </a>
+                                    <ul>
+                                      <li><a class="btn-floating pink darken-1 btn-small"><i class="material-icons">favorite</i></a></li>
+                                      <li><a class="btn-floating green btn-small"><i class="material-icons">delete</i></a></li>
+                                      <li><a class="btn-floating blue btn-small"><i class="material-icons">edit</i></a></li>
+                                    </ul>
+                                </div>
                                 <% if(post.image!=null){ %>
                                 <div class="row card-content">
                                     <div class="carousel carousel-slider" style="border: 1px solid black;border-radius: 7px;">
@@ -34,18 +55,18 @@
                                     </div>
                                 </div>
                                 <% } %>
-                                <div class="row card-content">
+                                <div class="row card-content" style="padding-top: 0px;padding-bottom: 0px;">
                                     <kbd><%= new Date(post.created_at).toDateString()%></kbd>
                                 </div>
-                                <div class="row card-content">
+                                <div class="row card-content"  style="padding-top: 0px;padding-bottom: 0px;">
                                     <strong><%= post.title %></strong>
                                 </div>
-                                <div class="row card-content">
+                                <div class="row card-content"  style="padding-top: 0px;padding-bottom: 0px;">
                                     <p class="flow-text" style="font-size: medium;">
                                         <%= post.description %>
                                     </p>
                                 </div>
-                                <div class="row card-content">
+                                <div class="row card-content"  style="padding-top: 0px;padding-bottom: 5px;">
                                     <% if(post.hashtag!=null){
                                         hashtags = JSON.parse(post.hashtag);
                                         for(tag of hashtags){ %>
@@ -55,7 +76,7 @@
                                 </div>
                             </div>
                         </div>
-                    <% }); %> 
+                    <% });} %> 
                     </div>
                 </div>
             </div>
