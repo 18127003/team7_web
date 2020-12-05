@@ -4,13 +4,13 @@
             <div class="col s12">
               <div class="row">
                 <div class="input-field col s12 white">
-                    
-                    <input type="text" id="autocomplete-input" class="autocomplete">
+                  <form action="/search" method="GET">
+                    <input type="text" id="autocomplete-input" class="autocomplete form-control" value="" name="search_key">
                     <label for="autocomplete-input" class="pink-text">Search</label>
-                    <a class="btn-flat" href="/search">
+                    <button class="btn-flat" type="submit">
                         <img src="https://img.icons8.com/color/40/000000/search--v1.png" class="prefix"/>
-                    </a>
-                    
+                    </button>
+                  </form>    
                 </div>
               </div>
             </div>

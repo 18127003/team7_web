@@ -1,3 +1,4 @@
+
 const search_data={
   "Banh Chung": null,
   "Banh Day": null,
@@ -5,6 +6,7 @@ const search_data={
   "Banh Mi": null,
   "Cha Ca": null
 }
+// const search_data = posts;
 
 document.addEventListener("DOMContentLoaded", function () {
   let side_nav = M.Sidenav.init(document.querySelectorAll(".sidenav"), {
