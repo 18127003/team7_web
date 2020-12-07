@@ -1,4 +1,4 @@
-var cloudinary = require("cloudinary");
+var cloudinary = require("cloudinary").v2;
 cloudinary.config({
   cloud_name: "hd-mediadb",
   api_key: "175629538834893",

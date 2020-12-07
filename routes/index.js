@@ -103,4 +103,13 @@ router.get("/home/post", ensureAuthenticated, (req, res) =>
   res.render("pages/post", { user: req.user })
 );
 
+// Create new article
+router.get("/home/new_article",ensureAuthenticated, (req, res)=>{
+  if(req.user.role=="ADMIN"){
+    res.render("pages/new_article",{user:req.user})
+  } else{
+    res.redirect("/home");
+  }
+})
+
 module.exports = router;

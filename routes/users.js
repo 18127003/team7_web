@@ -26,9 +26,11 @@ router.get("/info", ensureAuthenticated, (req, res)=>{
   })
 })
 
+
 // Register
 router.post("/register", (req, res) => {
   const { name, email, password, password2 } = req.body;
+  var role="USER"
   let errors = [];
 
   if (!name || !email || !password || !password2) {
@@ -66,6 +68,7 @@ router.post("/register", (req, res) => {
         const newUser = new User({
           name,
           email,
+          role,
           password,
         });
 
@@ -105,7 +108,7 @@ router.get("/logout", (req, res) => {
 
 // Create post
 router.post("/create", multipartMiddleware, (req, res) => {
-  cloudinary.uploader.upload(req.files.image.path, function (result) {
+  cloudinary.v2.uploader.upload(req.files.image.path, function (error, result) {
     // Create a post model
     // by assembling all data as object
     // and passing to Model instance

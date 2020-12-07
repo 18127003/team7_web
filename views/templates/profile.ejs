@@ -19,8 +19,18 @@
                     </div>
                 </div>
             </div>
-            <div class="col s8">
-
+            <div class="col s7">
+                <% if(user.role=="ADMIN"){ %> 
+                <div class="row card">
+                    <a href="/home/new_article" class="btn pink lighten-4">New Article</a>
+                </div>
+                <% } %> 
+                <div class="row card">
+                    <a href="/home/post" class="btn pink lighten-4">New Post</a>
+                </div>
+                <div class=" row card">
+                    <a href="#" class="btn pink lighten-4">My Favorite</a>
+                </div>
             </div>
         </div>
     </div>
