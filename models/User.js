@@ -21,7 +21,8 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  avatar: String
+  avatar: String,
+  avatar_id: String
 });
 
 const User = mongoose.model("User", UserSchema);

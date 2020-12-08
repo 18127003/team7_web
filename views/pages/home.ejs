@@ -71,7 +71,8 @@
                     <h4 class="center" style="font-weight: bold;">New Post</h4>
                     <hr>
                     <div class="carousel carousel-slider post" style="margin-top: 5%;">
-                        <% posts.forEach((post)=>{ %>
+                        <%  if(posts.length>0){
+                            posts.forEach((post)=>{ %>
                         <% if(user!=null){ %> 
                         <a href="/blog#<%= post._id %>?user=<%= user._id %>">
                         <% } else{ %>
@@ -98,7 +99,9 @@
                                 </div>
                             </div>
                         </a>
-                        <% }); %>
+                        <% });} else{ %>
+                        <a class="carousel-item" style="min-height: 0px;height: 200px;"></a>
+                        <% } %>
                     </div>
                 </div>
             </div>

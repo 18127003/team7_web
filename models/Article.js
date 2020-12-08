@@ -12,6 +12,7 @@ var ArticleSchema = new Schema({
     content: {type: String, ex_indexed: true},
     hashtag: {type:String, ex_indexed: true},
     images: String,
+    images_id: String,
     created_at: {
         type:Date,
         default: Date.now
