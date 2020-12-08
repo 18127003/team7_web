@@ -106,12 +106,21 @@ router.get("/logout", (req, res) => {
   res.redirect("/users/login");
 });
 
+async function asyncForEach(array, callback) {
+  for (let index = 0; index < array.length; index++) {
+    await callback(array[index], index, array);
+  }
+}
 // Create post
-router.post("/create", multipartMiddleware, (req, res) => {
-  cloudinary.v2.uploader.upload(req.files.image.path, function (error, result) {
-    // Create a post model
-    // by assembling all data as object
-    // and passing to Model instance
+router.post("/create", multipartMiddleware,async (req, res) => {
+    var urls = []
+    var img_id = []
+    await asyncForEach(req.files.image, async (img)=>{
+      var result = await cloudinary.uploader.upload(img.path,{folder:"posts"}); 
+      urls.push(result.url);
+      img_id.push(result.public_id);
+    })
+
     var post = new Post({
       author_id: req.body.author_id,
       author_name: req.body.author_name,
@@ -119,21 +128,19 @@ router.post("/create", multipartMiddleware, (req, res) => {
       description: req.body.description,
       hashtag: req.body.hashtag,
       created_at: new Date(),
-      // Store the URL in a DB for future use
-      image: result.url,
-      image_id: result.public_id,
+      image: JSON.stringify(urls),
+      image_id: JSON.stringify(img_id),
     });
-    // Persist by saving
+
     post.save(function (err) {
       if (err) {
         req.flash(err);
       }
-      // Redirect
       res.redirect("/blog");
     });
     post.on("es-indexed",(err,res)=>{
     })
-  });
+
 });
 
 module.exports = router;

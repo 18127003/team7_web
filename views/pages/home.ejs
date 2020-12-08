@@ -79,14 +79,14 @@
                             <div class="card horizontal carousel-item" style="min-height: 0px;height: 200px;">
                                 <div class="card-image">
                                     <% if(post.image!=null){ %>
-                                    <img src="<%= post.image %>" style="height: 200px;max-height: 200px;">
+                                    <img src="<%= JSON.parse(post.image)[0] %>" style="height: 200px;max-height: 200px;">
                                     <% } else{ %>
                                     <img src="/views/image/bg/newpost_bg.jpg" style="height: 200px;max-height: 200px;">
                                     <% } %>
                                 </div>
                                 <div class="card-stacked" style="background-color: #eea593;">
                                     <div class="card-action">
-                                        <kbd><%= post.author %></kbd>
+                                        <kbd><%= post.author_name %></kbd>
                                         <hr>
                                     </div>
                                     <div class="card-content" style="padding-top: 0px;">

@@ -39,7 +39,10 @@
                         <% if(post.image!=null){ %>
                         <div class="row card-content">
                             <div class="carousel carousel-slider">
-                                <a class="carousel-item" href="#" style="height: fit-content;"><img src="<%= post.image %>" style="height: 100%;"></a>
+                                <% images = JSON.parse(post.image);
+                                    images.forEach(img => { %> 
+                                <a class="carousel-item" href="#" style="height: fit-content;"><img src="<%= img %>" style="height: 100%;"></a>
+                                <% }) %>
                             </div>
                         </div>
                         <% } %>
