@@ -8,19 +8,20 @@
                 <div class="card white hoverable main-info">
                     <div class="row card-content center" style="padding-bottom: 0px;">
                         <% if(user.avatar!=null){%>
-                        <img src="<%= user.avatar %>">
+                        <img src="<%= user.avatar %>" class="responsive-img circle" style="border: 2px solid black; height: 300px;width: 300px;">
                         <% } else{ %>
                         <img src="/views/image/icon/o3.jpg" class="responsive-img circle" style="border: 2px solid black; height: 300px;width: 300px;">
                         <% } %> 
                     </div>
                     <div class="row card-content center" style="padding-top: 0px;padding-bottom: 0px;">
-                        <a href="#">
+                        <a href="#avatar_modal" class="modal-trigger">
                             <img src="https://img.icons8.com/doodle/48/000000/camera.png"/>
                         </a>
                     </div>
                     <div class="row center card-content">
                             <kbd class="flow-text truncate" style="font-size: medium;"><%= user.name %></kbd>
-                    </div>   
+                    </div>  
+                    <%- include("../templates/avatar.ejs")  %>  
                 </div>
             </div>
             <div class="col s8">

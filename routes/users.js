@@ -181,6 +181,19 @@ router.post("/write", multipartMiddleware,async (req, res) => {
 
 });
 
+
+//Update avatar
+router.post("/avatarUpdate", multipartMiddleware, async (req, res)=>{
+  console.log(req.files.avatar);
+  var user = await User.findById(req.user._id);
+  var img = await cloudinary.uploader.upload(req.files.avatar.path,{folder:"avatars"});
+  user.avatar = img.url;
+  await user.save()
+  console.log(user)
+
+  res.redirect("/users/info?id="+req.user._id)
+})
+
 router.post("/test", multipartMiddleware, async (req,res)=>{
   var savepath = "articles/"+req.body.title;
   cloudinary.uploader.upload(req.files.image.path,{folder: savepath},(err,result)=>{

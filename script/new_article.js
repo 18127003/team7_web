@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
       placeholder: "Enter a tag",
       secondaryPlaceholder: "+Tag",
     });
+    
   });
   document.getElementById("articlesubmit").addEventListener("click",function (){
     chipsInstance = M.Chips.getInstance(document.querySelector(".chips-placeholder"));
