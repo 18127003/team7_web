@@ -56,14 +56,15 @@
                     </div>
                 </div>
                 <div class="card blog hoverable bg" style="border-radius: 6px;background: #f1d2c2;">
+                    
                     <div class="carousel food" style="height: 90%;">
-                        <!-- <div class="carousel-fixed-item center">
-                            <a class="btn waves-effect white grey-text darken-text-2" href="/search">Food &amp; Culture</a>
-                        </div> -->
-                        <% articles.forEach(article=>{ %>
+                        <% if(articles.length > 0){
+                            articles.forEach(article=>{ %>
                         <a class="carousel-item" href="/article?_id=<%= article._id %>"><img
-                                src="<%= article.images[0] %>" style="height: 200px;"></a>
-                        <% }); %>
+                                src="<%= JSON.parse(article.images)[0] %>" style="height: 200px;"></a>
+                        <% });}else{ %>
+                        <a class="carousel-item" style="height: 200px;"></a>
+                        <% } %>
                     </div>
                 </div>
                 <div class="card info hoverable bg" style="border-radius: 6px;background: #f1d2c2;">

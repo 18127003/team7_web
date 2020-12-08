@@ -11,20 +11,22 @@
             <%= article.title %>
           </div>
           <h2><%= article.sub_title%></h2>
-          <p style="text-align: justify;"><%- article.content[0] %></p>
+          <%  contents = JSON.parse(article.content) 
+              imgs = JSON.parse(article.images) %> 
+          <p style="text-align: justify;"><%- contents[0] %></p>
         </div>
         <div class="col s7" style="margin-top: 3%;left: 7px;">
-          <img src="<%=article.images[0]%>" alt="image"/ style="height:564px;width: 564px;">
+          <img src="<%= imgs[0] %>" alt="image" style="height:564px;width: 564px;">
         </div>
       </div>
       <div class="row" style="text-align:justify;">
         
           <%var i=1;
-          while(i<=article.content.length || i<=article.images.length){
-          if(i<article.content.length){ %>
-          <p class="flow-text" style="font-size: medium;"><%- article.content[i] %></p>
-          <% } if(i<article.images.length){ %>
-          <img src="<%= article.images[i] %>" style="max-width:100%" />
+          while(i<=contents.length || i<=imgs.length){
+          if(i<contents.length){ %>
+          <p class="flow-text" style="font-size: medium;"><%- contents[i] %></p>
+          <% } if(i<imgs.length){ %>
+          <img src="<%= imgs[i] %>" style="max-width:100%" />
           <% } ++i} %>
         
       </div>
@@ -32,7 +34,12 @@
         <hr />
         <div class="row">
           <div class="col s2">Hastag:</div>
-          <div class="tag"></div>
+          <% if(article.hashtag!=null){
+            hashtags = JSON.parse(article.hashtag);
+            for(tag of hashtags){ %>
+            <div class="chip"><%- tag.tag %></div>
+            <% } %>
+          <% } %>
         </div>
         <hr />
       </div>

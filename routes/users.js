@@ -8,6 +8,7 @@ var cloudinary = require("../config/cloudinary");
 // Load User model
 const User = require("../models/User");
 const Post = require("../models/Post");
+const Article = require("../models/Article");
 const { forwardAuthenticated, ensureAuthenticated } = require("../config/auth");
 
 // Login Page
@@ -142,5 +143,49 @@ router.post("/create", multipartMiddleware,async (req, res) => {
     })
 
 });
+
+// Create article
+router.post("/write", multipartMiddleware,async (req, res) => {
+  var urls=[]
+  var contents=[]
+  var savepath="articles/"+req.body.title
+  var img1 = await cloudinary.uploader.upload(req.files.image1.path,{folder:savepath});
+  var img2 = await cloudinary.uploader.upload(req.files.image2.path,{folder:savepath});
+  var img3 = await cloudinary.uploader.upload(req.files.image3.path,{folder:savepath});
+  urls.push(img1.url);
+  urls.push(img2.url);
+  urls.push(img3.url);
+  contents.push(req.body.content1);
+  contents.push(req.body.content2);
+  contents.push(req.body.content3);
+  contents.push(req.body.content4);
+  var article = new Article({
+    author_id: req.body.author_id,
+    author_name: req.body.author_name,
+    title: req.body.title,
+    sub_title: req.body.sub_title,
+    hashtag: req.body.hashtag,
+    created_at: new Date(),
+    images: JSON.stringify(urls),
+    content: JSON.stringify(contents),
+  });
+
+  article.save(function (err) {
+    if (err) {
+      req.flash(err);
+    }
+    res.redirect("/home");
+  });
+  article.on("es-indexed",(err,res)=>{
+  })
+
+});
+
+router.post("/test", multipartMiddleware, async (req,res)=>{
+  var savepath = "articles/"+req.body.title;
+  cloudinary.uploader.upload(req.files.image.path,{folder: savepath},(err,result)=>{
+    res.render("pages/test");
+  })
+})
 
 module.exports = router;

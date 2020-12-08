@@ -4,42 +4,73 @@
     </head>
     <main>
         <div class="row">
-            <div class="col s3"></div>
-            <form class="col s6" enctype="multipart/form-data" action="/users/create" method="POST">
-                <div class="row">
-                    <div class="col s12 input-field">
-                        <input value="Hello World" id="post-title" type="text" class="validate" name="title">
-                        <label class="active" for="post-title">Title</label>
+            <div class="col s2"></div>
+            <form class="col s8" enctype="multipart/form-data" action="/users/write" method="POST">
+                <div class="row center">
+                    <div class="col s5">
+                        <div class="row input-field">
+                            <input id="post-title" type="text" class="validate" name="title">
+                            <label class="active" for="post-title">Title</label>
+                        </div>
+                        <div class="row input-field">
+                            <input id="post-subtitle" type="text" class="validate" name="sub_title">
+                            <label class="active" for="post-subtitle">Sub Title</label>
+                        </div>
+                        <div class="row input-field">
+                            <textarea id="textarea1" class="materialize-textarea" name="content1"></textarea>
+                            <label for="textarea1">Content 1</label>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col s12 input-field">
-                        <textarea id="textarea1" class="materialize-textarea" name="description"></textarea>
-                        <label for="textarea1">Write your idea</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12">
-                        <div class="file-field input-field upload-field">
+                    <div class="col s1"></div>
+                    <div class="col s6 input-field">
+                        <div class=" row center file-field upload-field">
                             <div class="btn pink lighten-4">
                                 <img src="https://img.icons8.com/officel/40/000000/add-image.png" />
-                                <input type="file" name="image">
+                                <input type="file" name="image1">
                             </div>
                             <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text" placeholder="Upload one or more pictures">
+                                <input class="file-path validate" type="text" placeholder="Upload picture">
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="row input-field">
+                    <textarea id="textarea2" class="materialize-textarea" name="content2"></textarea>
+                    <label for="textarea2">Content 2</label>
+                </div>
+                <div class="row file-field input-field upload-field">
+                    <div class="btn pink lighten-4">
+                        <img src="https://img.icons8.com/officel/40/000000/add-image.png" />
+                        <input type="file" name="image2">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder="Upload picture">
+                    </div>
+                </div>
+                <div class="row input-field">
+                    <textarea id="textarea3" class="materialize-textarea" name="content3"></textarea>
+                    <label for="textarea3">Content 3</label>
+                </div>
+                <div class="row file-field input-field upload-field">
+                    <div class="btn pink lighten-4">
+                        <img src="https://img.icons8.com/officel/40/000000/add-image.png" />
+                        <input type="file" name="image3">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder="Upload picture">
+                    </div>
+                </div>
+                <div class="row input-field">
+                    <textarea id="textarea4" class="materialize-textarea" name="content4"></textarea>
+                    <label for="textarea4">Content 4</label>
+                </div>
                 <div class="row">
-                    <div class="col s12">
-                        <div class="chips chips-placeholder" id="posttag">
-                        </div>
+                    <div class="chips chips-placeholder" id="articletag">
                     </div>
                 </div>
                 <input class="auth" style="display:none;" name="author_id" value="<%- user.id %>">
                 <input class="auth_name" style="display:none;" name="author_name" value="<%- user.name %>">
-                <button class="btn waves-effect waves-light pink lighten-4" type="submit" id="postsubmit">Post
+                <button class="btn waves-effect waves-light pink lighten-4" type="submit" id="articlesubmit">Post
                     <i class="material-icons right">send</i>
                 </button>
             </form>
