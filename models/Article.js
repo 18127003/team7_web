@@ -2,6 +2,7 @@ var mongoose = require("mongoose");
 const mongoosastic = require('mongoosastic');
 const esClient = require("../config/elastic");
 var Schema = mongoose.Schema;
+const Promise = require("bluebird");
 
 // create a schema
 var ArticleSchema = new Schema({
@@ -22,4 +23,5 @@ ArticleSchema.plugin(mongoosastic,{esClient:esClient})
 var Article = mongoose.model('Article', ArticleSchema);
 Article.createMapping((err, mapping) => {
 });
+Article.search = Promise.promisify(Article.search,{context: Article})
 module.exports = Article;

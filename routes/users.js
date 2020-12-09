@@ -10,6 +10,7 @@ const User = require("../models/User");
 const Post = require("../models/Post");
 const Article = require("../models/Article");
 const { forwardAuthenticated, ensureAuthenticated } = require("../config/auth");
+const Favorite = require("../models/Favorite");
 
 // Login Page
 router.get("/login", forwardAuthenticated, (req, res) =>
@@ -21,12 +22,38 @@ router.get("/register", forwardAuthenticated, (req, res) =>
   res.render("pages/register",{errors:null})
 );
 
-router.get("/info", ensureAuthenticated, (req, res)=>{
-  Post.find({'author_id': req.query.id}, function (err, posts){
-    res.render("pages/user_info",{user:req.user, posts:posts})
-  })
+// Information page
+router.get("/info", ensureAuthenticated, async (req, res)=>{
+  if(req.user._id==req.query.id){
+    var posts = await Post.find({'author_id': req.user._id});
+    if(req.user.role=="ADMIN"){
+      var users = await User.find({role:{$ne: "ADMIN"}});
+      res.render("pages/user_info",{user:req.user, posts:posts, users:users,people:null})
+    } else{
+      res.render("pages/user_info",{user:req.user, posts:posts, people:null})
+    }
+  } else{
+    var posts = await Post.find({'author_id': req.query.id});
+    var people = await User.findById(req.query.id);
+    res.render("pages/user_info",{user:req.user, posts:posts, people:people})
+  }
+  
 })
 
+// Add favorite
+router.get("/addFavorite",ensureAuthenticated, async (req, res)=>{
+  var fav = new Favorite({
+    user_id:req.user._id,
+    type: req.query.type,
+    content_id: req.query.contentId
+  })
+  fav.save(function (err) {
+    if (err) {
+      req.flash(err);
+    }
+    res.send(" Success ");
+  });
+})
 
 // Register
 router.post("/register", (req, res) => {
@@ -115,6 +142,7 @@ router.get("/deletePost", async (req, res)=>{
   await asyncForEach(images, async(img)=>{
     await cloudinary.uploader.destroy(img);
   })
+  res.setHeader("user",JSON.stringify(req.user))
   res.redirect("/users/info?id="+req.user._id)
 })
 
@@ -203,7 +231,7 @@ router.post("/write", multipartMiddleware,async (req, res) => {
 });
 
 
-//Update avatar
+// Update avatar
 router.post("/avatarUpdate", multipartMiddleware, async (req, res)=>{
 
   var user = await User.findById(req.user._id);
@@ -217,9 +245,25 @@ router.post("/avatarUpdate", multipartMiddleware, async (req, res)=>{
   user.avatar = img.url;
   user.avatar_id = img.public_id;
   await user.save()
+  res.setHeader("user",JSON.stringify(req.user))
+  res.redirect("/users/info?id="+req.user._id)
 
+})
+
+// Update post
+router.post("/postUpdate",multipartMiddleware,async (req, res)=>{
+  var post = await Post.findById(req.query.id);
+  post.title = req.body.title;
+  post.description = req.body.description; 
+  post.created_at = new Date.now;
+  // console.log(req.body.title);
+  // console.log(req.body.description);
+  await post.save();
+  res.setHeader("user",JSON.stringify(req.user))
   res.redirect("/users/info?id="+req.user._id)
 })
+
+
 
 router.post("/test", multipartMiddleware, async (req,res)=>{
   var savepath = "articles/"+req.body.title;

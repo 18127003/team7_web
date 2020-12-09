@@ -1,0 +1,22 @@
+<div id="admin_modal" class="modal modal-fixed-footer pink lighten-5 hide-on-med-and-down" style="overflow-y: hidden;border-radius: 15px;">
+    
+    
+    <div class="modal-content white" style="overflow-x: hidden;">
+        <div class="row center">
+
+        <%  users.forEach(user => { %>
+            <kbd class="flow-text chip" style="font-size: medium; padding-right: 10px;"><%= user.name %></kbd>        
+        <%    }); %> 
+        </div>
+        
+        <div class="row center">
+        
+        </div>
+        
+    </div>
+    <div class="modal-footer pink lighten-5">
+        <button class="modal-close waves-effect waves-pink btn"
+            style="margin-bottom: 30px;position: absolute;left:46%">Confirm</button>
+    </div>
+    
+</div>

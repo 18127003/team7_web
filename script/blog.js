@@ -18,3 +18,14 @@ function scrollFunction() {
     mybutton.style.display = "none";
   }
 }
+
+function Likey(id){
+  var element = document.getElementById(id)
+  if(element.classList.contains("liked")){
+    element.setAttribute("src","https://img.icons8.com/material-outlined/24/000000/like--v1.png");
+    element.classList.remove("liked");
+  } else{
+    element.setAttribute("src","https://img.icons8.com/officexs/24/000000/hearts.png");
+    element.classList.add("liked");
+  }
+}

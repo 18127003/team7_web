@@ -74,29 +74,50 @@ router.get("/about", myAuth, (req, res) =>
 //     })
 
 // })
-
+async function asyncForEach(array, callback) {
+  for (let index = 0; index < array.length; index++) {
+    await callback(array[index], index, array);
+  }
+}
 router.get("/search", myAuth, async (req, res) => {
-  Post.search(
+  // Post.search(
+  //   { query_string: { query: req.query.search_key } },
+  //   { hydrate: true },
+  //   function (err, results) {
+  //     results.hits.hits.forEach(function (result) {
+  //       console.log("score", result._id);
+  //     });
+  //   }
+  // );
+  var posts =[]
+  var articles = []
+  var result = await Post.search(
     { query_string: { query: req.query.search_key } },
-    { hydrate: true },
-    function (err, results) {
-      results.hits.hits.forEach(function (result) {
-        console.log("score", result._id);
-      });
-    }
-  );
+    { hydrate: true }
+  )
+  await asyncForEach(result.hits.hits, async(res)=>{
+    await posts.push(res)
+  })
+  result = await Article.search(
+    { query_string: { query: req.query.search_key } },
+    { hydrate: true }
+  )
+  await asyncForEach(result.hits.hits, async(res)=>{
+    await articles.push(res)
+  })
+  console.log(posts)
+  console.log(articles)
+  res.render("pages/searchhome",{user:req.user,posts:posts, articles:articles})
 });
 
 // Article page
-router.get("/article*", myAuth, (req, res) => {
+router.get("/article", myAuth, (req, res) => {
   Article.findById(req.query._id, (err, article) => {
     if (err) res.send(err);
     res.render("pages/article", { article: article, user: req.user });
   });
 });
-// router.get("/hello", forwardAuthenticated, (req,res)=>{
-//   res.sendFile("hello.html",{root:path.join(__dirname,"../views")})
-// })
+
 // Create new post
 router.get("/home/post", ensureAuthenticated, (req, res) =>
   res.render("pages/post", { user: req.user })

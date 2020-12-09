@@ -33,7 +33,9 @@
                         <div class="row card-content">
                             <div class="chip poster pink lighten-3 white-text">
                                 <img src="https://img.icons8.com/fluent/24/000000/user-male-circle.png" />
-                                <%= post.author_name %>
+                                <a href="users/info?id=<%= post.author_id %>">
+                                    <%= post.author_name %>
+                                </a>
                             </div>
                         </div>
                         <% if(post.image!=null){ %>
@@ -48,6 +50,8 @@
                         <% } %>
                         <div class="row card-content">
                             <kbd><%= new Date(post.created_at).toDateString()%></kbd>
+                            <img src="https://img.icons8.com/material-outlined/24/000000/like--v1.png" id="like<%= post._id %>" 
+                            class="right" style="display: inline;" onclick="Likey(this.id)"/>
                         </div>
                         <div class="row card-content">
                             <strong><%= post.title %></strong>
@@ -65,6 +69,7 @@
                                 <% } %>
                             <% } %>
                         </div>
+                        
                     </div>
                 </div>
                 <% }); %>

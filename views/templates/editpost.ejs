@@ -1,0 +1,31 @@
+<div id="edit_modal_<%= post._id %>" class="modal modal-fixed-footer hide-on-med-and-down"
+    style="overflow-y: hidden;border-radius: 15px;">
+    <form enctype="multipart/form-data" action="/users/postUpdate?id=<%= post._id %>" method="POST">
+        <div class="modal-content" style="overflow: hidden;">
+            
+            <div class="row center" style="padding-top: 0px;padding-bottom: 25px;">
+                <kbd><%= new Date(post.created_at).toDateString() %></kbd>
+            </div>
+            <div class="row center input-field" style="padding-top: 0px;padding-bottom: 50px;margin:0px 10%;">
+                <input id="post-title" type="text" class="validate" name="title" value="<%= post.title %>">
+                <label class="active" for="post-title">Title</label>
+            </div>
+            <div class="row center input-field" style="padding-top: 0px;padding-bottom: 25px;margin:0px 10%;">
+                <textarea id="textarea1" class="materialize-textarea" name="description" placeholder="<%= post.description %> "></textarea>
+                <label for="textarea1">Write your idea</label>
+            </div>
+            <div class="row center" style="padding-top: 0px;padding-bottom: 5px;">
+                <%  if(post.hashtag!=null){
+                    hashtags = JSON.parse(post.hashtag);
+                    for(tag of hashtags){ %>
+                <div class="chip"><%- tag.tag %></div>
+                <% }} %>
+            </div>
+
+        </div>
+        <div class="modal-footer pink lighten-5">
+            <button class="modal-close waves-effect waves-pink btn" type="submit"
+                style="margin-bottom: 30px;position: absolute;left:46%">UPDATE</button>
+        </div>
+    </form>
+</div>
