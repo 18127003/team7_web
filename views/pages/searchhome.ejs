@@ -18,11 +18,11 @@
                     <% articles.forEach(article=>{ %> 
                     <li>
                         <a href="#image-<%= i %> ">
-                            <img src="<%= article.images[0] %>" alt="image0<%= i %>" id="ficon"/>
+                            <img src="<%= JSON.parse(article.images)[0] %>" alt="image0<%= i %>" id="ficon"/>
                             <span><%= article.title %></span>
                         </a>
                         <div class="lb-overlay" id="image-<%= i %>">
-                            <img src="<%= article.images[0] %>" alt="image0<%= i %>" id="bigficon"/>
+                            <img src="<%= JSON.parse(article.images)[0] %>" alt="image0<%= i %>" id="bigficon"/>
                             <div>
                                 <h3>
                                     <%= article.title %>

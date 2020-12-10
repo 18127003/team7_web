@@ -80,33 +80,27 @@ async function asyncForEach(array, callback) {
   }
 }
 router.get("/search", myAuth, async (req, res) => {
-  // Post.search(
-  //   { query_string: { query: req.query.search_key } },
-  //   { hydrate: true },
-  //   function (err, results) {
-  //     results.hits.hits.forEach(function (result) {
-  //       console.log("score", result._id);
-  //     });
-  //   }
-  // );
   var posts =[]
   var articles = []
-  var result = await Post.search(
-    { query_string: { query: req.query.search_key } },
-    { hydrate: true }
-  )
-  await asyncForEach(result.hits.hits, async(res)=>{
-    await posts.push(res)
-  })
-  result = await Article.search(
-    { query_string: { query: req.query.search_key } },
-    { hydrate: true }
-  )
-  await asyncForEach(result.hits.hits, async(res)=>{
-    await articles.push(res)
-  })
-  console.log(posts)
-  console.log(articles)
+  if(req.query.search_key!=null){
+    var result = await Post.search(
+      { query_string: { query: req.query.search_key } },
+      { hydrate: true }
+    )
+    await asyncForEach(result.hits.hits, async(res)=>{
+      await posts.push(res)
+    })
+    result = await Article.search(
+      { query_string: { query: req.query.search_key } },
+      { hydrate: true }
+    )
+    await asyncForEach(result.hits.hits, async(res)=>{
+      await articles.push(res)
+    })
+  }
+  else{
+    articles = await Article.find({});
+  }
   res.render("pages/searchhome",{user:req.user,posts:posts, articles:articles})
 });
 
