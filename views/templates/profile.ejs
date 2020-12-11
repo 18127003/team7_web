@@ -7,10 +7,10 @@
                         <% if(user.avatar!=null){%>
                         <img src="<%= user.avatar %>">
                         <% } else{ %>
-                        <img src="/views/image/bg/1.jpg">
+                        <img src="/views/image/icon/o3.jpg">
                         <% } %> 
                         <span class="card-title"><strong><%= user.name %></strong></span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light red change-avatar" href="/users/info?id=<%= user._id %>">
+                        <a class="btn-floating halfway-fab waves-effect waves-light red change-avatar hoverable" href="/users/info?id=<%= user._id %>">
                             <i class="material-icons">add</i>
                         </a>
                     </div>

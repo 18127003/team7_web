@@ -67,13 +67,7 @@ router.get("/about", myAuth, (req, res) =>
 );
 
 // Search page
-// router.get("/search",myAuth, (req, res)=>{
-//     Article.find({title:{ $regex: req.query.search_key, $options: 'i' }}, function (err, articles){
-//         if(err) res.send(err);
-//         res.render("pages/searchhome",{articles:articles, user:req.user})
-//     })
 
-// })
 async function asyncForEach(array, callback) {
   for (let index = 0; index < array.length; index++) {
     await callback(array[index], index, array);

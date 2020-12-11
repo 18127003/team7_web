@@ -28,11 +28,23 @@
                 </div>
                 <div class="card white hoverable function">
                     <% if(user.role=="ADMIN"&& people==null){ %> 
-                    <div class="row card-content center">
-                        <a class="btn waves-effect waves-light pink lighten-4 modal-trigger" href="#admin_modal">ADMIN</a>
+                    <div class="row card-content center" style="padding-bottom: 0px;">
+                        <a class="btn waves-effect waves-light pink lighten-4 modal-trigger" href="#admin_modal" style="width: 40%;">
+                            <kbd class="flow-text truncate" style="font-size: medium;">ADD ADMIN</kbd>
+                        </a>
+                    </div>
+                    <div class="row card-content center" style="padding-bottom: 0px;padding-top: 0px;">
+                        <a class="btn waves-effect waves-light pink lighten-4 modal-trigger" href="#admin_modal" style="width: 40%;">
+                            <kbd class="flow-text truncate" style="font-size: medium;">ADMIN</kbd>
+                        </a>
                     </div>
                     <%- include("../templates/admin.ejs",{users:users}) %> 
-                    <% } %> 
+                    <% } %>
+                    <div class="row card-content center" style="padding-top: 0px;">
+                        <a class="btn waves-effect waves-light pink lighten-4 modal-trigger" href="#admin_modal" style="width: 40%;">
+                            <kbd class="flow-text truncate" style="font-size: medium;">EDIT PROFILE</kbd>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="col s8">
@@ -66,7 +78,7 @@
                                 <div class="row card-content">
                                     <div class="carousel carousel-slider" style="border: 1px solid black;border-radius: 7px;">
                                         <% JSON.parse(post.image).forEach(img=>{ %> 
-                                        <a class="carousel-item" href="#" style="height: fit-content;"><img src="<%= img %>" style="height: 100%;"></a>
+                                        <a class="carousel-item" href="/blog#<%= post._id %>" style="height: fit-content;"><img src="<%= img %>" style="height: 100%;"></a>
                                         <% }) %> 
                                     </div>
                                 </div>
@@ -113,6 +125,69 @@
                 </div>
             </div>
         </div>
+        <% if(user.role=="ADMIN"&& people==null){ %>
+        <div class="row">
+            <div class="col s12">
+                <div class="card hoverable white">
+                    <div class="row card-content center">
+                        <kbd class="flow-text truncate">My Article</kbd>    
+                    </div>    
+                    <div class="row"> 
+                    <% if(articles.length==0){ %> 
+                        <div class="row card-content valign-center center" style="min-height: 323px;">
+                            <kbd class="flow-text truncate" style="font-size: x-large;">No article yet.</kbd>
+                            <a class="btn pulse waves-effect waves-light pink lighten-3" href="/home/new_article">New Article</a>
+                        </div>
+                    <% } else{ %>
+                    <% articles.forEach((article, index)=>{ %>
+                        <div class="article card-content" id="<%= article._id %>" style="display: float;float: left;">
+                            <div class="card articlecard hoverable" style="width: 25rem;height:fit-content;margin-left: 4rem;">
+                                <div class="fixed-action-btn right card-content" style="position: absolute !important;top: 5px; right: 5px;">
+                                    <a class="btn-floating btn-medium red">
+                                        <i class="material-icons">mode_edit</i>
+                                    </a>
+                                    <ul>
+                                        <li><a class="btn-floating pink darken-1 btn-small"><i class="material-icons">favorite</i></a></li>
+                                        <li><a class="btn-floating green btn-small" href="/users/deleteArticle?id=<%= article._id %>"><i class="material-icons">delete</i></a></li>
+                                        <li><a class="btn-floating blue btn-small modal-trigger" href="#edit_modal_<%= article._id %>"><i class="material-icons">edit</i></a></li>
+                                    </ul>
+                                </div>
+                                <% if(article.images!=null){ 
+                                    thumb = JSON.parse(article.images)[0] %>
+                                <div class="row card-content">
+                                    <a href="/article?_id=<%= article._id %>">
+                                        <img src="<%= thumb %>" style="width: 100%;height: auto; border-radius: 7px;">
+                                    </a>
+                                </div>
+                                <% } %>
+                                <div class="row card-content" style="padding-top: 0px;padding-bottom: 0px;">
+                                    <kbd><%= new Date(article.created_at).toDateString()%></kbd>
+                                </div>
+                                <div class="row card-content"  style="padding-top: 0px;padding-bottom: 0px;">
+                                    <strong><%= article.title %></strong>
+                                </div>
+                                <div class="row card-content"  style="padding-top: 0px;padding-bottom: 0px;">
+                                    <p class="flow-text truncate" style="font-size: medium;">
+                                        <%= article.sub_title %>
+                                    </p>
+                                </div>
+                                <div class="row card-content"  style="padding-top: 0px;padding-bottom: 5px;">
+                                    <% if(article.hashtag!=null){
+                                        hashtags = JSON.parse(article.hashtag);
+                                        for(tag of hashtags){ %>
+                                        <div class="chip"><%- tag.tag %></div>
+                                        <% } %>
+                                    <% } %>
+                                </div>
+                                <%- include("../templates/editarticle.ejs",{article:article}) %> 
+                            </div>
+                        </div>
+                    <% });} %> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } %>
     </main>
     <footer class="page-footer" style="padding-top: 0px;">
         <%- include("../templates/footer.ejs",{user:user}) %> 

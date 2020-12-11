@@ -1,0 +1,10 @@
+<div id="edit_modal_<%= article._id %>" class="modal modal-fixed-footer hide-on-med-and-down"
+    style="overflow-y: hidden;border-radius: 15px;">
+    <form enctype="multipart/form-data" action="/users/articleUpdate?id=<%= article._id %>" method="POST">
+        
+        <div class="modal-footer pink lighten-5">
+            <button class="modal-close waves-effect waves-pink btn" type="submit"
+                style="margin-bottom: 30px;position: absolute;left:46%">UPDATE</button>
+        </div>
+    </form>
+</div>

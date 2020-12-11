@@ -28,7 +28,8 @@ router.get("/info", ensureAuthenticated, async (req, res)=>{
     var posts = await Post.find({'author_id': req.user._id});
     if(req.user.role=="ADMIN"){
       var users = await User.find({role:{$ne: "ADMIN"}});
-      res.render("pages/user_info",{user:req.user, posts:posts, users:users,people:null})
+      var articles = await Article.find({"author_id":req.user._id});
+      res.render("pages/user_info",{user:req.user, posts:posts, users:users, articles:articles, people:null})
     } else{
       res.render("pages/user_info",{user:req.user, posts:posts, people:null})
     }
