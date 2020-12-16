@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let dropdown = M.Dropdown.init(document.querySelectorAll(".dropdown-trigger"),{ hover: true });
   let profile_modal = M.Modal.init(document.querySelectorAll(".modal"));
   let carousel = M.Carousel.init(document.querySelectorAll(".carousel"), {indicators: true,fullWidth: true,});
+  
 });
 
 mybutton = document.querySelector(".topbtn");
@@ -29,3 +30,16 @@ function Likey(id){
     element.classList.add("liked");
   }
 }
+
+(()=>{document.querySelectorAll(".showmore").forEach(function (p) {
+  p.querySelector("a").addEventListener("click", function () {
+    p.classList.toggle("show");
+    this.textContent = p.classList.contains("show") ? "Rút gọn" : "Xem tiếp";
+  });
+})})();
+
+
+
+
+  
+

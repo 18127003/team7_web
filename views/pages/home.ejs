@@ -5,7 +5,7 @@
     <main>
         <div class="row">
             <div class="col s6 m6 l6 hide-on-med-and-down">
-                <div class="card slide bg" style="border-radius: 6px;background: #f1d2c2;">
+                <div class="card slide bg" style="border-radius: 6px;background: white;">
                     <ul class="cb-slideshow">
                         <li><span>Image 01</span>
                             <div>
@@ -58,19 +58,19 @@
                         </p>
                     </div>
                 </div>
-                <div class="card blog hoverable bg" style="border-radius: 6px;background: #f1d2c2;">
+                <div class="card blog hoverable bg" style="border-radius: 6px;background: white;">
                     
                     <div class="carousel food" style="height: 90%;">
                         <% if(articles.length > 0){
                             articles.forEach(article=>{ %>
                         <a class="carousel-item" href="/article?_id=<%= article._id %>"><img
-                                src="<%= JSON.parse(article.images)[0] %>" style="height: 200px;"></a>
+                                src="<%= JSON.parse(article.images)[0] %>" style="height: 200px;border: 1px solid black; border-radius: 7px;"></a>
                         <% });}else{ %>
                         <a class="carousel-item" style="height: 200px;"></a>
                         <% } %>
                     </div>
                 </div>
-                <div class="card info hoverable bg" style="border-radius: 6px;background: #f1d2c2;">
+                <div class="card info hoverable bg" style="border-radius: 6px;background: white;">
                     <h4 class="center" style="font-weight: bold;">New Post</h4>
                     <hr>
                     <div class="carousel carousel-slider post" style="margin-top: 5%;">
@@ -89,7 +89,7 @@
                                     <img src="/views/image/bg/newpost_bg.jpg" style="height: 200px;max-height: 200px;">
                                     <% } %>
                                 </div>
-                                <div class="card-stacked" style="background-color: #eea593;">
+                                <div class="card-stacked" style="background-color: antiquewhite;">
                                     <div class="card-action">
                                         <kbd><%= post.author_name %></kbd>
                                         <hr>
@@ -97,7 +97,7 @@
                                     <div class="card-content" style="padding-top: 0px;">
                                         <kbd><%= new Date(post.created_at).toDateString()%></kbd>
                                         <h6><%= post.title %></h6>
-                                        <p class="flow-text truncate"><%= post.description %></p>
+                                        <p class="flow-text truncate"><%- post.description.slice(0,50) %>&nbsp;...</p>
                                     </div>
                                 </div>
                             </div>

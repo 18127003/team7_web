@@ -80,3 +80,24 @@ img {
     height: 100% !important;
     min-height: auto;
   } */
+
+  .showmore {
+    font-size: 1.1em;
+    margin-top: 1.5em;
+  }
+  
+  .showmore .more, .showmore.show .dots {
+    display: none
+  }
+  
+  .showmore.show .more {
+    display: inline
+  }
+  
+  .showmore a {
+    cursor: pointer;
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    font-weight: bold;
+  }

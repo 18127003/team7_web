@@ -22,57 +22,79 @@
                                 </p>
                             </div>
                             <div class="card-action">
-                                <a class="btn wave-effect wave-light pink lighten-4 right postbtn" href="/home/post">POST</a>
+                                <a class="btn wave-effect wave-light pink lighten-4 right postbtn"
+                                    href="/home/post">POST</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <% posts.slice().reverse().forEach((post, index)=>{ %>
-                <div class="row post" id="<%= post._id %>">
-                    <div class="card postcard hoverable">
-                        <div class="row card-content">
-                            <div class="chip poster pink lighten-3 white-text">
-                                <img src="https://img.icons8.com/fluent/24/000000/user-male-circle.png" />
-                                <a href="users/info?id=<%= post.author_id %>" class="white-text">
-                                    <%= post.author_name %>
-                                </a>
+                    <div class="row post" id="<%= post._id %>">
+                        <div class="card postcard hoverable">
+                            <div class="row card-content">
+                                <div class="chip poster pink lighten-3 white-text">
+                                    <img src="https://img.icons8.com/fluent/24/000000/user-male-circle.png" />
+                                    <a href="users/info?id=<%= post.author_id %>" class="white-text">
+                                        <%= post.author_name %>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <% if(post.image!=null){ %>
-                        <div class="row card-content">
-                            <div class="carousel carousel-slider">
-                                <% images = JSON.parse(post.image);
-                                    images.forEach(img => { %> 
-                                <a class="carousel-item" href="#" style="height: fit-content;"><img src="<%= img %>" style="height: 100%;"></a>
-                                <% }) %>
-                            </div>
-                        </div>
-                        <% } %>
-                        <div class="row card-content">
-                            <kbd><%= new Date(post.created_at).toDateString()%></kbd>
-                            <img src="https://img.icons8.com/material-outlined/24/000000/like--v1.png" id="like<%= post._id %>" 
-                            class="right" style="display: inline;" onclick="Likey(this.id)"/>
-                        </div>
-                        <div class="row card-content">
-                            <strong><%= post.title %></strong>
-                        </div>
-                        <div class="row card-content">
-                            <p class="flow-text" style="font-size: medium;">
-                                <%= post.description %>
-                            </p>
-                        </div>
-                        <div class="row card-content">
-                            <% if(post.hashtag!=null){
-                                hashtags = JSON.parse(post.hashtag);
-                                for(tag of hashtags){ %>
-                                <div class="chip"><%- tag.tag %></div>
+                            <% if(post.image!=null){ %>
+                                <div class="row card-content">
+                                    <div class="carousel carousel-slider">
+                                        <% images=JSON.parse(post.image); images.forEach(img=> { %>
+                                            <a class="carousel-item" href="#" style="height: fit-content;"><img
+                                                    src="<%= img %>" style="height: 100%;"></a>
+                                            <% }) %>
+                                    </div>
+                                </div>
                                 <% } %>
-                            <% } %>
+                                    <div class="row card-content" style="margin-left: 2%;">
+                                        <kbd>
+                                            <%= new Date(post.created_at).toDateString()%>
+                                        </kbd>
+                                        <img src="https://img.icons8.com/material-outlined/24/000000/like--v1.png"
+                                            id="like<%= post._id %>" class="right" style="display: inline;"
+                                            onclick="Likey(this.id)" />
+                                    </div>
+                                    <div class="row card-content" style="margin-left: 2%;">
+                                        <strong>
+                                            <%= post.title %>
+                                        </strong>
+                                    </div>
+                                    <div class="row card-content">
+                                        <% if(post.description.length<222){ %>
+                                            <p class="flow-text" style="font-size: medium; text-align: justify; margin-left: 1%; margin-right: 2%;">
+                                                <%- post.description %>
+                                                    <% }else{ 
+                                                        var i =200;
+                                                        while(post.description[i]!=" "){++i;}%>
+                                                        <p class="flow-text justify-align showmore" 
+                                                            style="font-size: medium; text-align: justify;margin-left: 1%; margin-right: 2%;">
+                                                            <%- post.description.substring(0,i) %> <span
+                                                                    class="dots">...</span><span class="more">
+                                                                <%- post.description.substring(i+1,post.description.length-1)
+                                                                    %></span>
+                                                                    <a>Xem tiếp</a>
+                                                    <% } %>
+
+
+
+                                            </p>
+                                    </div>
+                                    <div class="row card-content">
+                                        <% if(post.hashtag!=null){ hashtags=JSON.parse(post.hashtag); for(tag of
+                                            hashtags){ %>
+                                            <div class="chip">
+                                                <%- tag.tag %>
+                                            </div>
+                                            <% } %>
+                                                <% } %>
+                                    </div>
+
                         </div>
-                        
                     </div>
-                </div>
-                <% }); %>
+                    <% }); %>
             </div>
         </div>
 
@@ -83,6 +105,7 @@
         <%- include("../templates/footer.ejs",{user:user})%>
     </footer>
     <link rel="stylesheet" href="/stylesheet/blog.css">
+
     <script src="/script/blog.js"></script>
     <%- include("../templates/dependency.ejs") %>
 </body>
