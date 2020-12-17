@@ -1,43 +1,42 @@
 
-<body>
-    <div class="header" style="visibility: visible;opacity: 1;">
-        <a class="logo" href="/" style="visibility: visible;opacity: 1;">
-            <img src="https://img.icons8.com/doodle/48/000000/lighthouse--v1.png"/>
-        </a>
-    </div>
-    <main id="main-holder">
-        <div class="row">
-            <div class="col s3"></div>
-            <div class="col s6">
-                <div class="row center">
-                    <kbd id="login-header" class="flow-text truncate"><span>&hearts;</span>&nbsp;Welcome to our
-                        house&nbsp;<span>&hearts;</span></kbd>
-                </div>
-                <div class="row center">
-                    <form action="/users/login" method="POST" id="login-form">
-                        <div class="row form-group">
-                            <input type="email" id="email" name="email" class="form-control login-form-field" 
-                            placeholder="Enter Email" data-position="right" data-tooltip="I am a tooltip"/>
-                        </div>
-                        <div class="row form-group">
-                            <input type="password" id="password" name="password" class="form-control login-form-field"
-                                placeholder="Enter Password" />
-                        </div>
-                        <div class="row center">
-                            <button type="submit" class="btn pulse" id="login-form-submit">Login</button>
-                        </div>
-                    </form>
-                    <div class="row" id="signup">
-                        <a class="signup_text flow-text truncate" href="register">
-                            or&nbsp;sign&nbsp;up&nbsp;here
-                        </a>
+
+<div class="header" style="visibility: visible;opacity: 1;">
+    <a class="logo" href="/" style="visibility: visible;opacity: 1;">
+        <img src="https://img.icons8.com/doodle/75/000000/lighthouse--v1.png"/>
+    </a>
+</div>
+<main id="main-holder">
+    <div class="row center">
+        <div class="card white hoverable" style="border-radius: 7px;">
+            <div class="row center card-content">
+                <kbd id="login-header" class="flow-text truncate"><span>&hearts;</span>&nbsp;Welcome to our
+                    house&nbsp;<span>&hearts;</span></kbd>
+            </div>
+            <div class="row center card-content">
+                <form action="/users/login" method="POST" id="login-form">
+                    <div class="row form-group">
+                        <input type="email" id="email" name="email" class="form-control login-form-field" 
+                        placeholder=" Enter Email" data-position="right" data-tooltip="I am a tooltip"/>
                     </div>
+                    <div class="row form-group">
+                        <input type="password" id="password" name="password" class="form-control login-form-field"
+                            placeholder=" Enter Password" />
+                    </div>
+                    <div class="row center">
+                        <button type="submit" class="btn pulse" id="login-form-submit">Login</button>
+                    </div>
+                </form>
+                <div class="row" id="signup" style="margin-bottom: 0px;">
+                    <a class="signup_text flow-text truncate" href="register">
+                        or&nbsp;sign&nbsp;up&nbsp;here
+                    </a>
                 </div>
             </div>
-        </div>
-        
-    </main>
-    <link rel="stylesheet" href="/stylesheet/login-page.css">
-    <script src="/script/login-page.js"></script>
-    <%- include("../templates/dependency.ejs") %> 
-</body>
+        </div> 
+    </div>
+       
+</main>
+<link rel="stylesheet" href="/stylesheet/login-page.css">
+<script src="/script/login-page.js"></script>
+<%- include("../templates/dependency.ejs") %> 
+

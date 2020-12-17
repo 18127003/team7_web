@@ -17,6 +17,11 @@ document.addEventListener("DOMContentLoaded", function () {
   let carouselp = M.Carousel.init(document.querySelectorAll('.carousel.carousel-slider'), {indicators:true, duration:1000, fullWidth:true});
   let dropdown = M.Dropdown.init(document.querySelectorAll('.dropdown-trigger'), {hover:true});
   let profile_modal = M.Modal.init(document.querySelectorAll('.modal'));
+  let el = document.getElementById("login_modal");
+  if(el){
+    let login_modal = M.Modal.getInstance(el);
+    login_modal.open();
+  }
   let search_modal = M.Autocomplete.init(document.querySelectorAll('.autocomplete'), {limit:3, data: search_data});
   var tap = M.TapTarget.init(document.querySelectorAll('.tap-target'));
 });

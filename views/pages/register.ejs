@@ -1,24 +1,24 @@
 <body>
     <div class="header" style="visibility: visible;opacity: 1;">
         <a class="logo" href="/" style="visibility: visible;opacity: 1;">
-            <img src="https://img.icons8.com/doodle/48/000000/lighthouse--v1.png"/>
+            <img src="https://img.icons8.com/doodle/75/000000/lighthouse--v1.png"/>
         </a>
     </div>
     <main id="main-holder">
         <div class="row">
-            <div class="col s3"></div>
-            <div class="col s6">
-                <div class="row center">
+            <div class="col s12 card white" style="border-radius: 7px;">
+                <div class="row center card-content" style="padding-bottom: 0px;margin-bottom: 0px;">
                     <kbd id="login-header" class="flow-text truncate"><span>&hearts;</span>&nbsp;Welcome to our
                         house&nbsp;<span>&hearts;</span></kbd>
                 </div>
-                <div class="row error center">
-                    <% if(errors!=null){
-                        errors.forEach(err => { %>
+                
+                <% if(errors!=null){
+                    errors.forEach(err => { %>
+                    <div class="row error center card-content"></div>
                         <kbd style="background-color: coral;font-size: medium;"><%= err.msg %></kbd><br>
-                    <% });} %>
-                </div>
-                <div class="row form">
+                    </div>
+                <% });} %>
+                <div class="row form card-content">
                     <form action="/users/register" method="POST">
                         <div class="row form-group">
                             <input type="text" id="name" name="name" class="form-control" placeholder="Enter Name"
@@ -44,29 +44,13 @@
                             </button>
                         </div>  
                         <div class="row center">
-                        <a class="login_text flow-text truncate" href="login" style="font-size: medium;">
-                            Have an account?&nbsp;Sign&nbsp;in&nbsp;here
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- <div class="col-md-12 ">
-                        <div class="login-or">
-                            <hr class="hr-or">
-                            <span class="span-or">or</span>
+                            <a class="login_text flow-text truncate" href="login" style="font-size: medium;color: palevioletred;">
+                                Have an account?&nbsp;Sign&nbsp;in&nbsp;here
+                            </a>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <a class="btn btn-block g-button" href="#">
-                            <i class="fa fa-google"></i> Sign up with Google
-                        </a>
-                    </div>
-                    <p class="small mt-3">By signing up, you are indicating that you have read and agree to the
-                        <a href="#" class="ps-hero__content__link">Terms of Use</a> and <a href="#"
-                            class="ps-hero__content__link">Privacy Policy</a>.
-                    </p> -->
-            </form>
+                    </form>
+                </div>
+            </div>   
         </div>
     </main>
     <link rel="stylesheet" href="/stylesheet/signup-page.css">

@@ -29,10 +29,11 @@
                 <div class="card white hoverable function">
                     <% if(people==null){ %>
                         <div class="row card-content center" style="margin-bottom: 0px;">
-                            <a class="btn waves-effect waves-light pink lighten-4 modal-trigger" href="#admin_modal" style="width: 40%;">
+                            <a class="btn waves-effect waves-light pink lighten-4 modal-trigger" href="#edit_info_modal" style="width: 40%;">
                                 <kbd class="flow-text truncate" style="font-size: medium;">EDIT PROFILE</kbd>
                             </a>
-                        </div> 
+                        </div>
+                        <%- include("../templates/infoedit.ejs",{user: user}) %>  
                     <% if(user.role=="ADMIN"){ %> 
                         <div class="row card-content center" style="padding-bottom: 0px; padding-top: 0px;">
                             <a class="btn waves-effect waves-light pink lighten-4 modal-trigger" href="#admin_modal" style="width: 40%;">
@@ -51,6 +52,10 @@
             </div>
             <div class="col s8">
                 <div class="card white hoverable post-info">
+                    <a class="btn btn-floating btn-large pulse waves-effect waves-light pink lighten-3" href="/home/post" 
+                        style="float: right; margin-top: 10px; margin-right: 10px;">
+                        <i class="material-icons">add</i>
+                    </a>
                     <div class="row card-content center">
                         <kbd class="flow-text truncate" style="font-size: x-large;">My Post</kbd>
                     </div>
@@ -92,8 +97,8 @@
                                     <strong><%= post.title %></strong>
                                 </div>
                                 <div class="row card-content"  style="padding-top: 0px;padding-bottom: 0px;">
-                                    <p class="flow-text" style="font-size: medium;">
-                                        <%= post.description %>
+                                    <p class="flow-text truncate" style="font-size: medium;">
+                                        <%- post.description %>
                                     </p>
                                 </div>
                                 <div class="row card-content"  style="padding-top: 0px;padding-bottom: 5px;">

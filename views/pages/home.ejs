@@ -29,7 +29,7 @@
                         </li>
                         <li><span>Image 05</span>
                             <div>
-                                <h3>Cao·lau</h3>
+                                <h3>Cha·ca</h3>
                             </div>
                         </li>
                         <li><span>Image 06</span>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <div class="card info hoverable bg" style="border-radius: 6px;background: white;">
-                    <h4 class="center" style="font-weight: bold;">New Post</h4>
+                    <h4 class="center" style="font-weight: bold;color: #6d0019;">New Post</h4>
                     <hr>
                     <div class="carousel carousel-slider post" style="margin-top: 5%;">
                         <%  if(posts.length>0){
@@ -106,6 +106,128 @@
                         <a class="carousel-item" style="min-height: 0px;height: 200px;"></a>
                         <% } %>
                     </div>
+                </div>
+            </div>
+        </div>
+        <% if(user==null){ %>
+        <div id="login_modal" class="modal" style="border-radius: 7px;overflow: hidden;width: 30%;">
+            <div class="row modal-content center" style="padding-top: 5px;">
+                
+                <a class="flow-text truncate">Welcome to our house</a>
+                
+            </div>
+            <div class="row center modal-content">
+                <form action="/users/login" method="POST" id="login-form">
+                    <div class="row form-group">
+                        <input type="email" id="email" name="email" class="form-control login-form-field" 
+                        placeholder=" Enter Email" data-position="right" data-tooltip="I am a tooltip"/>
+                    </div>
+                    <div class="row form-group">
+                        <input type="password" id="password" name="password" class="form-control login-form-field"
+                            placeholder=" Enter Password" />
+                    </div>
+                    <div class="row center">
+                        <button type="submit" class="btn pulse" id="login-form-submit">Login</button>
+                    </div>
+                </form>
+                <div class="row" id="signup" style="margin-bottom: 0px;">
+                    <a class="signup_text flow-text truncate" href="register">
+                        or&nbsp;sign&nbsp;up&nbsp;here
+                    </a>
+                </div>
+            </div>
+        </div>
+        <% } %>
+        <div class="row center">
+            <div class="col s3"></div>
+            <div class="card white col s6 hoverable" style="border-radius: 30px;">
+                <div class="row card-content">
+                    <div class="input-field white">
+                        <form action="/search" method="GET">
+                            <input type="text" id="autocomplete-input" class="autocomplete form-control" value="" name="search_key" 
+                                placeholder="Search for articles or posts" style="width: 80%;">
+                            <label for="autocomplete-input" class="pink-text">Search</label>
+                            <button class="btn-flat" type="submit">
+                                <img src="https://img.icons8.com/color/40/000000/search--v1.png" class="prefix" style="right: 1%;"/>
+                            </button>
+                        </form>    
+                    </div>
+              </div>
+            </div>    
+        </div>
+        <div class="row">
+            <div class="col s6 m6 l3">
+                <div class="card white hoverable" style="border-radius: 7px;">
+                    <div class="card-image">
+                        <img src="/views/image/bg/green_bg.jpg" class="smallbg"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col s6 m6 l3">
+                <div class="card white hoverable" style="border-radius: 7px;">
+                    <div class="card-image">
+                        <img src="/views/image/bg/vn_bg.jpg" class="smallbg"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col s6 m6 l3">
+                <div class="card white hoverable" style="border-radius: 7px;">
+                    <div class="card-image">
+                        <img src="/views/image/bg/popdanang.jpg" class="smallbg"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col s6 m6 l3">
+                <div class="card white hoverable" style="border-radius: 7px;">
+                    <div class="card-image">
+                        <img src="/views/image/bg/tet_bg.jpg" class="smallbg"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6">
+                <div class="card white hoverable" style="border-radius: 7px;height: 275px;">
+                    <div class="row card-content center">
+                        <div class="col s8 card-image">
+                            <img src="/views/image/bg/tiengiang_bg.jpg" style="border-radius: 7px;"/>
+                        </div>
+                        <div class="col s4"><p class="flow-text">XUAN</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s6">
+                <div class="card white hoverable" style="border-radius: 7px; height: 275px;">
+                    <div class="row card-content center">
+                        <div class="col s4"><p class="flow-text">HA</p></div>
+                        <div class="col s8 card-image">
+                            <img src="/views/image/bg/he_bg.jpg" style="border-radius: 7px;"/>
+                        </div> 
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6">
+                <div class="card white hoverable" style="border-radius: 7px;height: 275px;">
+                    <div class="row card-content center">
+                        <div class="col s8 card-image">
+                            <img src="/views/image/bg/thu_bg.jpg" style="border-radius: 7px;"/>
+                        </div>
+                        <div class="col s4"><p class="flow-text">THU</p></div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col s6">
+                <div class="card white hoverable" style="border-radius: 7px;height: 275px;">
+                    <div class="row card-content center">
+                        <div class="col s4"><p class="flow-text">DONG</p></div>
+                        <div class="col s8 card-image">
+                            <img src="/views/image/bg/dong_bg.jpg" style="border-radius: 7px;"/>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>

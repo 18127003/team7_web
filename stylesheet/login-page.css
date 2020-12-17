@@ -15,20 +15,10 @@ body {
   background-color: rgba(225, 182, 193, 0.3);
 }
 
-#main-holder {
-  width: 50%;
-  height: fit-content;
-  /* display: grid;
-  justify-items: center;
-  align-items: center; */
-  background-color: white;
-  background-color: rgba(0,0,0,0.6);
-  border-radius: 7px;
-  box-shadow: 0px 0px 5px 2px pink;
-}
+
 
 #login-header{
-  color: whitesmoke;
+  color: palevioletred;
   margin-top: 10px;
 }
 #login-header span{
@@ -67,15 +57,15 @@ body {
 }
 
 .login-form-field::placeholder {
-  color: #3a3a3a;
+  color:palevioletred;
 }
 
 .login-form-field {
-  border: 2px solid palevioletred !important;
+  border: 3px solid palevioletred !important;
   margin-bottom: 10px !important;
   border-radius: 7px !important;
   outline: none;
-  background-color: wheat !important;
+  background-color: rgb(243, 230, 207) !important;
   height: 2rem !important;
   padding: 0px 0px 5px 5px;
 }
@@ -96,12 +86,12 @@ body {
 }
 
 div#signup{
-  margin-top: 15px;
+  margin-top: 7px;
   
 }
 #signup .signup_text{
   text-decoration: none;
-  color:whitesmoke;
+  color: palevioletred;
   font-size: medium;
  
 }
