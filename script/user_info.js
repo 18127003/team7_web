@@ -10,6 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let profile_modal = M.Modal.init(document.querySelectorAll(".modal"));
   let carousel = M.Carousel.init(document.querySelectorAll(".carousel"), {indicators: true,fullWidth: true,});
   let edit_button = M.FloatingActionButton.init(document.querySelectorAll('.fixed-action-btn'), {direction:"left",hoverEnabled: false});
-  // let chip = M.Chips.init(document.querySelectorAll('.chips'))
+  let tooltip = M.Tooltip.init(document.querySelectorAll(".tooltipped"));
 });
 

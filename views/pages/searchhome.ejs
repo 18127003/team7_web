@@ -4,6 +4,23 @@
         <div class="row title center">
             <h3><span>SEARCH</span></h3>
         </div>
+        <div class="row center">
+            <div class="col s2"></div>
+            <div class="card white col s12 m12 l8" style="border-radius: 30px;">
+                <div class="row card-content" style="padding-top: 0px;padding-bottom: 0px;">
+                    <div class="input-field white">
+                        <form action="/search" method="GET">
+                            <input type="text" id="autocomplete-input" class="autocomplete form-control" value="" name="search_key" 
+                                placeholder="Search for articles or posts" style="width: 85%;">
+                            <label for="autocomplete-input" class="pink-text">Search</label>
+                            <button class="btn-flat" type="submit">
+                                <img src="https://img.icons8.com/color/40/000000/search--v1.png" class="prefix" style="right: 1%;"/>
+                            </button>
+                        </form>    
+                    </div>
+                </div>
+            </div>   
+        </div>
         <div class="row">
             <div class="col s1"></div>
             <div class="col s10 center" style="margin-left: 2%">
@@ -15,14 +32,14 @@
                 </ul>
                 <div id="search_article" class="col s12">
                     <% if(articles.length==0){ %>
-                    <kbd class="flow-text truncate" style="position: absolute;top: 45%;left: 45%;">Hmm... nothing found</kbd>
+                    <kbd class="flow-text truncate" style="position: absolute;top: 60%;left: 40%;">Hmm... nothing found</kbd>
                     <% } else{ %>
                     <ul class="lb-album">
                         <% var i = 1; %> <% articles.forEach(article=>{ %>
                         <li>
                             <a href="#image-<%= i %> ">
                                 <img src="<%= JSON.parse(article.images)[0] %>" alt="image0<%= i %>" id="ficon" />
-                                <span><%= article.title %></span>
+                                <span class="flow-text truncate"><%= article.title %></span>
                             </a>
                             <div class="lb-overlay" id="image-<%= i %>">
                                 <img src="<%= JSON.parse(article.images)[0] %>" alt="image0<%= i %>" id="bigficon" />
@@ -48,14 +65,14 @@
                 </div>
                 <div id="search_post" class="col s12">
                     <% if(posts.length==0){ %>
-                        <kbd class="flow-text truncate" style="position: absolute;top: 45%;left: 45%;">Hmm... nothing found</kbd>
+                        <kbd class="flow-text truncate" style="position: absolute;top: 60%;left: 40%;">Hmm... nothing found</kbd>
                     <% } else{ %>
                     <ul class="lb-album">
                         <% var i = 1; %> <% posts.forEach(post=>{ %>
                         <li>
                             <a href="#image/<%= i %> ">
                                 <img src="<%= JSON.parse(post.image)[0] %>" alt="image0<%= i %>" id="ficon" />
-                                <span><%= post.title %></span>
+                                <span class="flow-text truncate"><%= post.title %></span>
                             </a>
                             <div class="lb-overlay" id="image/<%= i %>">
                                 <img src="<%= JSON.parse(post.image)[0] %>" alt="image0<%= i %>" id="bigficon" />
