@@ -8,8 +8,8 @@
         <div class="row">
             <div class="col s12 card white" style="border-radius: 7px;">
                 <div class="row center card-content" style="padding-bottom: 0px;margin-bottom: 0px;">
-                    <kbd id="login-header" class="flow-text truncate"><span>&hearts;</span>&nbsp;Welcome to our
-                        house&nbsp;<span>&hearts;</span></kbd>
+                    <kbd id="login-header" class="flow-text truncate"><span>&hearts;</span>&nbsp;Xin chào · Hello · Bonjour
+                        &nbsp;<span>&hearts;</span></kbd>
                 </div>
                 
                 <% if(errors!=null){
@@ -21,31 +21,32 @@
                 <div class="row form card-content">
                     <form action="/users/register" method="POST">
                         <div class="row form-group">
-                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter Name"
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Nhập tên"
                                 value="<%= typeof name != 'undefined' ? name : '' %>" />
                         </div>
                         <div class="row form-group">
-                            <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email"
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Nhập Email"
                                 value="<%= typeof email != 'undefined' ? email : '' %>" />
                         </div>
                         <div class="row form-group">
-                            <input type="password" id="password" name="password" class="form-control"
-                                placeholder="Create Password"
-                                value="<%= typeof password != 'undefined' ? password : '' %>" />
+                            <input type="password" id="password" name="password" class="form-control tooltipped"
+                                placeholder="Mật khẩu"
+                                value="<%= typeof password != 'undefined' ? password : '' %>"  
+                                data-position="right" data-tooltip="Mật khẩu ít nhất 6 kí tự"/>
                         </div>
                         <div class="row form-group">
                             <input type="password" id="password2" name="password2" class="form-control"
-                                placeholder="Confirm Password"
+                                placeholder="Xác nhận mật khẩu"
                                 value="<%= typeof password2 != 'undefined' ? password2 : '' %>" />
                         </div>
                         <div class="row center">
                             <button type="submit" class="btn send-button center pulse">
-                                <kbd class="truncate flow-text" style="font-size: medium;">Hey Homies</kbd> 
+                                <kbd class="truncate flow-text" style="font-size: medium;">BẮT ĐẦU NÀO</kbd> 
                             </button>
                         </div>  
                         <div class="row center">
                             <a class="login_text flow-text truncate" href="login" style="font-size: medium;color: palevioletred;">
-                                Have an account?&nbsp;Sign&nbsp;in&nbsp;here
+                                Người quen?&nbsp;Đăng&nbsp;nhập&nbsp;nào
                             </a>
                         </div>
                     </form>
@@ -54,5 +55,6 @@
         </div>
     </main>
     <link rel="stylesheet" href="/stylesheet/signup-page.css">
+    <script src="/script/login-page.js"></script>
     <%- include("../templates/dependency.ejs") %>
 </body>

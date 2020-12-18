@@ -1,23 +1,19 @@
 <body>
     <%- include("../templates/navmenu.ejs",{user:user})%>
     <main>
-        <a class="btn btn-floating btn-large pulse waves-effect waves-light pink lighten-3" href="/home/new_article" 
-                        style="float: right; margin-top: 10px; margin-right: 10px;">
-                        <i class="material-icons">add</i>
-                    </a>
         <div class="row">
             <div class="col s3"></div>
             <form class="col s6" enctype="multipart/form-data" action="/users/create" method="POST">
                 <div class="row">
                     <div class="col s12 input-field">
                         <input value="Hello World" id="post-title" type="text" class="validate" name="title">
-                        <label class="active" for="post-title">Title</label>
+                        <label class="active" for="post-title">Tiêu đề</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col s12 input-field">
                         <textarea id="textarea1" class="materialize-textarea" name="description"></textarea>
-                        <label for="textarea1">Write your idea</label>
+                        <label for="textarea1">Bạn nghĩ gì?</label>
                     </div>
                 </div>
                 <div class="row">
@@ -28,7 +24,7 @@
                                 <input type="file" name="image" multiple>
                             </div>
                             <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text" placeholder="Upload one or more pictures">
+                                <input class="file-path validate" type="text" placeholder="Thêm những khoảnh khắc của bạn">
                             </div>
                         </div>
                     </div>
@@ -41,7 +37,7 @@
                 </div>
                 <input class="auth" style="display:none;" name="author_id" value="<%- user.id %>">
                 <input class="auth_name" style="display:none;" name="author_name" value="<%- user.name %>">
-                <button class="btn waves-effect waves-light pink lighten-4" type="submit" id="postsubmit">Post
+                <button class="btn waves-effect waves-light pink lighten-4" type="submit" id="postsubmit">ĐĂNG
                     <i class="material-icons right">send</i>
                 </button>
             </form>

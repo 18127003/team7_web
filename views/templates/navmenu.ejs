@@ -1,8 +1,8 @@
 <ul class="dropdown-content" id="map1">
-    <li><a href="/map">The Festival</a></li>
-    <li><a href="/map">Tropical Summer</a></li>
-    <li><a href="/map">Rainy Autumn</a></li>
-    <li><a href="/map">Hasty Winter</a></li>
+    <li><a href="/map">Mùa lễ hội</a></li>
+    <li><a href="/map">Mưa nhiệt đới</a></li>
+    <li><a href="/map">Gió thu</a></li>
+    <li><a href="/map">Đông hối hả</a></li>
 </ul>
 <nav>
     <div class="nav-wrapper">
@@ -24,22 +24,22 @@
         </a>
         <ul class="right hide-on-med-and-down sdt_menu center-align" id="sdt_menu">
             <li>
-                <a class="modal-trigger" href="#modal2">
+                <a class="modal-trigger tooltipped" href="#modal2" data-position="bottom" data-tooltip="Tìm kiếm">
                     <img src="https://img.icons8.com/color/30/000000/search--v1.png"/>
-                    <kbd class="white-text" style="position: absolute;top:20px;right: 268px;">Search</kbd>
+                    <!-- <kbd class="white-text" style="position: absolute;top:20px;right: 268px;">Search</kbd> -->
                 </a>
                 <%- include("../templates/searchbox.ejs")%>
             </li>
             <li>
                 <% if(user==null){ %>
-                    <a href="/users/login">
+                    <a href="/users/login" class="tooltipped" data-position="bottom" data-tooltip="Đăng nhập">
                         <img src="https://img.icons8.com/clouds/36/000000/edit-user.png"/>
-                        <kbd class="white-text" style="position: absolute;top:20px;right: 210px;">Login</kbd>
+                        <!-- <kbd class="white-text" style="position: absolute;top:20px;right: 210px;">Login</kbd> -->
                 <% } else{ %>
                     <%- include("../templates/profile.ejs",{user:user})%>
-                    <a href="#modal1" class="modal-trigger">
+                    <a href="#modal1" class="modal-trigger tooltipped" data-position="bottom" data-tooltip="Tài khoản">
                         <img src="https://img.icons8.com/clouds/36/000000/edit-user.png"/>
-                        <kbd class="white-text" style="position: absolute;top:20px;right: 210px;">User</kbd>
+                        <!-- <kbd class="white-text" style="position: absolute;top:20px;right: 210px;">User</kbd> -->
                 <% } %>     
                     </a>
                     
@@ -47,23 +47,20 @@
             <li>
                 <a href="/map" class="dropdown-trigger" data-target="map1">
                     <img src="https://img.icons8.com/doodle/36/000000/map.png"/>
-                    <kbd class="white-text" style="position: absolute;top:20px;right: 153px;">Map</kbd>
                 </a>
             </li>
             <li>
                 <% if(user==null){ %>
-                    <a href="/blog">
+                    <a href="/blog" class="tooltipped" data-position="bottom" data-tooltip="Blog">
                 <% } else{ %>
-                    <a href="/blog?user=<%= user.id %>">
+                    <a href="/blog?user=<%= user.id %>" class="tooltipped" data-position="bottom" data-tooltip="Blog">
                 <% } %>
                     <img src="https://img.icons8.com/clouds/36/000000/comments.png"/>
-                    <kbd class="white-text" style="position: absolute;top:20px;right: 80px;">Blog</kbd>
                 </a>
             </li>
             <li>
-                <a href="/about">
+                <a href="/about" class="tooltipped" data-position="bottom" data-tooltip="Liên hệ">
                     <img src="https://img.icons8.com/clouds/36/000000/about.png"/>
-                    <kbd class="white-text" style="position: absolute;top:20px;right: 10px;">About</kbd>
                 </a>
             </li>
         </ul>
@@ -74,17 +71,17 @@
 
 <ul class="sidenav pink lighten-5" id="mobile-demo">
     <% if(user!=null){ %>
-    <li><a href="/users/info?id=<%= user._id %>">User</a></li>
+    <li><a href="/users/info?id=<%= user._id %>">Tài khoản</a></li>
     <% } else{ %>
-    <li><a href="users/login">User</a></li>
+    <li><a href="users/login">Đăng nhập</a></li>
     <% } %>
-    <li><a href="map">Map</a></li>
-    <li><a href="/search">Article</a></li>
+    <li><a href="map">Bản đồ</a></li>
+    <li><a href="/search">Bài báo</a></li>
     <% if(user!=null){ %> 
     <li><a href="/blog?user=<%= user.id %>">Blog</a></li>
     <% } else{ %>
     <li><a href="/blog">Blog</a></li>
     <% } %> 
-    <li><a href="about">About</a></li>
+    <li><a href="about">Chúng tôi là ai?</a></li>
 </ul>
 
