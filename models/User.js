@@ -9,6 +9,9 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  bio:{
+    type: String
+  },
   role:{
     type: String,
     required: true
