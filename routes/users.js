@@ -193,21 +193,22 @@ router.post("/create", multipartMiddleware,async (req, res) => {
 router.post("/write", multipartMiddleware,async (req, res) => {
   var urls=[]
   var img_id = []
-  var contents=[]
   var savepath="articles/"+req.body.title
-  var img1 = await cloudinary.uploader.upload(req.files.image1.path,{folder:savepath});
-  var img2 = await cloudinary.uploader.upload(req.files.image2.path,{folder:savepath});
-  var img3 = await cloudinary.uploader.upload(req.files.image3.path,{folder:savepath});
-  urls.push(img1.url);
-  urls.push(img2.url);
-  urls.push(img3.url);
-  img_id.push(img1.public_id);
-  img_id.push(img2.public_id);
-  img_id.push(img3.public_id);
-  contents.push(req.body.content1);
-  contents.push(req.body.content2);
-  contents.push(req.body.content3);
-  contents.push(req.body.content4);
+  req.files.image.forEach(img=>{
+    if (img.originalFilename =='' && img.size == 0){
+      req.files.image.splice(req.files.image.indexOf(img),1);
+    }
+  })
+  req.body.content.forEach(cont=>{
+    if (cont==''){
+      req.body.content.splice(req.body.content.indexOf(cont),1);
+    }
+  })
+  await asyncForEach(req.files.image, async img=>{
+    let imgi = await cloudinary.uploader.upload(img.path,{folder:savepath});
+    urls.push(imgi.url);
+    img_id.push(imgi.public_id);
+  })
   var article = new Article({
     author_id: req.body.author_id,
     author_name: req.body.author_name,
@@ -217,7 +218,7 @@ router.post("/write", multipartMiddleware,async (req, res) => {
     created_at: new Date(),
     images: JSON.stringify(urls),
     images_id: JSON.stringify(img_id),
-    content: JSON.stringify(contents),
+    content: JSON.stringify(req.body.content),
   });
 
   article.save(function (err) {
@@ -267,10 +268,19 @@ router.post("/postUpdate",multipartMiddleware,async (req, res)=>{
 
 
 router.post("/test", multipartMiddleware, async (req,res)=>{
-  var savepath = "articles/"+req.body.title;
-  cloudinary.uploader.upload(req.files.image.path,{width:300, height:300, crop:"thumb",folder: savepath},(err,result)=>{
-    res.render("pages/test");
+  req.files.image.forEach(img=>{
+    if (img.originalFilename =='' && img.size == 0){
+      req.files.image.splice(req.files.image.indexOf(img),1);
+    }
   })
+  req.body.content.forEach(cont=>{
+    if (cont==''){
+      req.body.content.splice(req.body.content.indexOf(cont),1);
+    }
+  })
+  console.log(req.files.image)
+  console.log(req.body.content);
+  res.render("pages/test");
 })
 
 module.exports = router;

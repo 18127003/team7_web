@@ -10,14 +10,33 @@ document.addEventListener("DOMContentLoaded", function () {
       secondaryPlaceholder: "+Tag",
     });
     
-  });
-  document.getElementById("articlesubmit").addEventListener("click",function (){
-    chipsInstance = M.Chips.getInstance(document.querySelector(".chips-placeholder"));
-    sub = document.getElementById("articletag");
-    var element1 = document.createElement("input");         
-    element1.name="hashtag";
-    element1.value = JSON.stringify(chipsInstance.chipsData);
-    element1.type = 'hidden';
-    sub.appendChild(element1);
-    sub.submit();
-  })
+});
+var i = 2;
+document.getElementById("articlesubmit").addEventListener("click",function (){
+  chipsInstance = M.Chips.getInstance(document.querySelector(".chips-placeholder"));
+  sub = document.getElementById("articletag");
+  var element1 = document.createElement("input");         
+  element1.name="hashtag";
+  element1.value = JSON.stringify(chipsInstance.chipsData);
+  element1.type = 'hidden';
+  sub.appendChild(element1);
+  sub.submit();
+})
+document.getElementById("adder").addEventListener("click", function(){
+  let add = document.getElementById("adder");
+  add.insertAdjacentHTML("beforebegin",
+   `<div class="row input-field">
+      <textarea id="textarea${i}" class="materialize-textarea" name="content"></textarea>
+      <label for="textarea2${i}">Content ${i}</label>
+    </div>
+    <div class="row file-field input-field upload-field">
+      <div class="btn pink lighten-4">
+        <img src="https://img.icons8.com/officel/40/000000/add-image.png" />
+        <input type="file" name="image">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text" placeholder="Upload picture">
+      </div>
+    </div>`);
+  ++i;
+})
