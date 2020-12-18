@@ -147,6 +147,18 @@ router.get("/deletePost", async (req, res)=>{
   res.redirect("/users/info?id="+req.user._id)
 })
 
+// Delete article
+router.get("/deleteArticle", async (req, res)=>{
+  var article = await Article.findByIdAndDelete(req.query.id);
+  images = JSON.parse(article.images_id);
+  await article.remove();
+  await asyncForEach(images, async(img)=>{
+    await cloudinary.uploader.destroy(img);
+  })
+  res.setHeader("user",JSON.stringify(req.user))
+  res.redirect("/users/info?id="+req.user._id)
+})
+
 async function asyncForEach(array, callback) {
   for (let index = 0; index < array.length; index++) {
     await callback(array[index], index, array);
