@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
       placeholder: "Enter a tag",
       secondaryPlaceholder: "+Tag",
     });
-    
+    let t = M.Tooltip.init(document.querySelectorAll(".tooltipped"));
 });
 var i = 2;
 document.getElementById("articlesubmit").addEventListener("click",function (){
@@ -27,7 +27,7 @@ document.getElementById("adder").addEventListener("click", function(){
   add.insertAdjacentHTML("beforebegin",
    `<div class="row input-field">
       <textarea id="textarea${i}" class="materialize-textarea" name="content"></textarea>
-      <label for="textarea2${i}">Content ${i}</label>
+      <label for="textarea2${i}">Nội dung ${i}</label>
     </div>
     <div class="row file-field input-field upload-field">
       <div class="btn pink lighten-4">
@@ -35,7 +35,7 @@ document.getElementById("adder").addEventListener("click", function(){
         <input type="file" name="image">
       </div>
       <div class="file-path-wrapper">
-        <input class="file-path validate" type="text" placeholder="Upload picture">
+        <input class="file-path validate" type="text" placeholder="Thêm hình">
       </div>
     </div>`);
   ++i;

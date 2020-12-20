@@ -3,9 +3,17 @@
     
     <div class="modal-content white" style="overflow-x: hidden;">
         <div class="row center">
+            <kbd>Chọn người dùng để nâng cấp thành admin</kbd>
+        </div>
+        <div class="row center">
 
         <%  users.forEach(user => { %>
-            <kbd class="flow-text chip" style="font-size: medium; padding-right: 10px;"><%= user.name %></kbd>        
+            <kbd class="flow-text chip" style="font-size: medium; padding-right: 10px;">
+                <label>
+                    <input id="indeterminate-checkbox" type="checkbox" />
+                    <span><%= user.name %></span>
+                </label>
+            </kbd>        
         <%    }); %> 
         </div>
         
@@ -16,7 +24,7 @@
     </div>
     <div class="modal-footer pink lighten-5">
         <button class="modal-close waves-effect waves-pink btn"
-            style="margin-bottom: 30px;position: absolute;left:46%">Confirm</button>
+            style="margin-bottom: 30px;position: absolute;left:46%">Xác nhận</button>
     </div>
     
 </div>

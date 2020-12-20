@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let dropdown = M.Dropdown.init(document.querySelectorAll(".dropdown-trigger"),{ hover: true });
   let profile_modal = M.Modal.init(document.querySelectorAll(".modal"));
   let carousel = M.Carousel.init(document.querySelectorAll(".carousel"), {indicators: true,fullWidth: true,});
-  
+  let t = M.Tooltip.init(document.querySelectorAll(".tooltipped"));
 });
 
 mybutton = document.querySelector(".topbtn");

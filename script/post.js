@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     placeholder: "Enter a tag",
     secondaryPlaceholder: "+Tag",
   });
+  let t = M.Tooltip.init(document.querySelectorAll(".tooltipped"));
 });
 document.getElementById("postsubmit").addEventListener("click",function (){
   chipsInstance = M.Chips.getInstance(document.querySelector(".chips-placeholder"));

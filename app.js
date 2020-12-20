@@ -93,7 +93,7 @@ app.listen(PORT, console.log(`Server started on port ${PORT}`));
 // })()
 
 // esClient.indices.create({  
-//   index: 'library'
+//   index: 'articles'
 // },function(err,resp,status) {
 //   if(err) {
 //     console.log(err);

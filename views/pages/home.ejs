@@ -9,32 +9,32 @@
                     <ul class="cb-slideshow">
                         <li><span>Image 01</span>
                             <div>
-                                <h3>Banh·can</h3>
+                                <h3>BÁNH·CĂN</h3>
                             </div>
                         </li>
                         <li><span>Image 02</span>
                             <div>
-                                <h3>Banh·mi</h3>
+                                <h3>BÁNH·MÌ</h3>
                             </div>
                         </li>
                         <li><span>Image 03</span>
                             <div>
-                                <h3>Banh·xeo</h3>
+                                <h3>BÁNH·XÈO</h3>
                             </div>
                         </li>
                         <li><span>Image 04</span>
                             <div>
-                                <h3>Banh·trang·tron</h3>
+                                <h3>BÁNH·TRÁNG·TRỘN</h3>
                             </div>
                         </li>
                         <li><span>Image 05</span>
                             <div>
-                                <h3>Cha·ca</h3>
+                                <h3>CHẢ·CÁ</h3>
                             </div>
                         </li>
                         <li><span>Image 06</span>
                             <div>
-                                <h3>Bun·bo</h3>
+                                <h3>BÚN·BÒ</h3>
                             </div>
                         </li>
                     </ul>
@@ -45,15 +45,15 @@
                         class="material-icons" id="hint">menu</i></a>
                 <div class="tap-target" data-target="hint">
                     <div class="tap-target-content">
-                        <h5 class="flow-text">Vietnamese cuisine &amp; Culture</h5>
-                        <p class="flow-text" style="font-size: medium;">Explore our country's beauty through everyday's
-                            food culture<br>Search our
-                            <a class="flow-text" style="font-size: medium;" href="/search">articles</a>
-                            or watch
-                            <a class="flow-text" style="font-size: medium;" href="/blog">travel post's</a>
-                            to live in the marvelous of Vietnamese.&nbsp;
+                        <h5 class="flow-text">Ẩm thực &amp; Văn hoá Việt Nam</h5>
+                        <p class="flow-text" style="font-size: medium;">Khám phá vẻ đẹp đất nước qua hành trình những món ăn
+                            <br>Xem các
+                            <a class="flow-text" style="font-size: medium;" href="/search">bài báo</a>
+                            hoặc
+                            <a class="flow-text" style="font-size: medium;" href="/blog">bài viết</a>
+                            để tận hưởng món quà của đất nước hình chữ S.&nbsp;
                             <% if(user==null){ %> 
-                            <a class="flow-text" style="font-size: medium;" href="/users/login">Login now.</a>
+                            <a class="flow-text" style="font-size: medium;" href="/users/login">Đăng nhập ngay.</a>
                             <% } %>
                         </p>
                     </div>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <div class="card info hoverable bg" style="border-radius: 6px;background: white;">
-                    <h4 class="center" style="font-weight: bold;color: #6d0019;">New Post</h4>
+                    <h4 class="center" style="font-weight: bold;color: #6d0019;">Bài viết mới</h4>
                     <hr>
                     <div class="carousel carousel-slider post" style="margin-top: 5%;">
                         <%  if(posts.length>0){
@@ -113,26 +113,26 @@
         <div id="login_modal" class="modal" style="border-radius: 7px;overflow: hidden;width: 30%;">
             <div class="row modal-content center" style="padding-top: 5px;">
                 
-                <a class="flow-text truncate">Welcome to our house</a>
+                <a class="flow-text truncate">Xin chào · Hello · Bonjour</a>
                 
             </div>
             <div class="row center modal-content">
                 <form action="/users/login" method="POST" id="login-form">
                     <div class="row form-group">
                         <input type="email" id="email" name="email" class="form-control login-form-field" 
-                        placeholder=" Enter Email" data-position="right" data-tooltip="I am a tooltip"/>
+                        placeholder=" Nhập Email"/>
                     </div>
                     <div class="row form-group">
                         <input type="password" id="password" name="password" class="form-control login-form-field"
-                            placeholder=" Enter Password" />
+                            placeholder=" Nhập mật khẩu" />
                     </div>
                     <div class="row center">
-                        <button type="submit" class="btn pulse" id="login-form-submit">Login</button>
+                        <button type="submit" class="btn pulse" id="login-form-submit">Đăng nhập</button>
                     </div>
                 </form>
                 <div class="row" id="signup" style="margin-bottom: 0px;">
                     <a class="signup_text flow-text truncate" href="register">
-                        or&nbsp;sign&nbsp;up&nbsp;here
+                        hoặc&nbsp;đăng&nbsp;ký&nbsp;ngay
                     </a>
                 </div>
             </div>
@@ -145,14 +145,14 @@
                     <div class="input-field white">
                         <form action="/search" method="GET">
                             <input type="text" id="autocomplete-input" class="autocomplete form-control" value="" name="search_key" 
-                                placeholder="Search for articles or posts" style="width: 80%;">
-                            <label for="autocomplete-input" class="pink-text">Search</label>
+                                placeholder="Tìm kiếm bài viết hoặc bài báo" style="width: 80%;">
+                            <label for="autocomplete-input" class="pink-text">Tìm kiếm</label>
                             <button class="btn-flat" type="submit">
                                 <img src="https://img.icons8.com/color/40/000000/search--v1.png" class="prefix" style="right: 1%;"/>
                             </button>
                         </form>    
                     </div>
-              </div>
+                </div>
             </div>    
         </div>
         <div class="row">
@@ -187,48 +187,54 @@
         </div>
         <div class="row">
             <div class="col s6">
-                <div class="card white hoverable" style="border-radius: 7px;height: 275px;">
-                    <div class="row card-content center">
-                        <div class="col s8 card-image">
-                            <img src="/views/image/bg/tiengiang_bg.jpg" style="border-radius: 7px;"/>
+                <a href="/map">
+                    <div class="card white hoverable" style="border-radius: 7px;height: 275px;">
+                        <div class="row card-content center">
+                            <div class="col s8 card-image">
+                                <img src="/views/image/bg/tiengiang_bg.jpg" style="border-radius: 7px;"/>
+                            </div>
+                            <div class="col s4"><p class="flow-text">XUÂN</p></div>
                         </div>
-                        <div class="col s4"><p class="flow-text">XUAN</p></div>
                     </div>
-                </div>
+                </a>   
             </div>
             <div class="col s6">
-                <div class="card white hoverable" style="border-radius: 7px; height: 275px;">
-                    <div class="row card-content center">
-                        <div class="col s4"><p class="flow-text">HA</p></div>
-                        <div class="col s8 card-image">
-                            <img src="/views/image/bg/he_bg.jpg" style="border-radius: 7px;"/>
-                        </div> 
-                    </div>  
-                </div>
+                <a href="/map">
+                    <div class="card white hoverable" style="border-radius: 7px; height: 275px;">
+                        <div class="row card-content center">
+                            <div class="col s4"><p class="flow-text">HẠ</p></div>
+                            <div class="col s8 card-image">
+                                <img src="/views/image/bg/he_bg.jpg" style="border-radius: 7px;"/>
+                            </div> 
+                        </div>  
+                    </div>
+                </a>   
             </div>
         </div>
         <div class="row">
             <div class="col s6">
-                <div class="card white hoverable" style="border-radius: 7px;height: 275px;">
-                    <div class="row card-content center">
-                        <div class="col s8 card-image">
-                            <img src="/views/image/bg/thu_bg.jpg" style="border-radius: 7px;"/>
+                <a href="/map">
+                    <div class="card white hoverable" style="border-radius: 7px;height: 275px;">
+                        <div class="row card-content center">
+                            <div class="col s8 card-image">
+                                <img src="/views/image/bg/thu_bg.jpg" style="border-radius: 7px;"/>
+                            </div>
+                            <div class="col s4"><p class="flow-text">THU</p></div>
                         </div>
-                        <div class="col s4"><p class="flow-text">THU</p></div>
                     </div>
-                    
-                </div>
+                </a>   
             </div>
             <div class="col s6">
-                <div class="card white hoverable" style="border-radius: 7px;height: 275px;">
-                    <div class="row card-content center">
-                        <div class="col s4"><p class="flow-text">DONG</p></div>
-                        <div class="col s8 card-image">
-                            <img src="/views/image/bg/dong_bg.jpg" style="border-radius: 7px;"/>
+                <a href="/map">
+                    <div class="card white hoverable" style="border-radius: 7px;height: 275px;">
+                        <div class="row card-content center">
+                            <div class="col s4"><p class="flow-text">ĐÔNG</p></div>
+                            <div class="col s8 card-image">
+                                <img src="/views/image/bg/dong_bg.jpg" style="border-radius: 7px;"/>
+                            </div>
                         </div>
                     </div>
-                    
-                </div>
+                </a>               
             </div>
         </div>
     </main>

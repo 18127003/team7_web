@@ -10,8 +10,8 @@
                         <img src="/views/image/icon/o3.jpg">
                         <% } %> 
                         <span class="card-title"><strong><%= user.name %></strong></span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light red change-avatar hoverable" href="/users/info?id=<%= user._id %>">
-                            <i class="material-icons">add</i>
+                        <a class="btn-floating halfway-fab waves-effect waves-light red change-avatar hoverable pulse" href="/users/info?id=<%= user._id %>">
+                            <i class="material-icons">account_circle</i>
                         </a>
                     </div>
                     <div class="card-content" style="color: black;">
@@ -22,14 +22,14 @@
             <div class="col s7">
                 <% if(user.role=="ADMIN"){ %> 
                 <div class="row">
-                    <a href="/home/new_article" class="btn pink lighten-4" style="width: 200px;">New Article</a>
+                    <a href="/home/new_article" class="btn pink lighten-4" style="width: 200px;">Soạn báo mới</a>
                 </div>
                 <% } %> 
                 <div class="row">
-                    <a href="/home/post" class="btn pink lighten-4" style="width: 200px;">New Post</a>
+                    <a href="/home/post" class="btn pink lighten-4" style="width: 200px;">Đăng bài viết</a>
                 </div>
                 <div class=" row">
-                    <a href="#" class="btn pink lighten-4" style="width: 200px;">My Favorite</a>
+                    <a href="/users/info?id=<%= user._id %>#favorite" class="btn pink lighten-4" style="width: 200px;">Yêu thích</a>
                 </div>
                 <div class=" row">
                     <a href="/test" class="btn pink lighten-4" style="width: 200px;">Test</a>
@@ -38,6 +38,6 @@
         </div>
     </div>
     <div class="modal-footer">
-        <a class="modal-close waves-effect waves-pink btn pink lighten-4" href="/users/logout" style="margin-bottom: 30px;">Log out</a>
+        <a class="modal-close waves-effect waves-pink btn pink lighten-4" href="/users/logout" style="margin-bottom: 30px;">Đăng xuất</a>
     </div>
 </div>
