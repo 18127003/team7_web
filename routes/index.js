@@ -53,12 +53,11 @@ router.get("/home", ensureAuthenticated, async (req, res) => {
 
 // Blog page
 
-router.get("/blog", myAuth, (req, res) => {
-  Post.find({}, function (err, posts) {
-    if (err) res.send(err);
-
-    res.render("pages/blog", { posts: posts, user: req.user });
-  });
+router.get("/blog", myAuth, async (req, res) => {
+  // res.render("pages/preload");
+  var posts = await Post.find({});
+  res.render("pages/blog", { posts: posts, user: req.user });
+  
 });
 
 // ABOUT US
