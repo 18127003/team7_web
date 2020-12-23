@@ -17,7 +17,8 @@
                     </i>   
                 </a>
                 <div class="tap-target" data-target="hint" style="background: url(/views/image/bg/spring/sapa.png);background-repeat:no-repeat;background-size:cover;">
-                </div>  
+                </div>
+
             </div>
             <div class="col s8">
                 <div class="card whitesmoke hoverable" style="border-radius: 7px;">
@@ -27,6 +28,29 @@
                 </div>
             </div>
         </div>
+        <% articles.forEach(article => { 
+            imgs=JSON.parse(article.images)
+            cnt = JSON.parse(article.content) %>
+        <div class="section pink lighten-5">
+            <div class="row" style="margin-bottom: 0px;">
+                <div class="col s4">
+                    <div class="card-image">
+                        <img src="<%= imgs[0]%>" style="height: 400px;width: auto;"/>
+                    </div>
+                </div>
+                <div class="col s8">
+                    <div class="row">
+                        <kbd class="flow-text" style="font-size:xx-large"><%= article.title %></kbd>
+                    </div>
+                    <p class="flow-text" style="font-size: x-large;"><%= article.sub_title %></p>
+                    <p class="flow-text" style="font-size: medium;"><%- cnt[0] %></p>
+                </div>
+            </div>
+        </div>
+        <div class="parallax-container">
+            <div class="parallax"><img src="<%= imgs[1] %>"/></div>
+        </div>
+        <% }); %>
     </main>
     <footer class="page-footer" style="padding: 0px;">
         <%- include("../templates/footer.ejs",{user:user}) %>
