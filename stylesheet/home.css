@@ -4,7 +4,8 @@
     src: url('./font/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
          url('./font/BebasNeue-webfont.woff') format('woff'),
          url('./font/BebasNeue-webfont.ttf') format('truetype'),
-         url('./font/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+		 url('./font/BebasNeue-webfont.svg#BebasNeueRegular') format('svg'),
+		 url('./font/FiraSansCondensed-ExtraBold.ttf') format('AlegreyaSans');
     font-weight: normal;
     font-style: normal;
 }

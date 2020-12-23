@@ -123,9 +123,10 @@ body .row .col div.card div.carousel{height: 100%;}
     animation: titleAnimation 36s linear infinite 0s;
 }
 .cb-slideshow li div h3 {
-    font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
-    font-size: 100px;
-    padding: 0 15px;
+	font-family:'AlegreyaSans';
+	font-weight: bold;
+    font-size: 68px;
+    padding: 0 10px;
     line-height: 90px;
     color: rgba(169,3,41, 0.8);
 }
