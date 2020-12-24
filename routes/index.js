@@ -29,9 +29,17 @@ router.get("/", forwardAuthenticated, async (req, res) => {
 });
 
 // Map Page
-router.get("/map", myAuth, (req, res) =>
-  res.render("pages/map_spring", { user: req.user })
-);
+router.get("/map", myAuth, async (req, res) =>{
+  articles=[];
+  result = await Article.search(
+    { query_string: { query: "tet" } },
+    { hydrate: true }
+  )
+  await asyncForEach(result.hits.hits, async(res)=>{
+    await articles.push(res)
+  })
+  res.render("pages/map_spring", { user: req.user, articles:articles })
+});
 
 // Dashboard
 router.get("/home", ensureAuthenticated, async (req, res) => {
