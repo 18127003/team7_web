@@ -126,6 +126,15 @@ router.get("/home/new_article",ensureAuthenticated, (req, res)=>{
     res.redirect("/home");
   }
 })
+
+// Update article
+router.get("/home/update_article",ensureAuthenticated,async (req, res)=>{
+  let article = await Article.findById(req.query.id);
+  console.log(article)
+  console.log(req.user)
+  res.render("pages/article_update",{user:req.user, article:article})
+  // res.redirect("/home");
+})
 router.get("/test",myAuth,(req,res)=>{
   res.render("pages/test");
 })

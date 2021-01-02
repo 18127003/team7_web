@@ -1,0 +1,74 @@
+<body>
+    <head>
+        <%- include("../templates/navmenu.ejs",{user:user}) %> 
+    </head>
+    <main>
+        <div class="row center"><kbd class="flow-text">BÀI BÁO</kbd></div>
+        <div class="row">
+            <div class="col s2"></div>
+            <form class="col s8" enctype="multipart/form-data" action="/users/articleUpdate?id=<%= article._id %>" method="POST">
+                <%  content = JSON.parse(article.content)
+                    image = JSON.parse(article.images) %> 
+                <div class="row center">
+                    <div class="col s5">
+                        <div class="row">
+                            <kbd><%= article.title %></kbd>
+                        </div>
+                        <div class="row input-field">
+                            <input id="post-subtitle" type="text" class="validate" name="sub_title" value="<%= article.sub_title %>">
+                            <label class="active" for="post-subtitle">Phụ đề</label>
+                        </div>
+                        <div class="row input-field">
+                            <textarea id="textarea1" class="materialize-textarea" name="content"><%- content[0] %></textarea>
+                        </div>
+                    </div>
+                    <div class="col s1"></div>
+                    <div class="col s6 input-field">
+                        <div class=" row center">
+                            <img src="<%= image[0] %>"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row center" style="text-align:justify;">
+        
+                    <%var i=1;
+                    while(i<=content.length || i<=image.length){
+                    if(i<content.length){ %>
+                        <div class="row input-field">
+                            <textarea id="textarea1" class="materialize-textarea" name="content"><%- content[i] %></textarea>
+                        </div>
+                    <% } if(i<image.length){ %>
+                        <div class="row center">
+                            <img src="<%= image[i] %>" style="max-width:100%; border-radius: 7px;" />
+                        </div>
+                    <% } ++i} %>
+                  
+                </div>
+                <div class="row center">
+                    <a class="btn btn-floating btn-large waves-effect waves-teal pink lighten-3" id="adder">
+                        <i class="material-icons">add</i>
+                    </a>
+                </div>
+                
+                <div class="row">
+                    <div class="chips chips-placeholder" id="articletag">
+                    </div>
+                </div>
+                <input class="auth" style="display:none;" name="author_id" value="<%- user._id %>">
+                <input class="auth_name" style="display:none;" name="author_name" value="<%- user.name %>">
+                <div class="row center">
+                    <button class="btn waves-effect waves-light pink lighten-4" type="submit" id="articlesubmit">LUU
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+                
+            </form>
+        </div>
+    </main>
+    <footer class="page-footer">
+        <%- include("../templates/footer.ejs",{user:user}) %> 
+    </footer>
+    <link rel="stylesheet" href="/stylesheet/new_article.css">
+    <script src="/script/article_update.js"></script>
+    <%- include("../templates/dependency.ejs") %> 
+</body>

@@ -269,7 +269,7 @@ router.post("/postUpdate",multipartMiddleware,async (req, res)=>{
   var post = await Post.findById(req.query.id);
   post.title = req.body.title;
   post.description = req.body.description; 
-  post.created_at = new Date.now;
+  // post.created_at = new Date.now;
   // console.log(req.body.title);
   // console.log(req.body.description);
   await post.save();
@@ -277,6 +277,22 @@ router.post("/postUpdate",multipartMiddleware,async (req, res)=>{
   res.redirect("/users/info?id="+req.user._id)
 })
 
+// Update article
+router.post("/articleUpdate", multipartMiddleware, async (req, res)=>{
+  var article = await Article.findById(req.query.id);
+  req.body.content.forEach(cont=>{
+    if (cont==''){
+      req.body.content.splice(req.body.content.indexOf(cont),1);
+    }
+  })
+  article.sub_title = req.body.sub_title;
+  article.content = JSON.stringify(req.body.content);
+  article.hashtag = req.body.hashtag;
+
+  await article.save();
+  res.setHeader("user",JSON.stringify(req.user))
+  res.redirect("/users/info?id="+req.user._id)
+})
 
 
 router.post("/test", multipartMiddleware, async (req,res)=>{
@@ -290,8 +306,6 @@ router.post("/test", multipartMiddleware, async (req,res)=>{
       req.body.content.splice(req.body.content.indexOf(cont),1);
     }
   })
-  console.log(req.files.image)
-  console.log(req.body.content);
   res.render("pages/test");
 })
 
