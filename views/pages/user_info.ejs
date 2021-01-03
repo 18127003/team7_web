@@ -23,6 +23,10 @@
                     <% } %> 
                     <div class="row center card-content">
                             <kbd class="flow-text truncate" style="font-size: medium;"><%= userp.name %></kbd>
+                    </div>
+                    <div class="row center card-content" style="padding-top: 0px;">
+                        <kbd class="flow-text truncate">Bio</kbd>
+                        <kbd class="flow-text truncate" style="font-size: medium;"><%= userp.bio%></kbd>
                     </div>  
                     <%- include("../templates/avatar.ejs")  %>  
                 </div>

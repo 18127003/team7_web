@@ -11,6 +11,7 @@ const Post = require("../models/Post");
 const Article = require("../models/Article");
 const { forwardAuthenticated, ensureAuthenticated } = require("../config/auth");
 const Favorite = require("../models/Favorite");
+const pusher = require("../config/pusher");
 
 // Login Page
 router.get("/login", forwardAuthenticated, (req, res) =>
@@ -294,6 +295,32 @@ router.post("/articleUpdate", multipartMiddleware, async (req, res)=>{
   res.redirect("/users/info?id="+req.user._id)
 })
 
+// Update user info
+router.post("/updateUser", multipartMiddleware, async (req,res)=>{
+  let user = await User.findById(req.query.id)
+  user.name = req.body.name;
+  user.email = req.body.email;
+  user.bio = req.body.bio;
+  await user.save();
+  res.setHeader("user",JSON.stringify(req.user))
+  res.redirect("/users/info?id="+req.user._id)
+})
+
+// Comment
+router.post('/comment',multipartMiddleware, (req, res)=>{
+
+  console.log(req.body);
+  // var comment = JSON.parse(req.body)
+  // console.log(comment)
+  var newComment = {
+    name: req.body.new_comment_name,
+    id: req.body.new_comment_id,
+    comment: req.body.new_comment_text
+  }
+  pusher.trigger('flash-comments', 'new_comment', newComment);
+  res.json({ name:req.body.new_comment_name, id:req.body.new_comment_id, comment:req.body.new_comment_text });
+  
+});
 
 router.post("/test", multipartMiddleware, async (req,res)=>{
   req.files.image.forEach(img=>{

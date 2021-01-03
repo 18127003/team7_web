@@ -1,15 +1,30 @@
 <div id="edit_info_modal" class="modal modal-fixed-footer hide-on-med-and-down" style="overflow: hidden;border-radius: 15px;">
-    
-    
-    <div class="modal-content white" style="overflow-x: hidden;">
-        <div class="row center">
-            <kbd>Tên: <%= user.name %></kbd><br>
-            <kbd>Email: <%= user.email %></kbd>
+    <button class="modal-close red btn btn-floating" style="position: absolute;top: 1%;right: 1%;">x</button>
+    <form enctype="multipart/form-data" method="POST" action="/users/updateUser?id=<%= user._id %>">
+       
+        <div class="modal-content white" style="overflow-x: hidden;">
+            <div class="col s3">
+               
+            </div>
+            <div class="col s6">
+                <div class="row center input-field">
+                    <input name="name" id="user_name" class="validate" required value="<%= user.name %> " type="text"/>
+                    <label for="user_name">Tên</label>
+                </div>
+                <div class="row center input-field">
+                    <input name="email" id="user_mail" class="validate" required value="<%= user.email %> " type="email"/>
+                    <label for="user_mail">Email</label>
+                </div>
+                <div class="row center input-field">
+                    <textarea class="materialize-textarea" name="bio" id="user_bio"><% if(user.bio!=null){ %><%= user.bio %><% } %></textarea>
+                    <label for="user_bio">Bio</label>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="modal-footer pink lighten-5">
-        <button class="modal-close waves-effect waves-pink btn"
-            style="margin-bottom: 30px;position: absolute;left:46%">XÁC NHẬN</button>
-    </div>
+        <div class="modal-footer pink lighten-5">
+            <button class="modal-close waves-effect waves-pink btn"
+                style="margin-bottom: 30px;position: absolute;left:46%">XÁC NHẬN</button>
+        </div>
+    </form>
     
 </div>

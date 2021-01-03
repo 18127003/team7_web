@@ -26,7 +26,7 @@
           if(i<contents.length){ %>
           <p class="flow-text" style="font-size: medium;"><%- contents[i] %></p>
           <% } if(i<imgs.length){ %>
-          <img src="<%= imgs[i] %>" style="max-width:100%" />
+          <img src="<%= imgs[i] %>" style="max-width:100%; border-radius: 7px;" />
           <% } ++i} %>
         
       </div>
@@ -47,23 +47,33 @@
         <div class="row my-3">
           <div class="col s2">Bình luận:</div>
           <div class="col s6">
-            <form class="form-inline my-3">
-              <input class="form-control" type="comment" placeholder="Comment" aria-label="Comment" />
-              <button class="btn-flat waves-effect waves-light center-align" type="submit">
+            <% if(user!=null){ %>
+            <form class="form-inline my-3" id="comment-form" method="POST">
+              <input class="form-control" id="new_comment_name" style="display: none;" value="<%= user.name %>"/>
+              <input class="form-control" id="new_comment_id" style="display: none;" value="<%= user._id %>"/>
+              <input class="form-control" type="text" placeholder="Comment" aria-label="Comment" id="new_comment_text"/>
+              <button class="btn-flat waves-effect waves-light center-align" type="button" id="comment">
                 <i class="material-icons right md-28">send</i>
               </button>
             </form>
+            <% } %>
           </div>
           <div class="col s2"></div>
         </div>
       </div>
-      <div class="show_comment my-4">
-        <div class="scrollbar-pink">
-          <div class="card-body my-4">
-            <div class="cmt"></div>
-          </div>
-        </div>
-      </div>
+      <div class="comments-list" id="comments-list">
+        <script id="comment-template" type="text/x-template">
+            <div class="comment-info">
+                <div class="row">
+                      <div class="name">{{name}}</div>
+                      <div class="id">{{id}}</div>
+                </div>
+                <div class="row">
+                      <div class="text">{{comment}}</div>
+                </div>
+            </div>
+        </script>
+    </div>
       <hr>
       <div class="row">
         <kbd>Tác giả: <%= article.author_name %></kbd>  
@@ -74,6 +84,8 @@
   <footer class="page-footer">
     <%- include("../templates/footer") %>
   </footer>
+  <script type="text/javascript" src="https://js.pusher.com/3.2/pusher.min.js"></script>
   <script src="/script/article.js"></script>
+
   <%- include("../templates/dependency.ejs") %>
 </body>
