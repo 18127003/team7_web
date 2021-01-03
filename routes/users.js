@@ -12,6 +12,7 @@ const Article = require("../models/Article");
 const { forwardAuthenticated, ensureAuthenticated } = require("../config/auth");
 const Favorite = require("../models/Favorite");
 const pusher = require("../config/pusher");
+const Comment = require("../models/Comment");
 
 // Login Page
 router.get("/login", forwardAuthenticated, (req, res) =>
@@ -307,17 +308,23 @@ router.post("/updateUser", multipartMiddleware, async (req,res)=>{
 })
 
 // Comment
-router.post('/comment',multipartMiddleware, (req, res)=>{
+router.post('/comment',multipartMiddleware, async (req, res)=>{
 
-  console.log(req.body);
-  // var comment = JSON.parse(req.body)
-  // console.log(comment)
   var newComment = {
     name: req.body.new_comment_name,
     id: req.body.new_comment_id,
     comment: req.body.new_comment_text
   }
   pusher.trigger('flash-comments', 'new_comment', newComment);
+  let comment = new Comment({
+    author_id: req.body.new_comment_id,
+    author_name: req.body.new_comment_name,
+    content_id: req.body.content_id,
+    content: req.body.new_comment_text,
+    type:"Article",
+    created_at: new Date()
+  })
+  await comment.save();
   res.json({ name:req.body.new_comment_name, id:req.body.new_comment_id, comment:req.body.new_comment_text });
   
 });

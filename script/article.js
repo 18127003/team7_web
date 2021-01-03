@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function () {
     commentTemplate = document.getElementById('comment-template');
 
     channel.bind('new_comment',(data)=>{
-      var newCommentHtml = commentTemplate.innerHTML.replace('{{name}}',data.name);
-      newCommentHtml = newCommentHtml.replace('{{id}}',data.id);
+      var newCommentHtml = commentTemplate.innerHTML.replace('{{name}}',data.name+":");
+      // newCommentHtml = newCommentHtml.replace('{{id}}',data.id);
       newCommentHtml = newCommentHtml.replace('{{comment}}',data.comment);
       var newCommentNode = document.createElement('div');
       newCommentNode.classList.add('comment');
@@ -29,11 +29,12 @@ document.addEventListener("DOMContentLoaded", function () {
       commentsList.appendChild(newCommentNode);
     });
    
-    document.getElementById("comment").addEventListener("click",async function(event){
+    document.getElementById("comment_btn").addEventListener("click",async function(event){
       event.preventDefault();
       let name = document.getElementById("new_comment_name").value
       let id = document.getElementById("new_comment_id").value
       let text = document.getElementById("new_comment_text").value
+      let content_id = document.body.id
       const comres = await fetch("/users/comment",{
         method:"POST",
         headers:{
@@ -43,7 +44,8 @@ document.addEventListener("DOMContentLoaded", function () {
         body: new URLSearchParams({
           new_comment_name:name, 
           new_comment_id:id, 
-          new_comment_text:text})
+          new_comment_text:text,
+          content_id: content_id})
       })
       const content = await comres.json();
     })

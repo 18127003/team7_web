@@ -8,6 +8,7 @@ const {
   myAuth,
 } = require("../config/auth");
 const Article = require("../models/Article");
+const Comment = require("../models/Comment");
 const Post = require("../models/Post");
 
 // Welcome Page
@@ -106,11 +107,11 @@ router.get("/search", myAuth, async (req, res) => {
 });
 
 // Article page
-router.get("/article", myAuth, (req, res) => {
-  Article.findById(req.query._id, (err, article) => {
-    if (err) res.send(err);
-    res.render("pages/article", { article: article, user: req.user });
-  });
+router.get("/article", myAuth, async (req, res) => {
+  let article = await Article.findById(req.query._id)
+  let comment = await Comment.find({"content_id":req.query._id,"type":"Article"})
+  console.log(comment)
+  res.render("pages/article", { article: article,comment:comment, user: req.user });
 });
 
 // Create new post

@@ -1,4 +1,4 @@
-<body>
+<body id="<%= article._id %>">
   <header>
     <%- include("../templates/navmenu",{user:user}) %>
   </header>
@@ -31,9 +31,9 @@
         
       </div>
       <div class="hastag">
-        <hr />
+        <hr style="height: 2px;background-color: blueviolet;"/>
         <div class="row">
-          <div class="col s2">Thẻ:</div>
+          <div class="col s2"><kbd class="flow-text" style="font-size: medium;">Thẻ:</kbd></div>
           <% if(article.hashtag!=null){
             hashtags = JSON.parse(article.hashtag);
             for(tag of hashtags){ %>
@@ -41,40 +41,63 @@
             <% } %>
           <% } %>
         </div>
-        <hr />
+        <hr style="height: 2px;background-color: blueviolet;"/>
       </div>
       <div class="post_comment">
         <div class="row my-3">
-          <div class="col s2">Bình luận:</div>
-          <div class="col s6">
+          <div class="col s2" style="margin-top: 2%;"><kbd class="flow-text" style="font-size: medium;">Bình luận:</kbd></div>
+          <div class="col s10">
             <% if(user!=null){ %>
-            <form class="form-inline my-3" id="comment-form" method="POST">
+            <form class="form-inline my-3" id="comment-form" method="POST" style="display: flex;">
               <input class="form-control" id="new_comment_name" style="display: none;" value="<%= user.name %>"/>
               <input class="form-control" id="new_comment_id" style="display: none;" value="<%= user._id %>"/>
               <input class="form-control" type="text" placeholder="Comment" aria-label="Comment" id="new_comment_text"/>
-              <button class="btn-flat waves-effect waves-light center-align" type="button" id="comment">
+              <button class="btn-flat waves-effect waves-light center-align" type="button" id="comment_btn" style="margin-top: 2%;">
                 <i class="material-icons right md-28">send</i>
               </button>
             </form>
+            <% } else { %>
+
             <% } %>
           </div>
-          <div class="col s2"></div>
         </div>
       </div>
       <div class="comments-list" id="comments-list">
-        <script id="comment-template" type="text/x-template">
-            <div class="comment-info">
-                <div class="row">
-                      <div class="name">{{name}}</div>
-                      <div class="id">{{id}}</div>
+        <div class="row my-3">
+          <%  if(comment.length>0){
+              comment.forEach(com => { %>
+              <div class="row card white" style="padding-top: 0px;padding-bottom: 0px;border-radius: 7px;">
+                <div class="card-content" style="padding: 5px;">
+                    <div class="col s2">
+                      <kbd class="flow-text" style="font-size: medium;"><%= com.author_name %>:</kbd>  
+                    </div>
+                    <div class="col s8">
+                      <kbd class="flow-text" style="font-size: medium;"><%= com.content %></kbd>  
+                    </div>
+                    <div class="col s2">
+                      <kbd class="flow-text" style="font-size: small;"><%= new Date(com.created_at).toDateString() %></kbd>
+                    </div>
                 </div>
-                <div class="row">
-                      <div class="text">{{comment}}</div>
+              </div>  
+          <% });} %>
+        </div>
+        <script id="comment-template" type="text/x-template"> 
+          <div class="row card white" style="padding-top: 0px;padding-bottom: 0px;border-radius:7px;">
+            <div class="card-content" style="padding: 5px;">
+                <div class="col s2">
+                  <kbd class="flow-text name" style="font-size: medium;">{{name}}</kbd>  
+                </div>
+                <div class="col s8">
+                  <kbd class="flow-text text" style="font-size: medium;">{{comment}}</kbd>  
+                </div>
+                <div class="col s2">
+                  <kbd class="flow-text" style="font-size: small;"><%= new Date().toDateString() %></kbd>
                 </div>
             </div>
+          </div>
         </script>
     </div>
-      <hr>
+      <hr style="height: 2px;background-color: blueviolet;">
       <div class="row">
         <kbd>Tác giả: <%= article.author_name %></kbd>  
       </div>
