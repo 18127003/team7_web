@@ -26,12 +26,14 @@
           if(i<contents.length){ %>
           <p class="flow-text" style="font-size: medium;"><%- contents[i] %></p>
           <% } if(i<imgs.length){ %>
-          <img src="<%= imgs[i] %>" style="max-width:100%; border-radius: 7px;" />
+          <div class="row center">
+            <img src="<%= imgs[i] %>" style="max-width:100%; border-radius: 7px;" />
+          </div>
           <% } ++i} %>
         
       </div>
       <div class="hastag">
-        <hr style="height: 2px;background-color: blueviolet;"/>
+        <hr style="height: 2px;background-color: palevioletred;"/>
         <div class="row">
           <div class="col s2"><kbd class="flow-text" style="font-size: medium;">Thẻ:</kbd></div>
           <% if(article.hashtag!=null){
@@ -41,13 +43,13 @@
             <% } %>
           <% } %>
         </div>
-        <hr style="height: 2px;background-color: blueviolet;"/>
+        <hr style="height: 2px;background-color: palevioletred;"/>
       </div>
       <div class="post_comment">
         <div class="row my-3">
           <div class="col s2" style="margin-top: 2%;"><kbd class="flow-text" style="font-size: medium;">Bình luận:</kbd></div>
+          <% if(user!=null){ %>
           <div class="col s10">
-            <% if(user!=null){ %>
             <form class="form-inline my-3" id="comment-form" method="POST" style="display: flex;">
               <input class="form-control" id="new_comment_name" style="display: none;" value="<%= user.name %>"/>
               <input class="form-control" id="new_comment_id" style="display: none;" value="<%= user._id %>"/>
@@ -56,10 +58,14 @@
                 <i class="material-icons right md-28">send</i>
               </button>
             </form>
-            <% } else { %>
-
-            <% } %>
           </div>
+          <% } else { %>
+          <div class="col s10" style="margin-top: 2%;">
+              <kbd class="flow-text" style="font-size: medium;cursor: pointer;">
+                <a style="color: crimson;margin-top: 2%;" href="/users/login">Đăng nhập để bình luận</a>
+              </kbd>
+          </div>  
+          <% } %>
         </div>
       </div>
       <div class="comments-list" id="comments-list">
@@ -97,7 +103,7 @@
           </div>
         </script>
     </div>
-      <hr style="height: 2px;background-color: blueviolet;">
+      <hr style="height: 2px;background-color: palevioletred;">
       <div class="row">
         <kbd>Tác giả: <%= article.author_name %></kbd>  
       </div>

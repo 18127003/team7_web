@@ -20,14 +20,40 @@ function scrollFunction() {
   }
 }
 
-function Likey(id){
+async function Likey(id){
   var element = document.getElementById(id)
+  user_id = document.body.id
   if(element.classList.contains("liked")){
+    const favres = await fetch("/users/unfavorite",{
+      method:"Post",
+      headers:{
+        "Accept":"application/x-www-form-urlencoded",
+        "Content-Type":"application/x-www-form-urlencoded"
+      },
+      body: new URLSearchParams({
+        user_id: user_id,
+        content_id: id.slice(4)
+      })
+    })
     element.setAttribute("src","https://img.icons8.com/material-outlined/24/000000/like--v1.png");
     element.classList.remove("liked");
   } else{
+    
+    const favres = await fetch("/users/favorite",{
+      method:"Post",
+      headers:{
+        "Accept":"application/x-www-form-urlencoded",
+        "Content-Type":"application/x-www-form-urlencoded"
+      },
+      body: new URLSearchParams({
+        user_id: user_id,
+        content_id: id.slice(4)
+      })
+    })
+    // let stat = await favres.status()
     element.setAttribute("src","https://img.icons8.com/officexs/24/000000/hearts.png");
     element.classList.add("liked");
+    
   }
 }
 

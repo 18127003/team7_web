@@ -131,42 +131,51 @@
                     </div>
                     <div class="row card-content" style="padding-top: 0px;padding-left: 0px;">
                         <div class="col s8">
-                            <div class="post card-content" id="5fcf4f0e15b9702ff46b43a5" style="display: float;float: left;">
+                            <% if(favorite_posts.length >0){ 
+                                favorite_posts.forEach(post=>{ %>
+                            <div class="post card-content" id="<%= post._id %>" style="display: float;float: left;">
                                 <div class="card postcard hoverable" style="width: 25rem;height:fit-content;margin-left: 4rem;"> 
                                     <div class="row card-content" style="padding-bottom: 0px;padding-top: 15px;">
                                         <div class="chip poster pink lighten-3 white-text">
                                             <img src="https://img.icons8.com/fluent/24/000000/user-male-circle.png" />
-                                            <a href="users/info?id=5fb0dab3f33aca1c78b8093f" class="white-text">
-                                                Tran Hai Dang
+                                            <a href="users/info?id=<%= post.author_id %>" class="white-text">
+                                                <%= post.author_name %>
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="row card-content" style="padding-top: 0px;">
+                                    <% if(post.image!=null){ %>
+                                    <div class="row card-content" style="padding-top: 0px;padding-bottom: 0px;">
                                         <div class="carousel carousel-slider" style="border: 1px solid black;border-radius: 7px;">
-                                            <a class="carousel-item" href="/blog#5fcf4f0e15b9702ff46b43a5" style="height: fit-content;">
-                                                <img src="/views/image/bg/9.jpg" style="height: 100%;">
-                                            </a> 
+                                            <% JSON.parse(post.image).forEach(img=>{ %> 
+                                            <a class="carousel-item" href="/blog#<%= post._id %>" style="height: fit-content;"><img src="<%= img %>" style="height: 100%;"></a>
+                                            <% }) %> 
                                         </div>
                                     </div>
+                                    <% } %>
 
                                     <div class="row card-content" style="padding-top: 0px;padding-bottom: 0px;">
-                                        <kbd>Tue Dec 08 2020</kbd>
+                                        <kbd><%= new Date(post.created_at).toDateString() %></kbd>
                                     </div>
                                     <div class="row card-content"  style="padding-top: 0px;padding-bottom: 0px;">
-                                        <strong>Travel</strong>
+                                        <strong><%= post.title %></strong>
                                     </div>
                                     <div class="row card-content"  style="padding-top: 0px;padding-bottom: 0px;">
                                         <p class="flow-text" style="font-size: medium;">
-                                            Go go go
+                                            <%- post.description.substring(0,200) %>...
                                         </p>
                                     </div>
                                     <div class="row card-content"  style="padding-top: 0px;padding-bottom: 5px;">
-                                        <div class="chip">Cherry</div>
-                                        <div class="chip">Cake</div>
-                                        <div class="chip">Decor</div>
+                                        <% if(post.hashtag!=null){
+                                            hashtags = JSON.parse(post.hashtag);
+                                            for(tag of hashtags){ %>
+                                            <div class="chip"><%- tag.tag %></div>
+                                            <% } %>
+                                        <% } %>
                                     </div>
                                 </div>
                             </div>
+                            <% })} else{ %>
+                            <% } %>
                         </div>
                         <div class="col s4">
 

@@ -13,6 +13,7 @@ const { forwardAuthenticated, ensureAuthenticated } = require("../config/auth");
 const Favorite = require("../models/Favorite");
 const pusher = require("../config/pusher");
 const Comment = require("../models/Comment");
+const mongoose = require("mongoose");
 
 // Login Page
 router.get("/login", forwardAuthenticated, (req, res) =>
@@ -26,19 +27,25 @@ router.get("/register", forwardAuthenticated, (req, res) =>
 
 // Information page
 router.get("/info", ensureAuthenticated, async (req, res)=>{
+  var fav = await Favorite.find({user_id: req.query.id})
+  var favorite = []
+  fav.forEach(f=>{
+    favorite.push(mongoose.Types.ObjectId(f.content_id))
+  })
+  var favorite_posts = await Post.find({_id:{$in:favorite}})
   if(req.user._id==req.query.id){
     var posts = await Post.find({'author_id': req.user._id});
     if(req.user.role=="ADMIN"){
       var users = await User.find({role:{$ne: "ADMIN"}});
       var articles = await Article.find({"author_id":req.user._id});
-      res.render("pages/user_info",{user:req.user, posts:posts, users:users, articles:articles, people:null})
+      res.render("pages/user_info",{user:req.user, posts:posts, users:users, articles:articles, favorite_posts:favorite_posts, people:null})
     } else{
-      res.render("pages/user_info",{user:req.user, posts:posts, people:null})
+      res.render("pages/user_info",{user:req.user, posts:posts, favorite_posts:favorite_posts, people:null})
     }
   } else{
     var posts = await Post.find({'author_id': req.query.id});
     var people = await User.findById(req.query.id);
-    res.render("pages/user_info",{user:req.user, posts:posts, people:people})
+    res.render("pages/user_info",{user:req.user, posts:posts,favorite_posts:favorite_posts, people:people})
   }
   
 })
@@ -328,6 +335,25 @@ router.post('/comment',multipartMiddleware, async (req, res)=>{
   res.json({ name:req.body.new_comment_name, id:req.body.new_comment_id, comment:req.body.new_comment_text });
   
 });
+
+// Favorite
+router.post("/favorite", multipartMiddleware, async (req, res)=>{
+  let favorite = new Favorite({
+    user_id: req.body.user_id,
+    type:"Post",
+    content_id: req.body.content_id,
+    created_at: new Date()
+  })
+  await favorite.save();
+  res.end();
+})
+
+// Unfavorite
+router.post("/unfavorite", multipartMiddleware, async (req, res)=>{
+  let favorite = await Favorite.findOneAndDelete({"user_id":req.body.user_id,"content_id":req.body.content_id});
+  await favorite.remove();
+  res.end();
+})
 
 router.post("/test", multipartMiddleware, async (req,res)=>{
   req.files.image.forEach(img=>{

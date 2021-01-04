@@ -2,6 +2,7 @@ const express = require("express");
 // const { dirname } = require("path");
 const router = express.Router();
 // const path = require('path')
+var mongoose = require("mongoose");
 const {
   ensureAuthenticated,
   forwardAuthenticated,
@@ -9,6 +10,7 @@ const {
 } = require("../config/auth");
 const Article = require("../models/Article");
 const Comment = require("../models/Comment");
+const Favorite = require("../models/Favorite");
 const Post = require("../models/Post");
 
 // Welcome Page
@@ -65,6 +67,22 @@ router.get("/home", ensureAuthenticated, async (req, res) => {
 router.get("/blog", myAuth, async (req, res) => {
   // res.render("pages/preload");
   var posts = await Post.find({});
+
+  let fav_content = []
+  if(req.user!=null){
+    var favorites = await Favorite.find({user_id:req.user._id})
+  
+    favorites.forEach(fav=>{
+      fav_content.push(fav.content_id)
+    })
+  }
+  posts.forEach(p=>{
+    if(fav_content.includes(p._id.toString())==true){
+      p.like = true
+    } else{
+      p.like = false
+    }
+  })
   res.render("pages/blog", { posts: posts, user: req.user });
   
 });

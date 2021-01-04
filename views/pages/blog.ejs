@@ -1,4 +1,8 @@
+<% if(user!=null){ %> 
+<body id="<%= user._id %>">
+<% } else { %>
 <body>
+<% } %>  
     <header>
         <%- include("../templates/navmenu.ejs",{user:user})%>
     </header>
@@ -53,9 +57,22 @@
                                         <kbd>
                                             <%= new Date(post.created_at).toDateString()%>
                                         </kbd>
-                                        <img src="https://img.icons8.com/material-outlined/24/000000/like--v1.png"
-                                            id="like<%= post._id %>" class="right" style="display: inline;"
-                                            onclick="Likey(this.id)" />
+                                        <% if(user!=null){ %> 
+                                            <% if(post.like==false){ %> 
+                                                <img src="https://img.icons8.com/material-outlined/24/000000/like--v1.png"
+                                                    id="like<%= post._id %>" class="right" style="display: inline;"
+                                                    onclick="Likey(this.id)" />
+                                            <% } else { %>
+                                                <img src="https://img.icons8.com/officexs/24/000000/hearts.png"
+                                                id="like<%= post._id %>" class="right liked" style="display: inline;"
+                                                onclick="Likey(this.id)" />
+                                            <% } %>
+                                        <% } else { %>
+                                            <a href="/users/login">
+                                                <img src="https://img.icons8.com/material-outlined/24/000000/like--v1.png"
+                                                    id="like<%= post._id %>" class="right" style="display: inline;"/>
+                                            </a>                                           
+                                        <% } %> 
                                     </div>
                                     <div class="row card-content" style="margin-left: 2%;">
                                         <strong>
