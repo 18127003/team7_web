@@ -117,18 +117,19 @@ router.get("/search", myAuth, async (req, res) => {
     await asyncForEach(result.hits.hits, async(res)=>{
       await articles.push(res)
     })
+    res.render("pages/searchhome",{user:req.user,posts:posts, articles:articles, key:req.query.search_key})
   }
   else{
     articles = await Article.find({});
+    res.render("pages/searchhome",{user:req.user,posts:posts, articles:articles, key:""})
   }
-  res.render("pages/searchhome",{user:req.user,posts:posts, articles:articles})
+  
 });
 
 // Article page
 router.get("/article", myAuth, async (req, res) => {
   let article = await Article.findById(req.query._id)
   let comment = await Comment.find({"content_id":req.query._id,"type":"Article"})
-  console.log(comment)
   res.render("pages/article", { article: article,comment:comment, user: req.user });
 });
 
@@ -149,8 +150,6 @@ router.get("/home/new_article",ensureAuthenticated, (req, res)=>{
 // Update article
 router.get("/home/update_article",ensureAuthenticated,async (req, res)=>{
   let article = await Article.findById(req.query.id);
-  console.log(article)
-  console.log(req.user)
   res.render("pages/article_update",{user:req.user, article:article})
   // res.redirect("/home");
 })

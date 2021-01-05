@@ -50,21 +50,6 @@ router.get("/info", ensureAuthenticated, async (req, res)=>{
   
 })
 
-// Add favorite
-router.get("/addFavorite",ensureAuthenticated, async (req, res)=>{
-  var fav = new Favorite({
-    user_id:req.user._id,
-    type: req.query.type,
-    content_id: req.query.contentId
-  })
-  fav.save(function (err) {
-    if (err) {
-      req.flash(err);
-    }
-    res.send(" Success ");
-  });
-})
-
 // Register
 router.post("/register", (req, res) => {
   const { name, email, password, password2 } = req.body;
@@ -340,7 +325,7 @@ router.post('/comment',multipartMiddleware, async (req, res)=>{
 router.post("/favorite", multipartMiddleware, async (req, res)=>{
   let favorite = new Favorite({
     user_id: req.body.user_id,
-    type:"Post",
+    type: req.body.type,
     content_id: req.body.content_id,
     created_at: new Date()
   })

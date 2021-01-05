@@ -39,7 +39,7 @@
           <% if(article.hashtag!=null){
             hashtags = JSON.parse(article.hashtag);
             for(tag of hashtags){ %>
-            <div class="chip"><%- tag.tag %></div>
+            <a href="/search?search_key=<%= tag.tag %>"><div class="chip"><%- tag.tag %></div></a>
             <% } %>
           <% } %>
         </div>

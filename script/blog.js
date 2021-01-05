@@ -24,7 +24,7 @@ async function Likey(id){
   var element = document.getElementById(id)
   user_id = document.body.id
   if(element.classList.contains("liked")){
-    const favres = await fetch("/users/unfavorite",{
+    await fetch("/users/unfavorite",{
       method:"Post",
       headers:{
         "Accept":"application/x-www-form-urlencoded",
@@ -35,11 +35,12 @@ async function Likey(id){
         content_id: id.slice(4)
       })
     })
+    M.toast({html: 'Remove from favorite', classes: 'rounded', displayLength: 2000});
     element.setAttribute("src","https://img.icons8.com/material-outlined/24/000000/like--v1.png");
     element.classList.remove("liked");
   } else{
     
-    const favres = await fetch("/users/favorite",{
+    await fetch("/users/favorite",{
       method:"Post",
       headers:{
         "Accept":"application/x-www-form-urlencoded",
@@ -47,10 +48,12 @@ async function Likey(id){
       },
       body: new URLSearchParams({
         user_id: user_id,
-        content_id: id.slice(4)
+        content_id: id.slice(4),
+        type:"Post"
       })
     })
     // let stat = await favres.status()
+    M.toast({html: 'Added to favorite', classes: 'rounded', displayLength: 2000});
     element.setAttribute("src","https://img.icons8.com/officexs/24/000000/hearts.png");
     element.classList.add("liked");
     
