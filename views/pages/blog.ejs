@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/stylesheet/blog.css">
 <% if(user!=null){ %>
 
     <body id="<%= user._id %>">
@@ -126,8 +127,7 @@
                     <footer class="page-footer" style="padding-top: 0px;">
                         <%- include("../templates/footer.ejs",{user:user})%>
                     </footer>
-                    <link rel="stylesheet" href="/stylesheet/blog.css">
-                    <link rel="dns-prefetch" href="/blog" />
+
 
                     <script src="/script/blog.js"></script>
                     <%- include("../templates/dependency.ejs") %>

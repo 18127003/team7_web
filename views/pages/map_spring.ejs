@@ -1,5 +1,7 @@
 
 <body>
+    <link rel="stylesheet" href="/stylesheet/map_srping.css"/>
+    <link rel="stylesheet" href="/stylesheet/style_spring.css" />
     <header>
         <%- include("../templates/navmenu.ejs",{user:user}) %> 
     </header>
@@ -85,7 +87,7 @@
                     </div>
                 </div>
                 <div class="col s7">
-                    <div class="row" style="color: #6d0019">
+                    <div class="row center" style="color: #6d0019">
                         <kbd class="flow-text" style="font-size:xx-large;"><kbd><%= article.title %></kbd>
                         <hr class="style-seven">
                     </div>
@@ -106,8 +108,7 @@
     
     
     
-    <link rel="stylesheet" href="/stylesheet/map_srping.css"/>
-    <link rel="stylesheet" href="/stylesheet/style_spring.css" />
+
     <script src="/script/map.js"></script>
     <%- include("../templates/dependency.ejs") %> 
 

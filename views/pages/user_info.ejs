@@ -1,4 +1,5 @@
 <body>
+    <link rel="stylesheet" href="/stylesheet/user_info.css">
     <header>
         <%- include("../templates/navmenu.ejs",{user:user}) %> 
     </header>
@@ -138,7 +139,7 @@
                                     <div class="row card-content" style="padding-bottom: 0px;padding-top: 15px;">
                                         <div class="chip poster pink lighten-3 white-text">
                                             <img src="https://img.icons8.com/fluent/24/000000/user-male-circle.png" />
-                                            <a href="users/info?id=<%= post.author_id %>" class="white-text">
+                                            <a href="info?id=<%= post.author_id %>" class="white-text">
                                                 <%= post.author_name %>
                                             </a>
                                         </div>
@@ -258,7 +259,7 @@
     <footer class="page-footer" style="padding-top: 0px;">
         <%- include("../templates/footer.ejs",{user:user}) %> 
     </footer>
-    <link rel="stylesheet" href="/stylesheet/user_info.css">
+
     <script src="/script/user_info.js"></script>
     <%- include("../templates/dependency.ejs") %> 
 </body>

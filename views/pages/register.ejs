@@ -14,7 +14,7 @@
                 
                 <% if(errors!=null){
                     errors.forEach(err => { %>
-                    <div class="row error center card-content"></div>
+                    <div class="row error center card-content" style="padding-top: 0px;padding-bottom: 0px;">
                         <kbd style="background-color: coral;font-size: medium;"><%= err.msg %></kbd><br>
                     </div>
                 <% });} %>

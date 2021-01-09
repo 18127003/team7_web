@@ -128,7 +128,7 @@ body .row .col div.card div.carousel{height: 100%;}
     font-size: 68px;
     padding: 0 10px;
     line-height: 90px;
-    color: rgba(250, 119, 12, 0.8);
+	color: greenyellow;
 }
 .cb-slideshow li:nth-child(1) span { background-image: url(../views/image/bg/spring/hanoi.png); background-size:contain; background-repeat: no-repeat;}
 .cb-slideshow li:nth-child(2) span {
