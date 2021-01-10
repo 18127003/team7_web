@@ -1,0 +1,116 @@
+
+<body>
+    <link rel="stylesheet" href="/stylesheet/map_autumn.css"/>
+    <link rel="stylesheet" href="/stylesheet/style_spring.css" />
+    <header>
+        <%- include("../templates/navmenu.ejs",{user:user}) %> 
+    </header>
+    <main>
+        <div class="row title">
+            <kbd class="flow-text truncate" style="font-size: x-large;">Mùa xuân trên bản</kbd>
+            <hr style="width: 20%;">
+        </div>
+        <div class="row center">
+            <!-- <div class="col s2">
+                <a class="waves-effect waves-light btn btn-floating btn-large transparent btn-flat" 
+                    style="top: 40%;position: absolute; left: 20%;" >
+                    <i class="material-icons" id="hint">
+                        <img src="/views/image/icon/tamgiacmach.png" style="margin-top: 5px;"/>
+                    </i>   
+                </a>
+
+                <div class="tap-target" data-target="hint" style="background: url(/views/image/bg/spring/sapa.png);background-repeat:no-repeat;background-size:cover;">
+                </div>
+                <div class="tap-target" data-target="hint" style="background: url(/views/image/bg/spring/nhatrang.png);background-repeat:no-repeat;background-size:cover;">
+                </div>  
+            </div> -->
+            <div class="col l1"></div>
+            <div class="col l10">
+                <div class="card slide bg" style="border-radius: 6px;background: white;">
+                    <ul class="cb-slideshow">
+                        <li><span>Image 01</span>
+                            <div>
+                                <h3>HÀ NỘI</h3>
+                            </div>
+                        </li>
+                        <li><span>Image 02</span>
+                            <div>
+                                <h3>SAPA</h3>
+                            </div>
+                        </li>
+                        <li><span>Image 03</span>
+                            <div>
+                                <h3>HUẾ</h3>
+                            </div>
+                        </li>
+                        <li><span>Image 04</span>
+                            <div>
+                                <h3>ĐÀ NẴNG</h3>
+                            </div>
+                        </li>
+                        <li><span>Image 05</span>
+                            <div>
+                                <h3>HỘI AN</h3>
+                            </div>
+                        </li>
+                        <li><span>Image 06</span>
+                            <div>
+                                <h3>ĐÀ LẠT</h3>
+                            </div>
+                        </li>
+                        <li><span>Image 07</span>
+                            <div>
+                                <h3>HỒ CHÍ MINH</h3>
+                            </div>
+                        </li>
+                        <li><span>Image 08</span>
+                            <div>
+                                <h3>MÊ KÔNG</h3>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <br>
+                <hr class="style-four">
+                <p style="text-align: center; font-size: xx-large; color: #e66e13;"><kbd>ẨM THỰC NGÀY XUÂN</kbd></p>
+                <br>
+            </div>
+        </div>
+        <% articles.forEach(article => { 
+            imgs=JSON.parse(article.images)
+            cnt = JSON.parse(article.content) %>
+        <div class="section">
+            <div class="row" style="margin-bottom: 0px;">
+                <div class="col s4">
+                    <div class="card-image">
+                        <img src="<%= imgs[0]%>" style="height: 400px;width: auto; border-radius: 10px; margin-left: 20px;"/>
+                    </div>
+                </div>
+                <div class="col s7">
+                    <div class="row center" style="color: #6d0019">
+                        <kbd class="flow-text" style="font-size:xx-large;"><kbd><%= article.title %></kbd>
+                        <hr class="style-seven">
+                    </div>
+                    <p class="flow-text" style="font-size: x-large;text-align: justify;"><%= article.sub_title %></p>
+                    <p class="flow-text" style="font-size: medium;text-align: justify;"><%- cnt[0] %></p>
+                    <a href="/article?_id=<%= article._id %>" class="show_content"><kbd>Xem tiếp</kbd></a></span>
+                </div>
+            </div>
+        </div>
+        <div class="parallax-container">
+            <div class="parallax"><img src="<%= imgs[1] %>"/></div>
+        </div>
+        <% }); %>
+    </main>
+    <footer class="page-footer" style="padding: 0px;">
+        <%- include("../templates/footer.ejs",{user:user}) %>
+    </footer>
+    
+    
+    
+
+    <script src="/script/map.js"></script>
+    <%- include("../templates/dependency.ejs") %> 
+
+</body>
+
