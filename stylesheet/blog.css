@@ -81,23 +81,49 @@ img {
     min-height: auto;
   } */
 
-  .showmore {
-    font-size: 1.1em;
-    margin-top: 1.5em;
-  }
-  
-  .showmore .more, .showmore.show .dots {
-    display: none
-  }
-  
-  .showmore.show .more {
-    display: inline
-  }
-  
-  .showmore a {
-    cursor: pointer;
-    display: block;
-    margin-top: 0.5em;
-    margin-bottom: 1em;
-    font-weight: bold;
-  }
+.showmore {
+font-size: 1.1em;
+margin-top: 1.5em;
+}
+
+.showmore .more, .showmore.show .dots {
+display: none
+}
+
+.showmore.show .more {
+display: inline
+}
+
+.showmore a {
+cursor: pointer;
+display: block;
+margin-top: 0.5em;
+margin-bottom: 1em;
+font-weight: bold;
+}
+
+#slogan {
+    font-size: medium;
+}
+
+#post-date, #post-title, #post-description, #post-hashtag{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+img.right{
+display: inline; 
+cursor: pointer;
+}
+#post-description p {
+    text-align: justify;
+    font-size: medium;
+}
+#post-image .carousel .carousel-item{
+    height: fit-content;
+}
+#post-image .carousel .carousel-item img{
+    height: 100%;
+}
+footer.page-footer{
+    padding-top: 0px;
+}

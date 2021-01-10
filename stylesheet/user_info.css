@@ -22,3 +22,89 @@ main {
 .card.main-info{
     height: 100%;
 }
+.card.main-info div{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.card.main-info div.avatar{
+    padding-top: 10px;
+}
+.card.main-info div.bio{
+    padding-bottom: 10px;
+}
+.card.main-info div img.avatar{
+    border: 2px solid black; 
+    height: 300px;
+    width: 300px;
+}
+.card.main-info div .flow-text.med{
+    font-size: medium;
+}
+.card.function div.info-change{
+    margin-bottom: 0px;
+}
+.card.function div.add-admin{
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+.card.function div.admin{
+    padding-top: 0px;
+}
+.card.function div a{
+    width: 45%;
+}
+.card.function div a .flow-text{
+    font-size: medium;
+}
+.card.post-info a.btn.pink{
+    float: right; 
+    margin-top: 10px; 
+    margin-right: 10px;
+}
+.card.post-info div .flow-text.large{
+    font-size: x-large;
+}
+.card.post-info div div.post,
+#favorite .post{
+    float: left;
+}
+.card.post-info div div.post .postcard,
+#favorite .post .postcard{
+    width: 25rem;
+    height:fit-content;
+    margin-left: 4rem;
+}
+.card.post-info div div.post .postcard div.right{
+    position: absolute;
+    top: 5px; 
+    right: 5px;
+}
+.card.post-info div div.post .postcard div div.carousel,
+#favorite .post .postcard .carousel{
+    border: 1px solid black;
+    border-radius: 7px;
+}
+.card.post-info div div.post .postcard div div.carousel .carousel-item,
+#favorite .post .postcard .carousel .carousel-item{
+    height: fit-content;
+}
+.postcard div div.carousel .carousel-item img,
+#favorite .post .postcard .carousel .carousel-item img{
+    height: 100%;
+}
+.card.post-info div div.post .postcard div.post-image{
+    padding-bottom: 0px;
+}
+.card.post-info div div.post .postcard div.post-content,
+#favorite div.row.card-content{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.card.post-info div div.post .postcard .flow-text,
+#favorite .post .postcard .flow-text{
+    font-size: medium;
+}
+.card.post-info div div.post .postcard div.post-tag{
+    padding-top: 0px;
+    padding-bottom: 5px;
+}

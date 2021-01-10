@@ -24,7 +24,7 @@
                                         </div>
                                         <div class="card-stacked">
                                             <div class="card-content">
-                                                <p class="flow-text" style="font-size: medium;">
+                                                <p class="flow-text" id="slogan">
                                                     Chia sẻ hành trình của bạn để nét đẹp lan toả khắp thế giới.
                                                 </p>
                                             </div>
@@ -48,17 +48,16 @@
                                                 </div>
                                             </div>
                                             <% if(post.image!=null){ %>
-                                                <div class="row card-content">
+                                                <div class="row card-content" id="post-image">
                                                     <div class="carousel carousel-slider">
                                                         <% images=JSON.parse(post.image); images.forEach(img=> { %>
-                                                            <a class="carousel-item" href="#"
-                                                                style="height: fit-content;"><img src="<%= img %>"
-                                                                    style="height: 100%;"></a>
+                                                            <a class="carousel-item" href="#">
+                                                                <img src="<%= img %>"></a>
                                                             <% }) %>
                                                     </div>
                                                 </div>
                                                 <% } %>
-                                                    <div class="row card-content" style="margin-left: 2%;">
+                                                    <div class="row card-content" id="post-date">
                                                         <kbd>
                                                             <%= new Date(post.created_at).toDateString()%>
                                                         </kbd>
@@ -66,37 +65,31 @@
                                                             <% if(post.like==false){ %>
                                                                 <img src="https://img.icons8.com/material-outlined/24/000000/like--v1.png"
                                                                     id="like<%= post._id %>" class="right"
-                                                                    style="display: inline; cursor: pointer;"
                                                                     onclick="Likey(this.id)" />
                                                                 <% } else { %>
                                                                     <img src="https://img.icons8.com/officexs/24/000000/hearts.png"
                                                                         id="like<%= post._id %>" class="right liked"
-                                                                        style="display: inline; cursor: pointer;"
                                                                         onclick="Likey(this.id)" />
                                                                     <% } %>
                                                                         <% } else { %>
                                                                             <a href="/users/login">
                                                                                 <img src="https://img.icons8.com/material-outlined/24/000000/like--v1.png"
-                                                                                    id="like<%= post._id %>"
-                                                                                    class="right"
-                                                                                    style="display: inline; cursor: pointer;" />
+                                                                                    id="like<%= post._id %>" class="right"/>
                                                                             </a>
                                                                             <% } %>
                                                     </div>
-                                                    <div class="row card-content" style="margin-left: 2%;">
+                                                    <div class="row card-content" id="post-title">
                                                         <strong>
                                                             <%= post.title %>
                                                         </strong>
                                                     </div>
-                                                    <div class="row card-content">
+                                                    <div class="row card-content" id="post-description">
                                                         <% if(post.description.length<222){ %>
-                                                            <p class="flow-text"
-                                                                style="font-size: medium; text-align: justify; margin-left: 1%; margin-right: 2%;">
+                                                            <p class="flow-text">
                                                                 <%- post.description %>
                                                         <% } else { 
                                                             var i=200; while(post.description[i]!=" "){++i;} %>
-                                                            <p class="flow-text justify-align showmore"
-                                                                style="font-size: medium; text-align: justify;margin-left: 1%; margin-right: 2%;">
+                                                            <p class="flow-text justify-align showmore">
                                                                 <%- post.description.substring(0,i) %> <span
                                                                         class="dots">...</span><span
                                                                         class="more">
@@ -107,7 +100,7 @@
                                                         <% } %>
                                                             </p>
                                                     </div>
-                                                    <div class="row card-content">
+                                                    <div class="row card-content" id="post-hashtag">
                                                         <% if(post.hashtag!=null){ 
                                                             hashtags=JSON.parse(post.hashtag);
                                                             for(tag of hashtags){ %>
@@ -124,7 +117,7 @@
 
 
                     </main>
-                    <footer class="page-footer" style="padding-top: 0px;">
+                    <footer class="page-footer">
                         <%- include("../templates/footer.ejs",{user:user})%>
                     </footer>
 
