@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     secondaryPlaceholder: "+Tag",
   });
   let t = M.Tooltip.init(document.querySelectorAll(".tooltipped"));
+  let collap = M.Collapsible.init(document.querySelector(".collapsible"));
 });
 document.getElementById("postsubmit").addEventListener("click",function (){
   chipsInstance = M.Chips.getInstance(document.querySelector(".chips-placeholder"));

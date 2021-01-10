@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var tap = M.TapTarget.init(document.querySelectorAll('.tap-target'));
   let t = M.Tooltip.init(document.querySelectorAll(".tooltipped"));
   let tabs = M.Tabs.init(document.querySelector(".tabs"));
+  let collap = M.Collapsible.init(document.querySelector(".collapsible"));
 });
 document.getElementById("hint").addEventListener("click", function (){
   let tap = M.TapTarget.getInstance(document.querySelector('.tap-target'));

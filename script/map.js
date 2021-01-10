@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let t = M.Tooltip.init(document.querySelectorAll(".tooltipped"));
     // let edit_button = M.FloatingActionButton.init(document.querySelectorAll('.fixed-action-btn'), {direction:"right"});
     let parallax = M.Parallax.init(document.querySelectorAll(".parallax"));
+    let collap = M.Collapsible.init(document.querySelector(".collapsible"));
 });
 // document.getElementById("hint").addEventListener("click", function (){
 //     let tap = M.TapTarget.getInstance(document.querySelector('.tap-target'));

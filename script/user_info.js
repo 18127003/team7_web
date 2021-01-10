@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let carousel = M.Carousel.init(document.querySelectorAll(".carousel"), {indicators: true,fullWidth: true,});
   let edit_button = M.FloatingActionButton.init(document.querySelectorAll('.fixed-action-btn'), {direction:"left",hoverEnabled: false});
   let tooltip = M.Tooltip.init(document.querySelectorAll(".tooltipped"));
+  let collap = M.Collapsible.init(document.querySelector(".collapsible"));
 });
 document.getElementById("assign_admin").addEventListener("click",async function (event){
   event.preventDefault();

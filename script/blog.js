@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let profile_modal = M.Modal.init(document.querySelectorAll(".modal"));
   let carousel = M.Carousel.init(document.querySelectorAll(".carousel"), {indicators: true,fullWidth: true,});
   let t = M.Tooltip.init(document.querySelectorAll(".tooltipped"));
+  let collap = M.Collapsible.init(document.querySelector(".collapsible"));
 });
 
 mybutton = document.querySelector(".topbtn");

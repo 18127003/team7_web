@@ -75,7 +75,19 @@
     <% } else{ %>
     <li><a href="/users/login">Đăng nhập</a></li>
     <% } %>
-    <li><a href="/map?season=xuan">Bản đồ</a></li>
+    <li>
+        <ul class="collapsible">
+            <li>
+                <a class="collapsible-header" style="margin-left: 5%;">Bản đồ</div>
+                <ul class="collapsible-body">
+                    <li><a href="/map?season=xuan">Xuân</a></li>
+                    <li><a href="/map?season=ha">Hạ</a></li>
+                    <li><a href="/map?season=thu">Thu</a></li>
+                    <li><a href="/map?season=dong">Đông</a></li>
+                </ul>
+            </li>  
+        </ul>
+    </li>
     <li><a href="/search">Bài báo</a></li>
     <% if(user!=null){ %> 
     <li><a href="/blog?user=<%= user.id %>">Blog</a></li>

@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let dropdown = M.Dropdown.init(document.querySelectorAll(".dropdown-trigger"),{ hover: true });
     let profile_modal = M.Modal.init(document.querySelectorAll(".modal"));
     let t = M.Tooltip.init(document.querySelectorAll(".tooltipped"));
+    let collap = M.Collapsible.init(document.querySelector(".collapsible"));
     // const Pusher = require("pusher");
     Pusher.logToConsole = true;
   
