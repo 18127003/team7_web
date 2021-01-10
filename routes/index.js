@@ -34,14 +34,35 @@ router.get("/", forwardAuthenticated, async (req, res) => {
 // Map Page
 router.get("/map", myAuth, async (req, res) =>{
   articles=[];
+  season = req.query.season;
   result = await Article.search(
-    { query_string: { query: "tet" } },
+    { query_string: { query: season } },
     { hydrate: true }
   )
   await asyncForEach(result.hits.hits, async(res)=>{
-    await articles.push(res)
+    if(res.hashtag.includes(req.query.season)){
+      await articles.push(res)
+    }
   })
-  res.render("pages/map_spring", { user: req.user, articles:articles })
+  
+  switch(req.query.season){
+    case "xuan":
+      res.render("pages/map_spring", { user: req.user, articles:articles });
+      break;
+    case "ha":
+      res.render("pages/map_summer", { user: req.user, articles:articles });
+      break;
+    case "thu":
+      res.render("pages/map_autumn", { user: req.user, articles:articles });
+      break;
+    case "dong":
+      res.render("pages/map_winter", { user: req.user, articles:articles });
+      break;
+    default:
+      res.end();
+      break;
+  }
+  
 });
 
 // Dashboard
