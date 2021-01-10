@@ -354,4 +354,14 @@ router.post("/test", multipartMiddleware, async (req,res)=>{
   res.render("pages/test");
 })
 
+router.post("/assign",multipartMiddleware, async (req, res)=>{
+  list = JSON.parse(req.body.alist)
+  await asyncForEach(list,async (i)=>{
+    let u = await User.findByIdAndUpdate(mongoose.Types.ObjectId(i))
+    u.role = "ADMIN"
+    await u.save()
+  })
+  res.end()
+})
+
 module.exports = router;

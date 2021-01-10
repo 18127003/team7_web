@@ -12,4 +12,26 @@ document.addEventListener("DOMContentLoaded", function () {
   let edit_button = M.FloatingActionButton.init(document.querySelectorAll('.fixed-action-btn'), {direction:"left",hoverEnabled: false});
   let tooltip = M.Tooltip.init(document.querySelectorAll(".tooltipped"));
 });
+document.getElementById("assign_admin").addEventListener("click",async function (event){
+  event.preventDefault();
+  list=[]
+  // console.log(document.querySelector(".user_container").childNodes)
+  document.querySelector(".user_container").childNodes.forEach(node=>{
+    if(node.firstElementChild.firstElementChild.checked==true){
+      console.log(node.firstElementChild.lastElementChild.innerText)
+      list.push(node.firstElementChild.lastElementChild.innerText)
+    }
+  })
+  await fetch("/users/assign",{
+    method:"POST",
+    headers:{
+      "Accept":"application/x-www-form-urlencoded",
+      "Content-Type":"application/x-www-form-urlencoded"
+    },
+    body: new URLSearchParams({
+      alist:JSON.stringify(list)}) 
+  })
+  location.reload()
+  M.toast({html: 'Assigned successfully', classes: 'rounded', displayLength: 2000});
+})
 

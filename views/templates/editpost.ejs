@@ -2,7 +2,7 @@
     style="overflow-y: hidden;border-radius: 15px;">
     <button class="modal-close red btn btn-floating" style="position: absolute;top: 1%;right: 1%;">x</button>
     <form enctype="multipart/form-data" action="/users/postUpdate?id=<%= post._id %>" method="POST">
-        <div class="modal-content" style="overflow: hidden;">
+        <div class="modal-content" style="overflow-x: hidden;">
             
             <div class="row center" style="padding-top: 0px;padding-bottom: 25px;">
                 <kbd><%= new Date(post.created_at).toDateString() %></kbd>
