@@ -262,12 +262,8 @@ router.post("/postUpdate",multipartMiddleware,async (req, res)=>{
   var post = await Post.findById(req.query.id);
   post.title = req.body.title;
   post.description = req.body.description; 
-  // post.created_at = new Date.now;
-  // console.log(req.body.title);
-  // console.log(req.body.description);
   await post.save();
-  res.setHeader("user",JSON.stringify(req.user))
-  res.redirect("/users/info?id="+req.user._id)
+  res.end();
 })
 
 // Update article
@@ -294,8 +290,7 @@ router.post("/updateUser", multipartMiddleware, async (req,res)=>{
   user.email = req.body.email;
   user.bio = req.body.bio;
   await user.save();
-  res.setHeader("user",JSON.stringify(req.user))
-  res.redirect("/users/info?id="+req.user._id)
+  res.end();
 })
 
 // Comment

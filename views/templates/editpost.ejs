@@ -1,9 +1,9 @@
 <div id="edit_modal_<%= post._id %>" class="modal modal-fixed-footer"
     style="overflow-y: hidden;border-radius: 15px;">
     <button class="modal-close red btn btn-floating" style="position: absolute;top: 1%;right: 1%;">x</button>
-    <form enctype="multipart/form-data" action="/users/postUpdate?id=<%= post._id %>" method="POST">
+    <form>
         <div class="modal-content" style="overflow-x: hidden;">
-            
+            <div id="post-id" style="display: none;" data-id="<%= post._id %>"></div>
             <div class="row center" style="padding-top: 0px;padding-bottom: 25px;">
                 <kbd><%= new Date(post.created_at).toDateString() %></kbd>
             </div>
@@ -12,8 +12,8 @@
                 <label class="active" for="post-title">Tiêu đề</label>
             </div>
             <div class="row center input-field" style="padding-top: 0px;padding-bottom: 25px;margin:0px 10%;">
-                <textarea id="textarea1" class="materialize-textarea" name="description"><%= post.description %></textarea>
-                <label for="textarea1">Ý tưởng</label>
+                <textarea id="post-description" class="materialize-textarea" name="description"><%= post.description %></textarea>
+                <label for="post-description">Ý tưởng</label>
             </div>
             <div class="row center" style="padding-top: 0px;padding-bottom: 5px;">
                 <%  if(post.hashtag!=null){
@@ -26,7 +26,7 @@
         </div>
         <div class="modal-footer pink lighten-5">
             <div class="row center" style="margin: 0px;">
-                <button class="modal-close waves-effect waves-pink btn" type="submit">CẬP NHẬT</button>
+                <button class="modal-close waves-effect waves-pink btn" type="button" id="update_btn">CẬP NHẬT</button>
             </div>
         </div>
     </form>
