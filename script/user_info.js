@@ -35,4 +35,18 @@ document.getElementById("assign_admin").addEventListener("click",async function 
   location.reload()
   M.toast({html: 'Assigned successfully', classes: 'rounded', displayLength: 2000});
 })
+async function deletepost(id){
+  await fetch(`/users/deletePost?id=${id}`)
+
+  location.reload()
+  M.toast({html: 'Article deleted', classes: 'rounded', displayLength: 2000});
+
+}
+async function deletearticle(id){
+  await fetch(`/users/deleteArticle?id=${id}`)
+  location.reload()
+  M.toast({html: 'Article deleted', classes: 'rounded', displayLength: 2000});
+ 
+  
+}
 

@@ -137,8 +137,7 @@ router.get("/deletePost", async (req, res)=>{
   await asyncForEach(images, async(img)=>{
     await cloudinary.uploader.destroy(img);
   })
-  res.setHeader("user",JSON.stringify(req.user))
-  res.redirect("/users/info?id="+req.user._id)
+  res.end()
 })
 
 // Delete article
@@ -149,8 +148,7 @@ router.get("/deleteArticle", async (req, res)=>{
   await asyncForEach(images, async(img)=>{
     await cloudinary.uploader.destroy(img);
   })
-  res.setHeader("user",JSON.stringify(req.user))
-  res.redirect("/users/info?id="+req.user._id)
+  res.end()
 })
 
 async function asyncForEach(array, callback) {
@@ -200,6 +198,7 @@ router.post("/write", multipartMiddleware,async (req, res) => {
   var urls=[]
   var img_id = []
   var savepath="articles/"+req.body.title
+  console.log(req.files.image)
   req.files.image.forEach(img=>{
     if (img.originalFilename =='' && img.size == 0){
       req.files.image.splice(req.files.image.indexOf(img),1);
