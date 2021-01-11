@@ -262,3 +262,6 @@ x:-o-prefocus, .lb-overlay img {
 .searchpane .input-field input[type=text]::placeholder{
 	color: #6d0019;
 }
+main .title .flow-text{
+	font-size: xx-large;
+}
