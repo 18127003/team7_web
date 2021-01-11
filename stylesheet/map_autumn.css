@@ -32,8 +32,8 @@ main {
   border-radius: 15px;
   color: whitesmoke;
   /* position: absolute; */
-  background-image: url(/views/image/bg/blossom.gif),
-    url(/views/image/bg/blossom_l.gif);
+  background-image: url(/views/image/bg/autumn.gif),
+    url(/views/image/bg/autumn.gif);
   background-position: top left, top right;
   background-repeat: no-repeat;
   background-size: contain;
