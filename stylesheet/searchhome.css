@@ -237,3 +237,28 @@ x:-o-prefocus, .lb-overlay img {
 	margin-top: 10px;
 	text-decoration: underline;
 }
+.searchpane .card.white{
+	border-radius: 30px;
+}
+.searchpane .card.white .card-content{
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+.searchpane #searchpane{
+	width: 85%;
+}
+.searchpane button img.prefix{
+	right: 1%;
+}
+.result .result_content{
+	margin-left: 2%
+}
+.result #search_article .flow-text.not,
+.result #search_post .flow-text.not{
+	position: absolute;
+	top: 60%;
+	left: 40%;
+}
+.searchpane .input-field input[type=text]::placeholder{
+	color: #6d0019;
+}

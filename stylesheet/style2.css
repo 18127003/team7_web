@@ -50,6 +50,11 @@
 		width: 950px;
 		height: 950px;
 	}
+	#hint-btn{
+		top: 10px;
+		position: absolute; 
+		right: 15px;
+	}
 }
 @media screen and (max-width:840px){
 	.card.bg{

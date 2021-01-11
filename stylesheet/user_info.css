@@ -47,34 +47,41 @@ main {
     padding-bottom: 0px;
     padding-top: 0px;
 }
-.card.function div.admin{
+.card.function div.admin,
+footer .page-footer{
     padding-top: 0px;
 }
 .card.function div a{
     width: 45%;
 }
-.card.function div a .flow-text{
+.card.function div a .flow-text,
+.article .flow-text{
     font-size: medium;
 }
-.card.post-info a.btn.pink{
+.card.post-info a.btn.pink.add,
+.card.article-info a.btn.pink.add{
     float: right; 
     margin-top: 10px; 
     margin-right: 10px;
 }
-.card.post-info div .flow-text.large{
+.card.post-info div .flow-text.large,
+.article-info .flow-text.large{
     font-size: x-large;
 }
 .card.post-info div div.post,
-#favorite .post{
+#favorite .post,
+.article-info .article{
     float: left;
 }
 .card.post-info div div.post .postcard,
-#favorite .post .postcard{
+#favorite .post .postcard,
+.article-info .article .articlecard{
     width: 25rem;
     height:fit-content;
     margin-left: 4rem;
 }
-.card.post-info div div.post .postcard div.right{
+.card.post-info div div.post .postcard div.right,
+.article-info .article .articlecard div.right{
     position: absolute;
     top: 5px; 
     right: 5px;
@@ -92,11 +99,13 @@ main {
 #favorite .post .postcard .carousel .carousel-item img{
     height: 100%;
 }
-.card.post-info div div.post .postcard div.post-image{
+.card.post-info div div.post .postcard div.post-image,
+.article-info .article .articlecard .article-img{
     padding-bottom: 0px;
 }
 .card.post-info div div.post .postcard div.post-content,
-#favorite div.row.card-content{
+#favorite div.row.card-content,
+.article-info .article .articlecard .article-content{
     padding-top: 0px;
     padding-bottom: 0px;
 }
@@ -104,7 +113,13 @@ main {
 #favorite .post .postcard .flow-text{
     font-size: medium;
 }
-.card.post-info div div.post .postcard div.post-tag{
+.card.post-info div div.post .postcard div.post-tag,
+.article .articlecard .article-tag{
     padding-top: 0px;
     padding-bottom: 5px;
+}
+.article-info .article .articlecard .article-img a img{
+    width: 100%;
+    height: auto; 
+    border-radius: 7px;
 }

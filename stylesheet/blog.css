@@ -20,8 +20,14 @@ body {
     z-index: 99;
 }
 
-.post .card, .newpost .card {
+.post .card, .newpost .card{
     border-radius: 15px;
+}
+.newpost .card.hide-on-large-only .card-image img{
+    border-radius: 15px 15px 0px 0px;
+}
+.newpost .card.hide-on-large-only .card-action{
+    border-radius: 0px 0px 15px 15px;
 }
 .post .postcard .card-content .poster{
     margin-top: 5px;

@@ -1,12 +1,12 @@
-<div id="edit_info_modal" class="modal modal-fixed-footer hide-on-med-and-down" style="overflow: hidden;border-radius: 15px;">
+<div id="edit_info_modal" class="modal modal-fixed-footer" style="overflow: hidden;border-radius: 15px;">
     <button class="modal-close red btn btn-floating" style="position: absolute;top: 1%;right: 1%;">x</button>
     <form enctype="multipart/form-data" method="POST" action="/users/updateUser?id=<%= user._id %>">
        
         <div class="modal-content white" style="overflow-x: hidden;">
-            <div class="col s3">
+            <div class="col s1 m1 l3">
                
             </div>
-            <div class="col s6">
+            <div class="col s10 m10 l6">
                 <div class="row center input-field">
                     <input name="name" id="user_name" class="validate" required value="<%= user.name %> " type="text"/>
                     <label for="user_name">Tên</label>
@@ -22,8 +22,9 @@
             </div>
         </div>
         <div class="modal-footer pink lighten-5">
-            <button class="modal-close waves-effect waves-pink btn"
-                style="margin-bottom: 30px;position: absolute;left:46%">XÁC NHẬN</button>
+            <div class="row center" style="margin: 0px;">
+                <button class="modal-close waves-effect waves-pink btn">XÁC NHẬN</button>
+            </div>
         </div>
     </form>
     

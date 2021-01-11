@@ -1,0 +1,20 @@
+.nav-wrapper a.brand-logo{
+    margin-left: 2%;
+    margin-top: 7px;
+}
+.nav-wrapper .flow-text.title{
+    display: inline-flex; 
+    margin-left: 6%; 
+    font-size: x-large; 
+    color: whitesmoke;
+}
+.collapsible a.collapsible-header{
+    margin-left: 5%;
+}
+.fastbtn a.btn{
+    width: 200px;
+    color: #6d0019;
+}
+.logout a.btn{
+    color: #6d0019;
+}
