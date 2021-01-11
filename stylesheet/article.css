@@ -1,8 +1,15 @@
 .container .first{
     margin-top: 25px;
 }
-#backpage img{
-    margin-left: 3%;position: fixed !important;margin-top:15%;
+@media screen and (max-width:2000px){
+    #backpage img{
+        margin-left: 3%;position: fixed !important;margin-top:15%;
+    }
+}
+@media screen and (max-width:1000px){
+    #backpage img{
+        margin-left: 3%;position: fixed !important;bottom:1%;
+    }
 }
 .first .content .title{
     font-size: 70px; 
@@ -15,10 +22,32 @@
 }
 .first .image{
     margin-top: 3%;
-    left: 7px;
 }
-.first .image img{
-    height:564px;width: 564px;
+@media screen and (max-width:2000px){
+    .first .image img{
+        height:564px;width: 564px;
+    }
+}
+@media screen and (max-width:1200px){
+    .first .image img{
+        height:450px;width: 450px;
+    }
+}
+@media screen and (max-width:983px){
+    .first .image img{
+        height:640px;width: 640px;
+    }
+}
+@media screen and (max-width:730px){
+    .first .image img{
+        height:400px;width: 400px;
+    }
+}
+@media screen and (max-width:380px){
+    .first .image img{
+        height:350px;width: 330px;
+        border-radius: 7px;
+    }
 }
 .container .more{
     text-align:justify;

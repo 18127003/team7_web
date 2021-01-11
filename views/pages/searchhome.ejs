@@ -28,13 +28,13 @@
         <div class="row result">
             <div class="col s1"></div>
             <div class="col s10 center result_content">
-                <ul class="tabs">
+                <ul class="tabs hide-on-med-and-down">
                     <li class="tab col s3"><a class="active" href="#search_article">Bài báo</a></li>
                     <li class="tab col s3">
                         <a href="#search_post">Bài viết</a>
                     </li>
                 </ul>
-                <div id="search_article" class="col s12">
+                <div id="search_article" class="col s12 hide-on-med-and-down">
                     <% if(articles.length==0){ %>
                     <kbd class="flow-text truncate not">Hmm... không thấy gì nhỉ</kbd>
                     <% } else{ %>
@@ -67,7 +67,7 @@
                     </ul>
                     <% } %>
                 </div>
-                <div id="search_post" class="col s12">
+                <div id="search_post" class="col s12 hide-on-med-and-down">
                     <% if(posts.length==0){ %>
                         <kbd class="flow-text truncate not">Hmm... không thấy gì nhỉ</kbd>
                     <% } else{ %>
@@ -99,6 +99,49 @@
                         <% if(i+1>posts.length){i=1} else{i++;}}); %>
                     </ul>
                     <% } %>
+                </div>
+                <ul class="tabs hide-on-large-only">
+                    <li class="tab col s3"><a class="active" href="#search_article_mobile">Bài báo</a></li>
+                    <li class="tab col s3">
+                        <a href="#search_post_mobile">Bài viết</a>
+                    </li>
+                </ul>
+                <div id="search_article_mobile" class="hide-on-large-only">
+                    <% if(articles.length==0){ %>
+                        <kbd class="flow-text truncate not">Hmm... không thấy gì nhỉ</kbd>
+                    <% } else{ %>
+                    <ul class="collection">
+                        <% articles.forEach(article=>{ 
+                            thumb = JSON.parse(article.images)[0] %>
+                            <a href="/article?_id=<%= article._id %>" style="color: rgb(165, 77, 42);">
+                                <li class="collection-item avatar">
+                                    <img src="<%= thumb %>" alt="image" class="circle"/>
+                                    <span class="title"><%= article.title %></span>
+                                    <p class="flow-text truncate" style="font-size: medium;"><%= article.sub_title %></p>
+                                </li>
+                            </a>
+                            
+                        <% }) %>  
+                    </ul>
+                    <% } %> 
+                </div>
+                <div id="search_post_mobile" class="hide-on-large-only">
+                    <% if(posts.length==0){ %>
+                        <kbd class="flow-text truncate not">Hmm... không thấy gì nhỉ</kbd>
+                    <% } else{ %>
+                    <ul class="collection">
+                        <% posts.forEach(post=>{ 
+                            thumb = JSON.parse(post.image)[0] %>
+                            <a href="/blog#<%= post._id %>" style="color: rgb(165, 77, 42);">
+                                <li class="collection-item avatar">
+                                    <img src="<%= thumb %>" alt="image" class="circle"/>
+                                    <span class="title"><%= post.title %></span>
+                                    <p class="flow-text truncate" style="font-size: medium;"><%- post.description.substring(0,50) %></p>
+                                </li>
+                            </a>    
+                        <% }) %>  
+                    </ul>
+                    <% } %> 
                 </div>
             </div>
         </div>

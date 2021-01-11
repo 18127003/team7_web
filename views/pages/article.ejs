@@ -5,10 +5,10 @@
     <%- include("../templates/navmenu",{user:user}) %>
   </header>
   <main>
-    <a  href="/search" id="backpage"><img src="https://img.icons8.com/clouds/75/000000/back.png"/></a>
+    <a href="/search" id="backpage"><img src="https://img.icons8.com/clouds/75/000000/back.png"/></a>
     <div class="container">
       <div class="row first">
-        <div class="col s5 content">
+        <div class="col s12 m12 l5 content">
           <div class="title my-4">
             <%= article.title %>
           </div>
@@ -17,7 +17,7 @@
               imgs = JSON.parse(article.images) %> 
           <p><%- contents[0] %></p>
         </div>
-        <div class="col s7 image">
+        <div class="col s12 m12 l7 image">
           <img src="<%= imgs[0] %>" alt="image">
         </div>
       </div>
@@ -77,13 +77,13 @@
               comment.forEach(com => { %>
               <div class="row card white">
                 <div class="card-content">
-                    <div class="col s2">
+                    <div class="col s3 m3 l2">
                       <kbd class="flow-text"><%= com.author_name %>:</kbd>  
                     </div>
-                    <div class="col s8">
+                    <div class="col s6 m6 l8">
                       <kbd class="flow-text"><%= com.content %></kbd>  
                     </div>
-                    <div class="col s2">
+                    <div class="col s3 m3 l2">
                       <kbd class="flow-text" style="font-size: small;"><%= new Date(com.created_at).toDateString() %></kbd>
                     </div>
                 </div>
@@ -93,13 +93,13 @@
         <script id="comment-template" type="text/x-template"> 
           <div class="row card white">
             <div class="card-content">
-                <div class="col s2">
+                <div class="col s3 m3 l2">
                   <kbd class="flow-text name">{{name}}</kbd>  
                 </div>
-                <div class="col s8">
+                <div class="col s6 m6 l8">
                   <kbd class="flow-text text">{{comment}}</kbd>  
                 </div>
-                <div class="col s2">
+                <div class="col s3 m3 l2">
                   <kbd class="flow-text" style="font-size: small;"><%= new Date().toDateString() %></kbd>
                 </div>
             </div>

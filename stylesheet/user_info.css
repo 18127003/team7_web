@@ -40,19 +40,23 @@ main {
 .card.main-info div .flow-text.med{
     font-size: medium;
 }
+.card.function .function_container{
+    padding: 0px;
+}
 .card.function div.info-change{
     margin-bottom: 0px;
 }
-.card.function div.add-admin{
+.card.function div.add-admin,
+.card.function div.admin{
     padding-bottom: 0px;
     padding-top: 0px;
 }
-.card.function div.admin,
+
 footer .page-footer{
     padding-top: 0px;
 }
 .card.function div a{
-    width: 45%;
+    width: 100%;
 }
 .card.function div a .flow-text,
 .article .flow-text{
