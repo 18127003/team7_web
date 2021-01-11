@@ -11,21 +11,8 @@
             <hr style="width: 20%;">
         </div>
         <div class="row center">
-            <!-- <div class="col s2">
-                <a class="waves-effect waves-light btn btn-floating btn-large transparent btn-flat" 
-                    style="top: 40%;position: absolute; left: 20%;" >
-                    <i class="material-icons" id="hint">
-                        <img src="/views/image/icon/tamgiacmach.png" style="margin-top: 5px;"/>
-                    </i>   
-                </a>
-
-                <div class="tap-target" data-target="hint" style="background: url(/views/image/bg/spring/sapa.png);background-repeat:no-repeat;background-size:cover;">
-                </div>
-                <div class="tap-target" data-target="hint" style="background: url(/views/image/bg/spring/nhatrang.png);background-repeat:no-repeat;background-size:cover;">
-                </div>  
-            </div> -->
-            <div class="col l1"></div>
-            <div class="col l10">
+            <div class="col s1"></div>
+            <div class="col s10">
                 <div class="card slide bg" style="border-radius: 6px;background: white;">
                     <ul class="cb-slideshow">
                         <li><span>Image 01</span>
@@ -80,13 +67,13 @@
             imgs=JSON.parse(article.images)
             cnt = JSON.parse(article.content) %>
         <div class="section">
-            <div class="row" style="margin-bottom: 0px;">
-                <div class="col s4">
+            <div class="row content">
+                <div class="col s12 m12 l4">
                     <div class="card-image">
-                        <img src="<%= imgs[0]%>" style="height: 400px;width: auto; border-radius: 10px; margin-left: 20px;"/>
+                        <img src="<%= imgs[0]%>" alt="img"/>
                     </div>
                 </div>
-                <div class="col s7">
+                <div class="col s12 m12 l8">
                     <div class="row center" style="color: #6d0019">
                         <kbd class="flow-text" style="font-size:xx-large;"><kbd><%= article.title %></kbd>
                         <hr class="style-seven">

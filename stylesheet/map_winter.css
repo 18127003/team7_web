@@ -113,20 +113,6 @@ hr.style-four {
   box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
 }
 
-/* .cb-slideshow,
-.cb-slideshow:after {
-    position: fixed;
-    width: 50px;
-	height: 50px;
-	position: absolute;
-    top: 30px;
-    left: 0px;
-    z-index: 0;
-}
-.cb-slideshow:after {
-    content: '';
-    background: transparent url(../views/image/bg/pattern.png) repeat top left;
-} */
 @media screen and (max-width:2000px){
 	.card.bg{width: 1250px;}
 	.card.slide.bg{
@@ -148,6 +134,7 @@ hr.style-four {
 	.card.bg{width: 520px;}
 	.card.slide.bg{
 		height: 720px;
+		width: 800px;
 	}
 	.card.blog.bg{
 		height: 348px;
@@ -165,11 +152,19 @@ hr.style-four {
 		width: 950px;
 		height: 950px;
 	}
+	.card.slide.bg{
+		height: 520px;
+		width: 760px;
+	}
 }
 @media screen and (max-width:840px){
 	.card.bg{
 		width: 800px;
 		height: 800px;
+	}
+	.card.slide.bg{
+		height: 480px;
+		width: 720px;
 	}
 }
 @media screen and (max-width:720px){
@@ -177,11 +172,19 @@ hr.style-four {
 		width: 630px;
 		height: 630px;
 	}
+	.card.slide.bg{
+		height: 440px;
+		width: 580px;
+	}
 }
 @media screen and (max-width:580px){
 	.card.bg{
 		width: 500px;
 		height: 500px;
+	}
+	.card.slide.bg{
+		height: 380px;
+		width: 480px;
 	}
 }
 @media screen and (max-width:470px){
@@ -189,17 +192,29 @@ hr.style-four {
 		width: 390px;
 		height: 390px;
 	}
+	.card.slide.bg{
+		height: 350px;
+		width: 380px;
+	}
 }
 @media screen and (max-width:380px){
 	.card.bg{
 		width: 350px;
 		height: 350px;
 	}
+	.card.slide.bg{
+		height: 250px;
+		width: 290px;
+	}
 }
 @media screen and (max-width:300px){
 	.card.bg{
 		width: 250px;
 		height: 250px;
+	}
+	.card.slide.bg{
+		height: 200px;
+		width: 200px;
 	}
 }
 body .row .col div.card div.carousel{height: 100%;}
@@ -562,83 +577,17 @@ body .row .col div.card div.carousel{height: 100%;}
 	.cb-slideshow li div h3 { font-size: 25px }
 }
 
-/* #login-error-msg-holder {
-	width: 100%;
-	height: 100%;
-	display: grid;
-	justify-items: center;
-	align-items: center;
-  }
-  
-  #login-error-msg {
-	width: 23%;
-	text-align: center;
-	margin: 0;
-	padding: 5px;
-	font-size: 12px;
-	font-weight: bold;
-	color: #8a0000;
-	border: 1px solid #8a0000;
-	background-color: #e58f8f;
-	opacity: 0;
-  }
-  
-  #error-msg-second-line {
-	display: block;
-  }
-  
-  #login-form {
-	align-self: flex-start;
-	display: grid;
-	justify-items: center;
-	align-items: center;
-  }
-  
-  .login-form-field::placeholder {
-	color:palevioletred;
-  }
-  
-  .login-form-field {
-	border: 3px solid palevioletred !important;
-	margin-bottom: 10px !important;
+.smallbg{
 	border-radius: 7px !important;
-	outline: none;
-	background-color: rgb(243, 230, 207) !important;
-	height: 2rem !important;
-	padding: 0px 0px 5px 5px;
-  }
-  
-  #login-form-submit {
-	width: 100%;
-	border: none;
-	border-radius: 6px;
-	color: white;
-	font-weight: bold;
-	background-color: palevioletred;
-	cursor: pointer;
-	outline: none;
-  }
-  
-  #login-form-submit:hover{
-	background-color: pink;
-  }
-  
-  div#signup{
-	margin-top: 7px;
-	
-  }
-  #signup .signup_text{
-	text-decoration: none;
-	color: palevioletred;
-	font-size: medium;
-   
-  }
-  
-  #signup .signup_text:hover{
-	color: plum;
-  } */
+	height: 500px;
+}
 
-  .smallbg{
-	  border-radius: 7px !important;
-	  height: 500px;
-  }
+.section .content{
+margin-bottom: 0px;
+}
+.section .content .card-image img{
+	height: auto;
+	width: 100%; 
+	border-radius: 10px; 
+	/* margin-left: 20px; */
+}
