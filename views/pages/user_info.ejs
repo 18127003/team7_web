@@ -82,7 +82,7 @@
                                       <i class="material-icons">mode_edit</i>
                                     </a>
                                     <ul>
-                                      <li><a class="btn-floating green btn-small" href="/users/deletePost?id=<%= post._id %>"><i class="material-icons">delete</i></a></li>
+                                      <li><a class="btn-floating green btn-small" type="button" data-id="<%= post._id %>" onclick="deletepost(this.dataset.id)"><i class="material-icons">delete</i></a></li>
                                       <li><a class="btn-floating blue btn-small modal-trigger" href="#edit_modal_<%= post._id %>"><i class="material-icons">edit</i></a></li>
                                     </ul>
                                 </div>
@@ -129,7 +129,7 @@
                     <div class="row card-content center" style="padding-top: 10px;">
                         <kbd class="flow-text truncate">Danh sách yêu thích</kbd>
                     </div>
-                    <div class="row card-content">
+                    <div class="row">
                         
                         <% if(favorite_posts.length >0){ 
                             favorite_posts.forEach(post=>{ %>
@@ -210,7 +210,7 @@
                                         <i class="material-icons">mode_edit</i>
                                     </a>
                                     <ul>
-                                        <li><a class="btn-floating green btn-small" href="/users/deleteArticle?id=<%= article._id %>"><i class="material-icons">delete</i></a></li>
+                                        <li><a class="btn-floating green btn-small" type="button" data-id="<%= article._id %>" onclick="deletearticle(this.dataset.id)"><i class="material-icons">delete</i></a></li>
                                         <li><a class="btn-floating blue btn-small" href="/home/update_article?id=<%= article._id %>"><i class="material-icons">edit</i></a></li>
                                     </ul>
                                 </div>

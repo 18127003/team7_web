@@ -35,4 +35,51 @@ document.getElementById("assign_admin").addEventListener("click",async function 
   location.reload()
   M.toast({html: 'Assigned successfully', classes: 'rounded', displayLength: 2000});
 })
-
+async function deletepost(id){
+  await fetch(`/users/deletePost?id=${id}`)
+  location.reload()
+  M.toast({html: 'Article deleted', classes: 'rounded', displayLength: 2000});
+}
+async function deletearticle(id){
+  await fetch(`/users/deleteArticle?id=${id}`)
+  location.reload()
+  M.toast({html: 'Article deleted', classes: 'rounded', displayLength: 2000});
+}
+document.getElementById("update_btn").addEventListener("click", async function(event){
+  event.preventDefault();
+  let post_id = document.getElementById("post-id").dataset.id;
+  let new_title = document.getElementById("post-title").value;
+  let new_description = document.getElementById("post-description").value;
+  await fetch(`/users/postUpdate?id=${post_id}`,{
+    method:"POST",
+    headers:{
+      "Accept":"application/x-www-form-urlencoded",
+      "Content-Type":"application/x-www-form-urlencoded"
+    },
+    body: new URLSearchParams({
+      title: new_title,
+      description: new_description}) 
+  })
+  await location.reload();
+  M.toast({html: 'Post updated', classes: 'rounded', displayLength: 2000});
+})
+document.getElementById("info_update_btn").addEventListener("click", async function(event){
+  event.preventDefault();
+  let user_id = document.getElementById("user-id").dataset.id;
+  let new_name = document.getElementById("user_name").value;
+  let new_email = document.getElementById("user_mail").value;
+  let new_bio = document.getElementById("user_bio").value;
+  await fetch(`/users/updateUser?id=${user_id}`,{
+    method:"POST",
+    headers:{
+      "Accept":"application/x-www-form-urlencoded",
+      "Content-Type":"application/x-www-form-urlencoded"
+    },
+    body: new URLSearchParams({
+      name: new_name,
+      email: new_email,
+      bio: new_bio}) 
+  })
+  await location.reload();
+  M.toast({html: 'Information updated', classes: 'rounded', displayLength: 2000});
+})

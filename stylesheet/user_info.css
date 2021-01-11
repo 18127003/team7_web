@@ -73,12 +73,32 @@ footer .page-footer{
 .article-info .article{
     float: left;
 }
-.card.post-info div div.post .postcard,
-#favorite .post .postcard,
-.article-info .article .articlecard{
-    width: 25rem;
-    height:fit-content;
-    margin-left: 4rem;
+@media screen and (max-width:2000px){
+    .card.post-info div div.post .postcard,
+    #favorite .post .postcard,
+    .article-info .article .articlecard{
+        width: 25rem;
+        height:fit-content;
+        margin-left: 4rem;
+    }
+}
+@media screen and (max-width:983px){
+    .card.post-info div div.post .postcard,
+    #favorite .post .postcard,
+    .article-info .article .articlecard{
+        width: 20rem;
+        height:fit-content;
+        margin-left: 2rem;
+    }
+}
+@media screen and (max-width:340px){
+    .card.post-info div div.post .postcard,
+    #favorite .post .postcard,
+    .article-info .article .articlecard{
+        width: 15rem;
+        height:fit-content;
+        margin-left: 1rem;
+    }
 }
 .card.post-info div div.post .postcard div.right,
 .article-info .article .articlecard div.right{
