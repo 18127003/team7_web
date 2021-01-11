@@ -1,12 +1,13 @@
 <body>
     <link rel="stylesheet" href="/stylesheet/user_info.css">
+    <%- include("../templates/dependency.ejs") %> 
     <header>
         <%- include("../templates/navmenu.ejs",{user:user}) %> 
     </header>
     <main>
         <% userp = (people==null)?user:people %>
         <div class="row">
-            <div class="col s4">
+            <div class="col s12 m12 l4">
                 <div class="card white hoverable main-info">
                     <div class="row card-content center avatar">
                         <% if(userp.avatar!=null){%>
@@ -55,10 +56,10 @@
                     
                 </div>
             </div>
-            <div class="col s8">
+            <div class="col s12 m12 l8">
                 <div class="card white hoverable post-info">
                     <% if(posts.length>0 && people==null){ %> 
-                    <a class="btn btn-floating btn-large pulse waves-effect waves-light pink lighten-3" href="/home/post">
+                    <a class="btn btn-floating btn-large pulse waves-effect waves-light pink lighten-3 add" href="/home/post">
                         <i class="material-icons">add</i>
                     </a>
                     <% } %>
@@ -68,7 +69,7 @@
                     <div class="row"> 
                     <% if(posts.length==0){ %> 
                         <div class="row card-content valign-center center" style="min-height: 323px;">
-                            <kbd class="flow-text truncate large">Chưa có bài viếT nào.</kbd>
+                            <kbd class="flow-text truncate large">Chưa có bài viết nào.</kbd>
                             <a class="btn pulse waves-effect waves-light pink lighten-3" href="/home/post">ĐĂNG NGAY</a>
                         </div>
                     <% } else{ %>
@@ -129,56 +130,54 @@
                         <kbd class="flow-text truncate">Danh sách yêu thích</kbd>
                     </div>
                     <div class="row card-content">
-                        <div class="col s12">
-                            <% if(favorite_posts.length >0){ 
-                                favorite_posts.forEach(post=>{ %>
-                            <div class="post card-content" id="<%= post._id %>">
-                                <div class="card postcard hoverable"> 
-                                    <div class="row card-content" style="padding-top: 15px;">
-                                        <div class="chip poster pink lighten-3 white-text">
-                                            <img src="https://img.icons8.com/fluent/24/000000/user-male-circle.png" />
-                                            <a href="info?id=<%= post.author_id %>" class="white-text">
-                                                <%= post.author_name %>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <% if(post.image!=null){ %>
-                                    <div class="row card-content">
-                                        <div class="carousel carousel-slider">
-                                            <% JSON.parse(post.image).forEach(img=>{ %> 
-                                            <a class="carousel-item" href="/blog#<%= post._id %>"><img src="<%= img %>"></a>
-                                            <% }) %> 
-                                        </div>
-                                    </div>
-                                    <% } %>
-
-                                    <div class="row card-content">
-                                        <kbd><%= new Date(post.created_at).toDateString() %></kbd>
-                                    </div>
-                                    <div class="row card-content">
-                                        <strong><%= post.title %></strong>
-                                    </div>
-                                    <div class="row card-content">
-                                        <p class="flow-text">
-                                            <%- post.description.substring(0,200) %>...
-                                        </p>
-                                    </div>
-                                    <div class="row card-content" style="padding-bottom: 5px;">
-                                        <% if(post.hashtag!=null){
-                                            hashtags = JSON.parse(post.hashtag);
-                                            for(tag of hashtags){ %>
-                                            <div class="chip"><%- tag.tag %></div>
-                                            <% } %>
-                                        <% } %>
+                        
+                        <% if(favorite_posts.length >0){ 
+                            favorite_posts.forEach(post=>{ %>
+                        <div class="post card-content" id="<%= post._id %>">
+                            <div class="card postcard hoverable"> 
+                                <div class="row card-content" style="padding-top: 15px;">
+                                    <div class="chip poster pink lighten-3 white-text">
+                                        <img src="https://img.icons8.com/fluent/24/000000/user-male-circle.png" />
+                                        <a href="info?id=<%= post.author_id %>" class="white-text">
+                                            <%= post.author_name %>
+                                        </a>
                                     </div>
                                 </div>
-                            </div>
-                            <% })} else{ %>
-                            <% } %>
-                        </div>
-                        <div class="col">
+                                <% if(post.image!=null){ %>
+                                <div class="row card-content">
+                                    <div class="carousel carousel-slider">
+                                        <% JSON.parse(post.image).forEach(img=>{ %> 
+                                        <a class="carousel-item" href="/blog#<%= post._id %>"><img src="<%= img %>"></a>
+                                        <% }) %> 
+                                    </div>
+                                </div>
+                                <% } %>
 
+                                <div class="row card-content">
+                                    <kbd><%= new Date(post.created_at).toDateString() %></kbd>
+                                </div>
+                                <div class="row card-content">
+                                    <strong><%= post.title %></strong>
+                                </div>
+                                <div class="row card-content">
+                                    <p class="flow-text">
+                                        <%- post.description.substring(0,200) %>...
+                                    </p>
+                                </div>
+                                <div class="row card-content" style="padding-bottom: 5px;">
+                                    <% if(post.hashtag!=null){
+                                        hashtags = JSON.parse(post.hashtag);
+                                        for(tag of hashtags){ %>
+                                        <div class="chip"><%- tag.tag %></div>
+                                        <% } %>
+                                    <% } %>
+                                </div>
+                            </div>
                         </div>
+                        <% })} else{ %>
+                        <% } %>
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -186,10 +185,9 @@
         <% if(user.role=="ADMIN"&& people==null){ %>
         <div class="row">
             <div class="col s12">
-                <div class="card hoverable white">
+                <div class="card hoverable white article-info">
                     <% if(articles.length>0){ %> 
-                    <a class="btn btn-floating btn-large pulse waves-effect waves-light pink lighten-3" href="/home/new_article" 
-                        style="float: right; margin-top: 10px; margin-right: 10px;">
+                    <a class="btn btn-floating btn-large pulse waves-effect waves-light pink lighten-3 add" href="/home/new_article">
                         <i class="material-icons">add</i>
                     </a>
                     <% } %>
@@ -197,17 +195,17 @@
                         <kbd class="flow-text truncate">Bài báo của tôi</kbd>    
         
                     </div>    
-                    <div class="row"> 
+                    <div class="row center"> 
                     <% if(articles.length==0){ %> 
                         <div class="row card-content valign-center center" style="min-height: 323px;">
-                            <kbd class="flow-text truncate" style="font-size: x-large;">Chưa có bài báo nào.</kbd>
+                            <kbd class="flow-text truncate large">Chưa có bài báo nào.</kbd>
                             <a class="btn pulse waves-effect waves-light pink lighten-3" href="/home/new_article">SOẠN NGAY</a>
                         </div>
                     <% } else{ %>
                     <% articles.forEach((article, index)=>{ %>
-                        <div class="article card-content" id="<%= article._id %>" style="display: float;float: left;">
-                            <div class="card articlecard hoverable" style="width: 25rem;height:fit-content;margin-left: 4rem;">
-                                <div class="fixed-action-btn right card-content" style="position: absolute !important;top: 5px; right: 5px;">
+                        <div class="article card-content" id="<%= article._id %>">
+                            <div class="card articlecard hoverable">
+                                <div class="fixed-action-btn right card-content">
                                     <a class="btn-floating btn-medium red">
                                         <i class="material-icons">mode_edit</i>
                                     </a>
@@ -218,24 +216,24 @@
                                 </div>
                                 <% if(article.images!=null){ 
                                     thumb = JSON.parse(article.images)[0] %>
-                                <div class="row card-content">
+                                <div class="row card-content article-img">
                                     <a href="/article?_id=<%= article._id %>">
-                                        <img src="<%= thumb %>" style="width: 100%;height: auto; border-radius: 7px;">
+                                        <img src="<%= thumb %>">
                                     </a>
                                 </div>
                                 <% } %>
-                                <div class="row card-content" style="padding-top: 0px;padding-bottom: 0px;">
+                                <div class="row card-content article-content">
                                     <kbd><%= new Date(article.created_at).toDateString()%></kbd>
                                 </div>
-                                <div class="row card-content"  style="padding-top: 0px;padding-bottom: 0px;">
+                                <div class="row card-content article-content">
                                     <strong><%= article.title %></strong>
                                 </div>
-                                <div class="row card-content"  style="padding-top: 0px;padding-bottom: 0px;">
-                                    <p class="flow-text truncate" style="font-size: medium;">
+                                <div class="row card-content article-content">
+                                    <p class="flow-text truncate">
                                         <%= article.sub_title %>
                                     </p>
                                 </div>
-                                <div class="row card-content"  style="padding-top: 0px;padding-bottom: 5px;">
+                                <div class="row card-content article-tag">
                                     <% if(article.hashtag!=null){
                                         hashtags = JSON.parse(article.hashtag);
                                         for(tag of hashtags){ %>
@@ -243,7 +241,7 @@
                                         <% } %>
                                     <% } %>
                                 </div>
-                                <%- include("../templates/editarticle.ejs",{article:article}) %> 
+                                
                             </div>
                         </div>
                     <% });} %> 
@@ -253,10 +251,10 @@
         </div>
         <% } %>
     </main>
-    <footer class="page-footer" style="padding-top: 0px;">
+    <footer class="page-footer">
         <%- include("../templates/footer.ejs",{user:user}) %> 
     </footer>
 
     <script src="/script/user_info.js"></script>
-    <%- include("../templates/dependency.ejs") %> 
+    
 </body>

@@ -1,3 +1,4 @@
+
 <ul class="dropdown-content" id="map1">
     <li><a href="/map?season=xuan">Mùa lễ hội</a></li>
     <li><a href="/map?season=ha">Mưa nhiệt đới</a></li>
@@ -7,46 +8,41 @@
 <nav>
     <div class="nav-wrapper">
         <% if(user==null){ %>
-        <a href="/" class="brand-logo" style="margin-left: 2%;margin-top: 7px;">
+        <a href="/" class="brand-logo">
         <% } else{ %>
-        <a href="/home" class="brand-logo" style="margin-left: 2%;margin-top: 7px;">
+        <a href="/home" class="brand-logo">
         <% } %>
-            <img src="https://img.icons8.com/doodle/48/000000/lighthouse--v1.png"/>
+            <img src="https://img.icons8.com/doodle/48/000000/lighthouse--v1.png" alt="img"/>
         </a>
-        <kbd class="flow-text truncate hide-on-med-and-down" style="display: inline-flex; margin-left: 6%; font-size: x-large; color: whitesmoke;">
+        <kbd class="title flow-text truncate hide-on-med-and-down">
             Miền Ký Ức
         </kbd>
-        <kbd class="flow-text truncate hide-on-large-only right" style="display: inline-flex; margin-right: 6%; font-size: x-large; color: whitesmoke;">
-            Miền Ký Ức
-        </kbd>
+        
         <a href="#" data-target="mobile-demo" class="sidenav-trigger">
-            <img src="https://img.icons8.com/fluent/30/000000/expand-arrow.png"/>
+            <img src="https://img.icons8.com/fluent/30/000000/expand-arrow.png" alt="img"/>
         </a>
         <ul class="right hide-on-med-and-down sdt_menu center-align" id="sdt_menu">
             <li>
                 <a class="modal-trigger tooltipped" href="#modal2" data-position="bottom" data-tooltip="Tìm kiếm">
-                    <img src="https://img.icons8.com/color/30/000000/search--v1.png"/>
-                    <!-- <kbd class="white-text" style="position: absolute;top:20px;right: 268px;">Search</kbd> -->
+                    <img src="https://img.icons8.com/color/30/000000/search--v1.png" alt="img"/>
                 </a>
                 <%- include("../templates/searchbox.ejs")%>
             </li>
             <li>
                 <% if(user==null){ %>
                     <a href="/users/login" class="tooltipped" data-position="bottom" data-tooltip="Đăng nhập">
-                        <img src="https://img.icons8.com/clouds/36/000000/edit-user.png"/>
-                        <!-- <kbd class="white-text" style="position: absolute;top:20px;right: 210px;">Login</kbd> -->
+                        <img src="https://img.icons8.com/clouds/36/000000/edit-user.png" alt="img"/>
                 <% } else{ %>
                     <%- include("../templates/profile.ejs",{user:user})%>
                     <a href="#modal1" class="modal-trigger tooltipped" data-position="bottom" data-tooltip="Tài khoản">
-                        <img src="https://img.icons8.com/clouds/36/000000/edit-user.png"/>
-                        <!-- <kbd class="white-text" style="position: absolute;top:20px;right: 210px;">User</kbd> -->
+                        <img src="https://img.icons8.com/clouds/36/000000/edit-user.png" alt="img"/>
                 <% } %>     
                     </a>
                     
             </li>
             <li>
                 <a href="#" class="dropdown-trigger" data-target="map1">
-                    <img src="https://img.icons8.com/doodle/36/000000/map.png"/>
+                    <img src="https://img.icons8.com/doodle/36/000000/map.png" alt="img"/>
                 </a>
             </li>
             <li>
@@ -55,12 +51,12 @@
                 <% } else{ %>
                     <a href="/blog?user=<%= user.id %>" class="tooltipped" data-position="bottom" data-tooltip="Blog">
                 <% } %>
-                    <img src="https://img.icons8.com/clouds/36/000000/comments.png"/>
+                    <img src="https://img.icons8.com/clouds/36/000000/comments.png" alt="img"/>
                 </a>
             </li>
             <li>
                 <a href="/about" class="tooltipped" data-position="bottom" data-tooltip="Liên hệ">
-                    <img src="https://img.icons8.com/clouds/36/000000/about.png"/>
+                    <img src="https://img.icons8.com/clouds/36/000000/about.png" alt="img"/>
                 </a>
             </li>
         </ul>
@@ -75,7 +71,19 @@
     <% } else{ %>
     <li><a href="/users/login">Đăng nhập</a></li>
     <% } %>
-    <li><a href="/map?season=xuan">Bản đồ</a></li>
+    <li>
+        <ul class="collapsible">
+            <li>
+                <a class="collapsible-header">Bản đồ</div>
+                <ul class="collapsible-body">
+                    <li><a href="/map?season=xuan">Xuân</a></li>
+                    <li><a href="/map?season=ha">Hạ</a></li>
+                    <li><a href="/map?season=thu">Thu</a></li>
+                    <li><a href="/map?season=dong">Đông</a></li>
+                </ul>
+            </li>  
+        </ul>
+    </li>
     <li><a href="/search">Bài báo</a></li>
     <% if(user!=null){ %> 
     <li><a href="/blog?user=<%= user.id %>">Blog</a></li>

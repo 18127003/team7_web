@@ -1,12 +1,14 @@
 <body>
+    <link rel="stylesheet" href="/stylesheet/new_article.css">
+    <%- include("../templates/dependency.ejs") %> 
     <head>
         <%- include("../templates/navmenu.ejs",{user:user}) %> 
     </head>
     <main>
         <div class="row center"><kbd class="flow-text">BÀI BÁO MỚI</kbd></div>
         <div class="row">
-            <div class="col s2"></div>
-            <form class="col s8" enctype="multipart/form-data" action="/users/write" method="POST">
+            <div class="col s1 m1 l2"></div>
+            <form class="col s10 m10 l8" enctype="multipart/form-data" action="/users/write" method="POST">
                 <div class="row center">
                     <div class="col s5">
                         <div class="row input-field">
@@ -47,16 +49,21 @@
                 </div>
                 <input class="auth" style="display:none;" name="author_id" value="<%- user._id %>">
                 <input class="auth_name" style="display:none;" name="author_name" value="<%- user.name %>">
-                <button class="btn waves-effect waves-light pink lighten-4" type="submit" id="articlesubmit">ĐĂNG
+                <button class="btn waves-effect waves-light pink lighten-4 hide-on-med-and-down" type="submit" id="articlesubmit">ĐĂNG
                     <i class="material-icons right">send</i>
                 </button>
+                <div class="row center hide-on-large-only">
+                    <button class="btn waves-effect waves-light pink lighten-4" type="submit" id="articlesubmit">ĐĂNG
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
             </form>
         </div>
     </main>
     <footer class="page-footer">
         <%- include("../templates/footer.ejs",{user:user}) %> 
     </footer>
-    <link rel="stylesheet" href="/stylesheet/new_article.css">
+    
     <script src="/script/new_article.js"></script>
-    <%- include("../templates/dependency.ejs") %> 
+    
 </body>

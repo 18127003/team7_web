@@ -207,3 +207,90 @@ p.codrops-demos a.current-demo:hover{
 		left: auto;
 	}
 }
+.card.white{
+	border-radius: 7px;
+}
+
+#hint-btn{
+	top: 80px;
+	position: absolute; 
+	right: 25px;
+}
+.tap-target .tap-target-content .flow-text{
+	font-size: medium;
+}
+.card.blog .carousel.food{
+	height: 90%;
+}
+.card.blog .carousel.food .carousel-item{
+	height: 200px;
+}
+.card.blog .carousel.food .carousel-item img{
+	height: 200px;
+	border: 1px solid black; 
+	border-radius: 7px;
+}
+.card.info h4{
+	font-weight: bold;
+	color: #6d0019;
+	padding: 0px;
+	padding-top: 5px;
+}
+.card.info .post{
+	margin-top: 5%;
+}
+.card.info .post .carousel-item{
+	min-height: 0px;
+	height: 200px;
+}
+.card.info .post .carousel-item img{
+	height: 200px;
+	max-height: 200px;
+}
+.card.info .post .carousel-item .card-stacked{
+	background-color: antiquewhite;
+	height: 200px;
+	max-height: 200px;
+}
+.card.info .post .carousel-item .card-stacked .card-content{
+	padding-top: 0px;
+}
+#login_modal{
+	border-radius: 7px;
+	overflow: hidden;
+	max-width: 500px;
+}
+#login_modal .modal-content{
+	padding-top: 5px;
+}
+#signup{
+	margin-bottom: 0px;
+}
+.searchpane .card.white{
+	border-radius: 30px;
+}
+#searchpane{
+	width: 80%;
+}
+.searchpane button img.prefix{
+	right: 1%;
+}
+.season_map .card.white{
+	height: 275px;
+}
+.season_map .card.white img{
+	border-radius: 7px;
+}
+.searchpane .input-field input[type=text]::placeholder{
+	color: #6d0019;
+}
+.large-title{
+	font-size: x-large !important;
+	font-weight: bold;
+}
+#popular_tag{
+	border-radius: 7px;
+}
+#popular_tag .tabs{
+	border-radius: 7px 7px 0px 0px;
+}

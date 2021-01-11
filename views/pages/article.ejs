@@ -1,41 +1,43 @@
 <body id="<%= article._id %>">
+  <link rel="stylesheet" href="/stylesheet/article.css"/>
+  <%- include("../templates/dependency.ejs") %>
   <header>
     <%- include("../templates/navmenu",{user:user}) %>
   </header>
   <main>
-    <a  href="/search"><img src="https://img.icons8.com/clouds/75/000000/back.png" style="margin-left: 3%;position: fixed !important;margin-top:15%;"/></a>
+    <a  href="/search" id="backpage"><img src="https://img.icons8.com/clouds/75/000000/back.png"/></a>
     <div class="container">
-      <div class="row"  style="margin-top: 25px;">
-        <div class="col s5">
-          <div class="title my-4" style="font-size: 70px; color: darkred; font-weight: bolder;text-align: center;">
+      <div class="row first">
+        <div class="col s5 content">
+          <div class="title my-4">
             <%= article.title %>
           </div>
           <h2><%= article.sub_title%></h2>
           <%  contents = JSON.parse(article.content) 
               imgs = JSON.parse(article.images) %> 
-          <p style="text-align: justify;"><%- contents[0] %></p>
+          <p><%- contents[0] %></p>
         </div>
-        <div class="col s7" style="margin-top: 3%;left: 7px;">
-          <img src="<%= imgs[0] %>" alt="image" style="height:564px;width: 564px;">
+        <div class="col s7 image">
+          <img src="<%= imgs[0] %>" alt="image">
         </div>
       </div>
-      <div class="row" style="text-align:justify;">
+      <div class="row more">
         
           <%var i=1;
           while(i<=contents.length || i<=imgs.length){
           if(i<contents.length){ %>
-          <p class="flow-text" style="font-size: medium;"><%- contents[i] %></p>
+          <p class="flow-text"><%- contents[i] %></p>
           <% } if(i<imgs.length){ %>
-          <div class="row center">
-            <img src="<%= imgs[i] %>" style="max-width:100%; border-radius: 7px;" />
+          <div class="row center image">
+            <img src="<%= imgs[i] %>"/>
           </div>
           <% } ++i} %>
         
       </div>
       <div class="hastag">
-        <hr style="height: 2px;background-color: palevioletred;"/>
+        <hr/>
         <div class="row">
-          <div class="col s2"><kbd class="flow-text" style="font-size: medium;">Thẻ:</kbd></div>
+          <div class="col s2"><kbd class="flow-text">Thẻ:</kbd></div>
           <% if(article.hashtag!=null){
             hashtags = JSON.parse(article.hashtag);
             for(tag of hashtags){ %>
@@ -43,27 +45,28 @@
             <% } %>
           <% } %>
         </div>
-        <hr style="height: 2px;background-color: palevioletred;"/>
+        <hr/>
       </div>
       <div class="post_comment">
         <div class="row my-3">
-          <div class="col s2" style="margin-top: 2%;"><kbd class="flow-text" style="font-size: medium;">Bình luận:</kbd></div>
+          <div class="col s2 comment_title"><kbd class="flow-text">Bình luận:</kbd></div>
           <% if(user!=null){ %>
           <div class="col s10">
-            <form class="form-inline my-3" id="comment-form" method="POST" style="display: flex;">
+            <form class="form-inline my-3" id="comment-form" method="POST">
               <input class="form-control" id="new_comment_name" style="display: none;" value="<%= user.name %>"/>
               <input class="form-control" id="new_comment_id" style="display: none;" value="<%= user._id %>"/>
               <input class="form-control" type="text" placeholder="Comment" aria-label="Comment" id="new_comment_text"/>
-              <button class="btn-flat waves-effect waves-light center-align" type="button" id="comment_btn" style="margin-top: 2%;">
+              <button class="btn-flat waves-effect waves-light center-align" type="button" id="comment_btn">
                 <i class="material-icons right md-28">send</i>
               </button>
             </form>
           </div>
           <% } else { %>
-          <div class="col s10" style="margin-top: 2%;">
-              <kbd class="flow-text" style="font-size: medium;cursor: pointer;">
-                <a style="color: crimson;margin-top: 2%;" href="/users/login">Đăng nhập để bình luận</a>
+          <div class="col s10 login_required">
+              <kbd class="flow-text">
+                <a href="/users/login">Đăng nhập để bình luận</a>
               </kbd>
+              <button style="display: none;" type="button" id="comment_btn"></button>
           </div>  
           <% } %>
         </div>
@@ -72,13 +75,13 @@
         <div class="row my-3">
           <%  if(comment.length>0){
               comment.forEach(com => { %>
-              <div class="row card white" style="padding-top: 0px;padding-bottom: 0px;border-radius: 7px;">
-                <div class="card-content" style="padding: 5px;">
+              <div class="row card white">
+                <div class="card-content">
                     <div class="col s2">
-                      <kbd class="flow-text" style="font-size: medium;"><%= com.author_name %>:</kbd>  
+                      <kbd class="flow-text"><%= com.author_name %>:</kbd>  
                     </div>
                     <div class="col s8">
-                      <kbd class="flow-text" style="font-size: medium;"><%= com.content %></kbd>  
+                      <kbd class="flow-text"><%= com.content %></kbd>  
                     </div>
                     <div class="col s2">
                       <kbd class="flow-text" style="font-size: small;"><%= new Date(com.created_at).toDateString() %></kbd>
@@ -88,13 +91,13 @@
           <% });} %>
         </div>
         <script id="comment-template" type="text/x-template"> 
-          <div class="row card white" style="padding-top: 0px;padding-bottom: 0px;border-radius:7px;">
-            <div class="card-content" style="padding: 5px;">
+          <div class="row card white">
+            <div class="card-content">
                 <div class="col s2">
-                  <kbd class="flow-text name" style="font-size: medium;">{{name}}</kbd>  
+                  <kbd class="flow-text name">{{name}}</kbd>  
                 </div>
                 <div class="col s8">
-                  <kbd class="flow-text text" style="font-size: medium;">{{comment}}</kbd>  
+                  <kbd class="flow-text text">{{comment}}</kbd>  
                 </div>
                 <div class="col s2">
                   <kbd class="flow-text" style="font-size: small;"><%= new Date().toDateString() %></kbd>
@@ -102,8 +105,8 @@
             </div>
           </div>
         </script>
-    </div>
-      <hr style="height: 2px;background-color: palevioletred;">
+      </div>
+      <hr/>
       <div class="row">
         <kbd>Tác giả: <%= article.author_name %></kbd>  
       </div>
@@ -116,5 +119,5 @@
   <script type="text/javascript" src="https://js.pusher.com/3.2/pusher.min.js"></script>
   <script src="/script/article.js"></script>
 
-  <%- include("../templates/dependency.ejs") %>
+  
 </body>

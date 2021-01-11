@@ -1,0 +1,28 @@
+<div id="login_modal" class="modal">
+    
+    <div class="row modal-content center">
+        
+        <a class="flow-text truncate">Xin chào · Hello · Bonjour</a>
+        
+    </div>
+    <div class="row center modal-content">
+        <form action="/users/login" method="POST" id="login-form">
+            <div class="row form-group">
+                <input type="email" id="email" name="email" class="form-control login-form-field" 
+                placeholder=" Nhập Email"/>
+            </div>
+            <div class="row form-group">
+                <input type="password" id="password" name="password" class="form-control login-form-field"
+                    placeholder=" Nhập mật khẩu" />
+            </div>
+            <div class="row center">
+                <button type="submit" class="btn pulse" id="login-form-submit">Đăng nhập</button>
+            </div>
+        </form>
+        <div class="row" id="signup">
+            <a class="signup_text flow-text truncate" href="/users/register">
+                hoặc&nbsp;đăng&nbsp;ký&nbsp;ngay
+            </a>
+        </div>
+    </div>
+</div>

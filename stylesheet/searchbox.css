@@ -11,3 +11,6 @@
 #modal2 .modal-content .input-field input{
     width: 90%;
 }
+#modal2 .modal-content .input-field input[type=text]::placeholder{
+    color: #6d0019;
+}

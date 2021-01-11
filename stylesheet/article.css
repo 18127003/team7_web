@@ -1,0 +1,65 @@
+.container .first{
+    margin-top: 25px;
+}
+#backpage img{
+    margin-left: 3%;position: fixed !important;margin-top:15%;
+}
+.first .content .title{
+    font-size: 70px; 
+    color: darkred; 
+    font-weight: bolder;
+    text-align: center;
+}
+.first .content p{
+    text-align: justify;
+}
+.first .image{
+    margin-top: 3%;
+    left: 7px;
+}
+.first .image img{
+    height:564px;width: 564px;
+}
+.container .more{
+    text-align:justify;
+}
+.more .flow-text,
+.hashtag .flow-text,
+.post_comment .flow-text,
+.comments-list .flow-text,
+#comment-template .flow-text{
+    font-size: medium;
+}
+.more .image img{
+    max-width:100%; 
+    border-radius: 7px;
+}
+.hashtag hr{
+    height: 2px;
+    background-color: palevioletred;
+}
+.post_comment .comment_title,
+.post_comment .login_required{
+    margin-top: 2%;
+}
+.post_comment #comment-form{
+    display: flex;
+}
+.post_comment #comment-form #comment_btn{
+    margin-top: 2%;
+}
+.post_comment .login_required a{
+    cursor: pointer;
+    color: crimson;
+    margin-top: 2%;
+}
+#comments-list .card.white,
+#comment-template .card.white{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-radius: 7px;
+}
+#comments-list .card.white .card-content,
+#comment-template .card.white .card-content{
+    padding: 5px;
+}

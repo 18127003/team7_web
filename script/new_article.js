@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
       secondaryPlaceholder: "+Tag",
     });
     let t = M.Tooltip.init(document.querySelectorAll(".tooltipped"));
+    let collap = M.Collapsible.init(document.querySelector(".collapsible"));
 });
 var i = 2;
 document.getElementById("articlesubmit").addEventListener("click",function (){
