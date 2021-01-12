@@ -83,3 +83,16 @@ document.getElementById("info_update_btn").addEventListener("click", async funct
   await location.reload();
   M.toast({html: 'Information updated', classes: 'rounded', displayLength: 2000});
 })
+document.getElementById("avatar_btn").addEventListener("click", async function(event){
+  event.preventDefault();
+  let user_id = document.getElementById("user-id").dataset.id;
+  let data = new FormData();
+  data.append("user_id", user_id);
+  data.append("avatar", document.getElementById("avatar_input").files[0]);
+  await fetch("/users/avatarUpdate",{
+    method:"POST",
+    body: data
+  })
+  await location.reload();
+  M.toast({html: 'Avatar updated', classes: 'rounded', displayLength: 2000});
+})

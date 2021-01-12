@@ -147,3 +147,9 @@ footer .page-footer{
     height: auto; 
     border-radius: 7px;
 }
+#avatar_preview{
+    max-width: 300px;
+    height: auto; 
+    width: 70%;
+    border: 1px solid black;
+}

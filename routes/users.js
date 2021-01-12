@@ -241,7 +241,7 @@ router.post("/write", multipartMiddleware,async (req, res) => {
 // Update avatar
 router.post("/avatarUpdate", multipartMiddleware, async (req, res)=>{
 
-  var user = await User.findById(req.user._id);
+  var user = await User.findById(req.body.user_id);
   if(user.avatar_id!=null){
     cloudinary.uploader.destroy(user.avatar_id, function(result){
       user.avatar=null;
@@ -252,8 +252,7 @@ router.post("/avatarUpdate", multipartMiddleware, async (req, res)=>{
   user.avatar = img.url;
   user.avatar_id = img.public_id;
   await user.save()
-  res.setHeader("user",JSON.stringify(req.user))
-  res.redirect("/users/info?id="+req.user._id)
+  res.end();
 
 })
 
