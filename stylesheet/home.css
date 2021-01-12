@@ -275,8 +275,35 @@ p.codrops-demos a.current-demo:hover{
 .searchpane button img.prefix{
 	right: 1%;
 }
-.season_map .card.white{
-	height: 275px;
+@media screen and (max-width:2000px){
+	.season_map .card.white{
+		height: 275px;
+	}
+}
+@media screen and (max-width:1200px){
+	.season_map .card.white{
+		height: 225px;
+	}
+}
+@media screen and (max-width:983px){
+	.season_map .card.white{
+		height: 185px;
+	}
+}
+@media screen and (max-width:720px){
+	.season_map .card.white{
+		height: 150px;
+	}
+}
+@media screen and (max-width:560px){
+	.season_map .card.white{
+		height: 100px;
+	}
+}
+@media screen and (max-width:400px){
+	.season_map .card.white{
+		height: 75px;
+	}
 }
 .season_map .card.white img{
 	border-radius: 7px;
