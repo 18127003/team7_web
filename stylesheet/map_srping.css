@@ -32,8 +32,8 @@ main {
   border-radius: 15px;
   color: whitesmoke;
   /* position: absolute; */
-  background-image: url(/views/image/bg/blossom.gif),
-    url(/views/image/bg/blossom_l.gif);
+  background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610457400/spring/blossom_rfdybv.gif"),
+    url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610457411/spring/blossom_l_bk401p.gif");
   background-position: top left, top right;
   background-repeat: no-repeat;
   background-size: contain;
@@ -113,35 +113,13 @@ hr.style-four {
   box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
 }
 
-/* .cb-slideshow,
-.cb-slideshow:after {
-    position: fixed;
-    width: 50px;
-	height: 50px;
-	position: absolute;
-    top: 30px;
-    left: 0px;
-    z-index: 0;
-}
-.cb-slideshow:after {
-    content: '';
-    background: transparent url(../views/image/bg/pattern.png) repeat top left;
-} */
+
 @media screen and (max-width:2000px){
 	.card.bg{width: 1250px;}
 	.card.slide.bg{
 		height: 600px;
 	}
-	/* .card.blog.bg{
-		height: 360px;
-	}
-	.card.info.bg{
-
-		height: 343px;
-	} */
-	/* .carousel.carousel-slider.post{
-		height: 50px;
-	} */
+	
 }
 
 @media screen and (max-width:1300px){
@@ -274,9 +252,13 @@ body .row .col div.card div.carousel{height: 100%;}
     line-height: 90px;
 	color: greenyellow;
 }
-.cb-slideshow li:nth-child(1) span { background-image: url(../views/image/bg/spring/hanoi.png); background-size:contain; background-repeat: no-repeat;}
+.cb-slideshow li:nth-child(1) span { 
+	background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610456900/spring/hanoi_prhrd3.png"); 
+	background-size:contain; 
+	background-repeat: no-repeat;
+}
 .cb-slideshow li:nth-child(2) span {
-    background-image: url(../views/image/bg/spring/sapa.png);
+    background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610456904/spring/sapa_lirakb.png");
     -webkit-animation-delay: 6s;
     -moz-animation-delay: 6s;
     -o-animation-delay: 6s;
@@ -284,7 +266,7 @@ body .row .col div.card div.carousel{height: 100%;}
     animation-delay: 6s;
 }
 .cb-slideshow li:nth-child(3) span {
-    background-image: url(../views/image/bg/spring/hue.png);
+    background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610456904/spring/hue_ajdk2h.png");
     -webkit-animation-delay: 12s;
     -moz-animation-delay: 12s;
     -o-animation-delay: 12s;
@@ -292,7 +274,7 @@ body .row .col div.card div.carousel{height: 100%;}
     animation-delay: 12s;
 }
 .cb-slideshow li:nth-child(4) span {
-    background-image: url(../views/image/bg/spring/danang.png);
+    background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610456900/spring/danang_n81k9g.png");
     -webkit-animation-delay: 18s;
     -moz-animation-delay: 18s;
     -o-animation-delay: 18s;
@@ -300,7 +282,7 @@ body .row .col div.card div.carousel{height: 100%;}
     animation-delay: 18s;
 }
 .cb-slideshow li:nth-child(5) span {
-    background-image: url(../views/image/bg/spring/hoian.png);
+    background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610456901/spring/hoian_cwekul.png");
     -webkit-animation-delay: 24s;
     -moz-animation-delay: 24s;
     -o-animation-delay: 24s;
@@ -308,7 +290,7 @@ body .row .col div.card div.carousel{height: 100%;}
     animation-delay: 24s;
 }
 .cb-slideshow li:nth-child(6) span {
-    background-image: url(../views/image/bg/spring/dalat.png);
+    background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610456900/spring/dalat_gtde3n.png");
     -webkit-animation-delay: 30s;
     -moz-animation-delay: 30s;
     -o-animation-delay: 30s;
@@ -316,7 +298,7 @@ body .row .col div.card div.carousel{height: 100%;}
     animation-delay: 30s;
 }
 .cb-slideshow li:nth-child(7) span {
-    background-image: url(../views/image/bg/spring/saigon.png);
+    background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610456902/spring/saigon_i1zqmp.png");
     -webkit-animation-delay: 36s;
     -moz-animation-delay: 36s;
     -o-animation-delay: 36s;
@@ -324,7 +306,7 @@ body .row .col div.card div.carousel{height: 100%;}
     animation-delay: 36s;
 }
 .cb-slideshow li:nth-child(8) span {
-    background-image: url(../views/image/bg/spring/mekong.png);
+    background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610456908/spring/mekong_inlfvt.png");
     -webkit-animation-delay: 42s;
     -moz-animation-delay: 42s;
     -o-animation-delay: 42s;

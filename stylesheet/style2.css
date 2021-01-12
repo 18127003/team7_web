@@ -1,17 +1,4 @@
-/* .cb-slideshow,
-.cb-slideshow:after {
-    position: fixed;
-    width: 50px;
-	height: 50px;
-	position: absolute;
-    top: 30px;
-    left: 0px;
-    z-index: 0;
-}
-.cb-slideshow:after {
-    content: '';
-    background: transparent url(../views/image/bg/pattern.png) repeat top left;
-} */
+
 @media screen and (max-width:2000px){
 	.card.bg{width: 720px;}
 	.card.slide.bg{
@@ -24,9 +11,7 @@
 
 		height: 343px;
 	}
-	/* .carousel.carousel-slider.post{
-		height: 50px;
-	} */
+
 }
 
 @media screen and (max-width:1300px){
@@ -41,9 +26,7 @@
 
 		height: 348px;
 	}
-	/* .carousel.carousel-slider.post{
-		height: 50px;
-	} */
+
 }
 @media screen and (max-width:990px){
 	.card.bg{
@@ -135,9 +118,9 @@ body .row .col div.card div.carousel{height: 100%;}
     line-height: 90px;
     color: rgba(169,3,41, 0.8);
 }
-.cb-slideshow li:nth-child(1) span { background-image: url(../views/image/bg/banhcan_bg.jpg) }
+.cb-slideshow li:nth-child(1) span { background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610457250/default/banhcan_bg_mheoew.jpg") }
 .cb-slideshow li:nth-child(2) span {
-    background-image: url(../views/image/bg/banhmi_bg.jpg);
+    background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610457205/default/banhmi_bg_vzbsuw.jpg");
     -webkit-animation-delay: 6s;
     -moz-animation-delay: 6s;
     -o-animation-delay: 6s;
@@ -145,7 +128,7 @@ body .row .col div.card div.carousel{height: 100%;}
     animation-delay: 6s;
 }
 .cb-slideshow li:nth-child(3) span {
-    background-image: url(../views/image/bg/banhxeo.jpg);
+    background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610457269/default/banhxeo_zvypgf.jpg");
     -webkit-animation-delay: 12s;
     -moz-animation-delay: 12s;
     -o-animation-delay: 12s;
@@ -153,7 +136,7 @@ body .row .col div.card div.carousel{height: 100%;}
     animation-delay: 12s;
 }
 .cb-slideshow li:nth-child(4) span {
-    background-image: url(../views/image/bg/bttron_bg.jpg);
+    background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610457274/default/bttron_bg_c29jie.jpg");
     -webkit-animation-delay: 18s;
     -moz-animation-delay: 18s;
     -o-animation-delay: 18s;
@@ -161,7 +144,7 @@ body .row .col div.card div.carousel{height: 100%;}
     animation-delay: 18s;
 }
 .cb-slideshow li:nth-child(5) span {
-    background-image: url(../views/image/bg/chaca.jpg);
+    background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610457285/default/chaca_x43vlz.jpg");
     -webkit-animation-delay: 24s;
     -moz-animation-delay: 24s;
     -o-animation-delay: 24s;
@@ -169,7 +152,7 @@ body .row .col div.card div.carousel{height: 100%;}
     animation-delay: 24s;
 }
 .cb-slideshow li:nth-child(6) span {
-    background-image: url(../views/image/bg/bunbo_bg.jpg);
+    background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610457293/default/bunbo_bg_zl07fu.jpg");
     -webkit-animation-delay: 30s;
     -moz-animation-delay: 30s;
     -o-animation-delay: 30s;

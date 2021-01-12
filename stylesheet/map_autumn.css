@@ -32,16 +32,14 @@ main {
   border-radius: 15px;
   color: whitesmoke;
   /* position: absolute; */
-  background-image: url(/views/image/bg/autumn.gif),
-    url(/views/image/bg/autumn.gif);
+  background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610457496/autumn/autumn_yvp3se.gif"),
+    url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610457496/autumn/autumn_yvp3se.gif");
   background-position: top left, top right;
   background-repeat: no-repeat;
   background-size: contain;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
-  /* top: 30%; */
-  /* left: 50%; */
-  /* transform: translate(-50%, -50%); */
+  
   text-align: center;
   width: 60%;
   padding: 20px;
@@ -113,20 +111,6 @@ hr.style-four {
   box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
 }
 
-/* .cb-slideshow,
-.cb-slideshow:after {
-    position: fixed;
-    width: 50px;
-	height: 50px;
-	position: absolute;
-    top: 30px;
-    left: 0px;
-    z-index: 0;
-}
-.cb-slideshow:after {
-    content: '';
-    background: transparent url(../views/image/bg/pattern.png) repeat top left;
-} */
 @media screen and (max-width:2000px){
 	.card.bg{width: 1250px;}
 	.card.slide.bg{
@@ -157,9 +141,7 @@ hr.style-four {
 
 		height: 348px;
 	}
-	/* .carousel.carousel-slider.post{
-		height: 50px;
-	} */
+
 }
 @media screen and (max-width:990px){
 	.card.bg{
@@ -274,9 +256,13 @@ body .row .col div.card div.carousel{height: 100%;}
     line-height: 90px;
 	color: greenyellow;
 }
-.cb-slideshow li:nth-child(1) span { background-image: url(../views/image/bg/autumn/hanoi.png); background-size: contain; background-repeat: no-repeat;}
+.cb-slideshow li:nth-child(1) span { 
+	background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610457035/autumn/hanoi_ffn8bf.png"); 
+	background-size: contain; 
+	background-repeat: no-repeat;
+}
 .cb-slideshow li:nth-child(2) span {
-    background-image: url(../views/image/bg/autumn/sapa.png);
+    background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610457037/autumn/sapa_bn44uu.png");
     -webkit-animation-delay: 6s;
     -moz-animation-delay: 6s;
     -o-animation-delay: 6s;
@@ -284,7 +270,7 @@ body .row .col div.card div.carousel{height: 100%;}
     animation-delay: 6s;
 }
 .cb-slideshow li:nth-child(3) span {
-    background-image: url(../views/image/bg/autumn/hue.png);
+    background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610457034/autumn/hue_ouvrru.png");
     -webkit-animation-delay: 12s;
     -moz-animation-delay: 12s;
     -o-animation-delay: 12s;
@@ -292,7 +278,7 @@ body .row .col div.card div.carousel{height: 100%;}
     animation-delay: 12s;
 }
 .cb-slideshow li:nth-child(4) span {
-    background-image: url(../views/image/bg/autumn/danang.png);
+    background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610457033/autumn/danang_zbewsf.png");
     -webkit-animation-delay: 18s;
     -moz-animation-delay: 18s;
     -o-animation-delay: 18s;
@@ -300,7 +286,7 @@ body .row .col div.card div.carousel{height: 100%;}
     animation-delay: 18s;
 }
 .cb-slideshow li:nth-child(5) span {
-    background-image: url(../views/image/bg/autumn/hoian.png);
+    background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610457034/autumn/hoian_cxw7mh.png");
     -webkit-animation-delay: 24s;
     -moz-animation-delay: 24s;
     -o-animation-delay: 24s;
@@ -308,7 +294,7 @@ body .row .col div.card div.carousel{height: 100%;}
     animation-delay: 24s;
 }
 .cb-slideshow li:nth-child(6) span {
-    background-image: url(../views/image/bg/autumn/dalat.png);
+    background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610457033/autumn/dalat_acwvgw.png");
     -webkit-animation-delay: 30s;
     -moz-animation-delay: 30s;
     -o-animation-delay: 30s;
@@ -316,7 +302,7 @@ body .row .col div.card div.carousel{height: 100%;}
     animation-delay: 30s;
 }
 .cb-slideshow li:nth-child(7) span {
-    background-image: url(../views/image/bg/autumn/saigon.png);
+    background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610457036/autumn/saigon_wxbvbt.png");
     -webkit-animation-delay: 36s;
     -moz-animation-delay: 36s;
     -o-animation-delay: 36s;
@@ -324,7 +310,7 @@ body .row .col div.card div.carousel{height: 100%;}
     animation-delay: 36s;
 }
 .cb-slideshow li:nth-child(8) span {
-    background-image: url(../views/image/bg/autumn/mekong.png);
+    background-image: url("https://res.cloudinary.com/hd-mediadb/image/upload/v1610457034/autumn/mekong_k2vswf.png");
     -webkit-animation-delay: 42s;
     -moz-animation-delay: 42s;
     -o-animation-delay: 42s;
