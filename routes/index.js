@@ -175,6 +175,6 @@ router.get("/home/update_article",ensureAuthenticated,async (req, res)=>{
   // res.redirect("/home");
 })
 router.get("/test",myAuth,(req,res)=>{
-  res.render("pages/test");
+  res.render("flutter/index");
 })
 module.exports = router;

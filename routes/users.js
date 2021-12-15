@@ -198,7 +198,7 @@ router.post("/write", multipartMiddleware,async (req, res) => {
   var urls=[]
   var img_id = []
   var savepath="articles/"+req.body.title
-  console.log(req.files.image)
+  
   req.files.image.forEach(img=>{
     if (img.originalFilename =='' && img.size == 0){
       req.files.image.splice(req.files.image.indexOf(img),1);
@@ -234,7 +234,6 @@ router.post("/write", multipartMiddleware,async (req, res) => {
   });
   article.on("es-indexed",(err,res)=>{
   })
-
 });
 
 

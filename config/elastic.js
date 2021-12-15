@@ -1,6 +1,6 @@
 var elasticsearch = require('elasticsearch');
 const esClient = new elasticsearch.Client({
-    host: 'https://7gii23pxg2:nqq9f9e4o8@haidangdb-8712957073.ap-southeast-2.bonsaisearch.net:443',
+    host: 'https://q58f1o4kxp:vz65kt546k@haidangdb-8506706446.us-east-1.bonsaisearch.net:443',
     log: 'error'
 });
 module.exports = esClient;

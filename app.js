@@ -81,28 +81,3 @@ const PORT = process.env.PORT || 5500;
 
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
 
-// esClient.cluster.health({},function(err,resp,status) {  
-//   console.log("-- Client Health --",resp);
-// });
-
-// (async()=>{
-//   var posts = await Post.find({});
-//   posts = idparse(posts);
-//   // bulkIndex("library","post",posts);
-//   console.log(posts);
-// })()
-
-// esClient.indices.create({  
-//   index: 'articles'
-// },function(err,resp,status) {
-//   if(err) {
-//     console.log(err);
-//   }
-//   else {
-//     console.log("create",resp);
-//   }
-// });
-
-// esClient.indices.delete({index: 'post'},function(err,resp,status) {  
-//   console.log("delete",resp);
-// });
